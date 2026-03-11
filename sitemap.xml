@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<!-- Páginas Principais (Alta Prioridade) -->
+<url>
+  <loc>https://www.talento.dev.br/</loc>
+  <lastmod>2025-01-19T14:35:28+00:00</lastmod>
+  <changefreq>daily</changefreq>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://www.talento.dev.br/app.html</loc>
+  <lastmod>2025-01-19T17:45:28+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://www.talento.dev.br/sobre.html</loc>
+  <lastmod>2025-01-19T17:45:28+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+</url>
+
+<!-- Páginas de Navegação (Média Prioridade) -->
+<url>
+  <loc>https://www.talento.dev.br/menu_tutoriais.html</loc>
+  <lastmod>2025-01-19T17:45:28+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.85</priority>
+</url>
+<url>
+  <loc>https://www.talento.dev.br/contato.html</loc>
+  <lastmod>2025-01-19T17:45:28+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.70</priority>
+</url>
+
+<!-- Tutoriais CapCut (Média Prioridade) -->
+<url>
+  <loc>https://www.talento.dev.br/tutorial-capcut-background-blur.html</loc>
+  <lastmod>2025-01-19T17:45:28+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://www.talento.dev.br/tutorial-capcut-celular-transparente.html</loc>
+  <lastmod>2025-01-19T17:45:28+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://www.talento.dev.br/tutorial-capcut-desfocar.html</loc>
+  <lastmod>2025-01-19T17:45:28+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://www.talento.dev.br/tutorial-capcut-fundo-verde.html</loc>
+  <lastmod>2025-01-19T17:45:28+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://www.talento.dev.br/tutorial-capcut-trakking.html</loc>
+  <lastmod>2025-01-19T17:45:28+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://www.talento.dev.br/tutorial-capcut-zoom.html</loc>
+  <lastmod>2025-01-19T17:45:28+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.70</priority>
+</url>
+
+<!-- Páginas Legais (Baixa Prioridade) -->
+<url>
+  <loc>https://www.talento.dev.br/politica-privacidade.html</loc>
+  <lastmod>2025-01-19T17:45:28+00:00</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.talento.dev.br/termos-uso.html</loc>
+  <lastmod>2025-01-19T17:45:28+00:00</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.30</priority>
+</url>
+
+</urlset>
