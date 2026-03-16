@@ -1412,7 +1412,104 @@ function closeBlogModal(e){if(e.target===document.getElementById('blogOverlay'))
 function closeBlogModalBtn(){document.getElementById('blogOverlay').classList.remove('open');document.body.style.overflow=''}
 
 // ── FEED ──
-const ALL_FEED_ITEMS=[{cat:'science',emoji:'🧬',bg:'linear-gradient(135deg,#d5f5e3,#a9dfbf)',title:'Cristais de Memória Quântica Desafiam Leis da Física',desc:'Cientistas criaram cristais que "lembram" estados quânticos por horas — um avanço que pode revolucionar computadores quânticos.',date:'Hoje',source:'Science Daily',link:'https://www.sciencedaily.com'},{cat:'tech',emoji:'🧠',bg:'linear-gradient(135deg,#d6eaf8,#a9cce3)',title:'Chip com Neurônio Humano Agora Joga Doom com 90% de Acerto',desc:'A Cortical Labs anunciou que seu chip híbrido com células cerebrais humanas atingiu performance comparável a jogadores humanos.',date:'Ontem',source:'MIT Tech Review',link:'https://www.technologyreview.com'},{cat:'space',emoji:'🌌',bg:'linear-gradient(135deg,#e8daef,#d2b4de)',title:'NASA Pede Que Todos se Preparem para Evento Astronômico em Abril',desc:'Conjunção rara de 5 planetas visíveis a olho nu — o evento mais impressionante em 18 anos.',date:'2 dias',source:'NASA',link:'https://www.nasa.gov'},{cat:'mystery',emoji:'🔮',bg:'linear-gradient(135deg,#fadbd8,#f5b7b1)',title:'Estrutura Subterrânea de 12.000 Anos Encontrada no Brasil',desc:'Arqueólogos descobriram uma rede de túneis pré-históricos no Mato Grosso que desafia a cronologia da chegada humana nas Américas.',date:'3 dias',source:'Archaeology Magazine',link:'https://www.archaeology.org'},{cat:'health',emoji:'💊',bg:'linear-gradient(135deg,#d5f5e3,#a9dfbf)',title:'Composto Natural Reverte Alzheimer em Camundongos em 30 Dias',desc:'Um flavonoide presente em frutas tropicais brasileiras elimina placas de beta-amiloide com eficiência nunca antes vista.',date:'4 dias',source:'Nature Medicine',link:'https://www.nature.com'},{cat:'tech',emoji:'🤖',bg:'linear-gradient(135deg,#d6eaf8,#a9cce3)',title:'IA Resolve Problema Matemático Aberto por 50 Anos',desc:'O AlphaProof da DeepMind demonstrou a conjectura de Collatz para bilhões de casos usando abordagem nunca tentada por humanos.',date:'5 dias',source:'DeepMind Blog',link:'https://deepmind.google'},{cat:'nature',emoji:'🌊',bg:'linear-gradient(135deg,#d5f5e3,#a9dfbf)',title:'Oceano Profundo Esconde Ecossistema Maior que a Amazônia',desc:'Expedição descobriu que as planícies abissais possuem mais biomassa oculta do que todas as florestas tropicais combinadas.',date:'6 dias',source:'Nature Ocean',link:'https://www.nature.com'},{cat:'space',emoji:'🛸',bg:'linear-gradient(135deg,#e8daef,#d2b4de)',title:'James Webb Detecta Molécula Ligada à Vida em Exoplaneta',desc:'O JWST identificou dimetil sulfureto na atmosfera de K2-18b — molécula produzida exclusivamente por seres vivos na Terra.',date:'1 semana',source:'NASA/ESA',link:'https://www.nasa.gov'},{cat:'science',emoji:'⚡',bg:'linear-gradient(135deg,#d5f5e3,#a9dfbf)',title:'Fusão Nuclear Atinge Marco: 6 Minutos de Plasma Estável',desc:'O reator KSTAR da Coreia do Sul manteve plasma a 100 milhões de graus por 6 minutos, quebrando o recorde mundial em 4x.',date:'1 semana',source:'Science Magazine',link:'https://www.science.org'},{cat:'history',emoji:'🏺',bg:'linear-gradient(135deg,#fef9e7,#fdebd0)',title:'Cidade Perdida de 5.000 Anos Encontrada sob Deserto da Arábia',desc:'Drones com LIDAR revelaram metrópole com 2 milhões de habitantes, anterior às civilizações egípcia e mesopotâmica.',date:'2 semanas',source:'National Geographic',link:'https://www.nationalgeographic.com'},{cat:'health',emoji:'🧬',bg:'linear-gradient(135deg,#d5f5e3,#a9dfbf)',title:'CRISPR Cura Primeiro Paciente com Doença Cardíaca Hereditária',desc:'Uma aplicação de terapia gênica reduziu colesterol LDL em 90% em paciente com hipercolesterolemia familiar grave.',date:'2 semanas',source:'NEJM',link:'https://www.nejm.org'},{cat:'mystery',emoji:'🌀',bg:'linear-gradient(135deg,#fadbd8,#f5b7b1)',title:'Ondas de Rádio Alienígenas Repetem Exatamente a Cada 16 Dias',desc:'FRBs repetindo com periodicidade exata desafiam todas as explicações naturais conhecidas.',date:'2 semanas',source:'Astrophysical Journal',link:'https://iopscience.iop.org'}];
+const ALL_FEED_ITEMS=[
+  {
+    cat:'science',emoji:'🔬',
+    bg:'linear-gradient(135deg,#d5f5e3,#a9dfbf)',
+    title:'Novo Tipo de Cristal de Tempo Descoberto Desafia Física Quântica',
+    desc:'Pesquisadores da TU Wien demonstraram que correlações quânticas entre partículas — antes vistas como perturbadoras — podem de fato estabilizar "cristais de tempo", estruturas que oscilam sem um agente externo.',
+    date:'Out 2025',source:'ScienceDaily',
+    link:'https://www.sciencedaily.com/releases/2025/10/251015032309.htm'
+  },
+  {
+    cat:'tech',emoji:'🧠',
+    bg:'linear-gradient(135deg,#d6eaf8,#a9cce3)',
+    title:'Células Cerebrais Humanas em Chip Fazem Reconhecimento de Fala',
+    desc:'Pesquisadores da Indiana University conectaram um organoide cerebral — células-tronco humanas cultivadas em laboratório — a um chip eletrônico. O sistema híbrido conseguiu processar e reconhecer padrões de fala com rudimentar precisão.',
+    date:'Dez 2023',source:'MIT Tech Review',
+    link:'https://www.technologyreview.com/2023/12/11/1084926/human-brain-cells-chip-organoid-speech-recognition/'
+  },
+  {
+    cat:'space',emoji:'🌌',
+    bg:'linear-gradient(135deg,#e8daef,#d2b4de)',
+    title:'NASA: 6 Planetas Alinhados no Céu em Fevereiro de 2026 — Parada Planetária Rara',
+    desc:'Mercúrio, Vênus, Netuno, Saturno, Urano e Júpiter apareceram juntos no céu logo após o pôr do sol em 28 de fevereiro. Quatro deles visíveis a olho nu — o alinhamento mais vistoso em anos recentes.',
+    date:'28 Fev 2026',source:'NASA',
+    link:'https://www.nasa.gov/blogs/watch-the-skies/2026/01/16/most-notable-2026-astronomical-events-a-year-of-watching-the-skies/'
+  },
+  {
+    cat:'space',emoji:'🔭',
+    bg:'linear-gradient(135deg,#e8daef,#d2b4de)',
+    title:'Eclipse Total Lunar de 3 de Março de 2026 — "Lua de Sangue" Visível nas Américas',
+    desc:'A Lua ficou completamente vermelha no dia 3 de março de 2026. O eclipse foi visível da América do Norte e do Sul, e é o último eclipse lunar total até a véspera de Ano Novo de 2028.',
+    date:'3 Mar 2026',source:'NASA Science',
+    link:'https://science.nasa.gov/solar-system/whats-up-march-2026-skywatching-tips-from-nasa/'
+  },
+  {
+    cat:'tech',emoji:'💻',
+    bg:'linear-gradient(135deg,#d6eaf8,#a9cce3)',
+    title:'Memória Quântica em Chip: Novo Dispositivo Armadilha Luz em "Gaiolas" Nanoimpresas',
+    desc:'Um novo chip de memória quântica usa estruturas nanoimpresas chamadas de "gaiolas de luz" para aprisionar luz em vapor atômico, permitindo armazenamento rápido e confiável de informação quântica.',
+    date:'6 Jan 2026',source:'ScienceDaily',
+    link:'https://www.sciencedaily.com/news/computers_math/quantum_computers/'
+  },
+  {
+    cat:'science',emoji:'⚡',
+    bg:'linear-gradient(135deg,#fef9e7,#fdebd0)',
+    title:'Célula Cerebral de Neurônio Humano Aprende a Jogar Pong em Tempo Real',
+    desc:'Neurônios humanos e de camundongos cultivados em laboratório aprenderam a jogar o videogame Pong. Os experimentos da Cortical Labs são evidências de que células cerebrais em uma placa exibem inteligência inerente.',
+    date:'Out 2022',source:'ScienceDaily',
+    link:'https://www.sciencedaily.com/releases/2022/10/221012132528.htm'
+  },
+  {
+    cat:'space',emoji:'🪐',
+    bg:'linear-gradient(135deg,#e8daef,#d2b4de)',
+    title:'15 Eventos Astronômicos de 2026 que Você Não Pode Perder',
+    desc:'De eclipses solares e lunares totais a conjunções planetárias espetaculares, o guia da Space.com lista os melhores momentos para observar o céu este ano — incluindo a Superlua de Natal mais intensa desde 2018.',
+    date:'Jan 2026',source:'Space.com',
+    link:'https://www.space.com/stargazing/15-skywatching-events-you-wont-want-to-miss-in-2026'
+  },
+  {
+    cat:'tech',emoji:'🤖',
+    bg:'linear-gradient(135deg,#d6eaf8,#a9cce3)',
+    title:'Memória Quântica Integrada Bate Recorde com 80% de Eficiência — Nature Photonics 2026',
+    desc:'Pesquisadores demonstraram memórias quânticas integradas baseadas em cristais de íon de terra-rara acoplados a microcavidades, atingindo eficiências de armazenamento de 80,3% — recorde mundial para sistemas integrados.',
+    date:'Fev 2026',source:'Nature Photonics',
+    link:'https://www.nature.com/articles/s41566-026-01845-y'
+  },
+  {
+    cat:'history',emoji:'🏺',
+    bg:'linear-gradient(135deg,#fef9e7,#fdebd0)',
+    title:'Futuros Computadores Poderão Rodar em Células Cerebrais Humanas?',
+    desc:'Cientistas da Johns Hopkins e da Cortical Labs propõem a "inteligência de organoide" como nova fronteira do biocomputador. Cada organoide tem cerca de 50.000 células — equivalente ao sistema nervoso de uma mosca-da-fruta.',
+    date:'Fev 2023',source:'ScienceDaily',
+    link:'https://www.sciencedaily.com/releases/2023/02/230228075739.htm'
+  },
+  {
+    cat:'science',emoji:'🔬',
+    bg:'linear-gradient(135deg,#d5f5e3,#a9dfbf)',
+    title:'Breakthrough da Caltech: Memória Quântica Dura 30 Vezes Mais com Nova Técnica',
+    desc:'Equipe do Caltech desenvolveu uma solução para que qubits supercondutores armazenem informação por períodos muito mais longos, convertendo a informação quântica em uma forma mais estável.',
+    date:'Ago 2025',source:'ScienceDaily',
+    link:'https://www.sciencedaily.com/news/computers_math/quantum_computers/'
+  },
+  {
+    cat:'space',emoji:'☀️',
+    bg:'linear-gradient(135deg,#fef9e7,#fdebd0)',
+    title:'Vênus e Saturno em Conjunção em 8 de Março de 2026 — A Apenas 1 Grau de Distância',
+    desc:'Em 8 de março, Vênus e Saturno aparecem a cerca de 1 grau um do outro no céu noturno, logo após o pôr do sol — separados por quase 1,6 bilhão de quilômetros no espaço real, mas visualmente quase tocando-se.',
+    date:'8 Mar 2026',source:'NASA Science',
+    link:'https://science.nasa.gov/solar-system/whats-up-march-2026-skywatching-tips-from-nasa/'
+  },
+  {
+    cat:'tech',emoji:'🌐',
+    bg:'linear-gradient(135deg,#d6eaf8,#a9cce3)',
+    title:'Parada Planetária Rara de Fevereiro 2026: O Que Esperar do Alinhamento de 6 Planetas',
+    desc:'Seis planetas — Mercúrio, Vênus, Netuno, Saturno, Urano e Júpiter — aparecem no céu logo após o pôr do sol no final de fevereiro. Space.com explica o que você realmente pode ver sem telescópio.',
+    date:'Fev 2026',source:'Space.com',
+    link:'https://www.space.com/stargazing/februarys-rare-planetary-alignment-is-coming-heres-what-to-expect-from-the-planet-parade'
+  }
+];
 let feedPage=0;const FEED_PAGE_SIZE=6;let currentFeedFilter='all';let feedFilteredItems=[...ALL_FEED_ITEMS];
 function filterFeed(filter,btn){document.querySelectorAll('.feed-pill').forEach(b=>b.classList.remove('active'));btn.classList.add('active');currentFeedFilter=filter;feedPage=0;feedFilteredItems=filter==='all'?[...ALL_FEED_ITEMS]:ALL_FEED_ITEMS.filter(i=>i.cat===filter);renderFeedPage(true)}
 function renderFeedPage(reset){const grid=document.getElementById('feedGrid');const start=feedPage*FEED_PAGE_SIZE;const slice=feedFilteredItems.slice(start,start+FEED_PAGE_SIZE);if(reset)grid.innerHTML='';slice.forEach((item,idx)=>{const card=document.createElement('div');card.className='feed-card';card.style.animation=`fadeInUp .35s ease ${idx*.06}s both`;card.innerHTML=`<div class="feed-card-img" style="background:${item.bg}"><span style="font-size:3.5rem;filter:drop-shadow(0 4px 12px rgba(0,0,0,.15))">${item.emoji}</span><span class="feed-cat-badge ${item.cat}">${getCatLabel(item.cat)}</span></div><div class="feed-card-body"><div class="feed-card-title">${item.title}</div><div class="feed-card-desc">${item.desc}</div><div class="feed-card-foot"><span>📅 ${item.date} · ${item.source}</span><a href="${item.link}" target="_blank" rel="noopener" class="feed-read-more" onclick="event.stopPropagation()">Ler mais →</a></div></div>`;card.addEventListener('click',()=>openFeedCard(item));grid.appendChild(card)});feedPage++;const btn=document.getElementById('loadMoreBtn');const hasMore=feedPage*FEED_PAGE_SIZE<feedFilteredItems.length;btn.style.display=hasMore?'':'none'}
