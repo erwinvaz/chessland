@@ -6,6 +6,12 @@
 <title>Chess Land — Jogue Xadrez Online | Notícias & Curiosidades</title>
 <meta name="description" content="Chess Land — Jogue xadrez online grátis, acompanhe notícias do mundo do xadrez e descubra curiosidades fascinantes todos os dias. Um app da Talento Dev.">
 <link rel="canonical" href="https://www.chessland.com.br/">
+<!-- Favicon Android / PWA -->
+<link rel="icon" type="image/png" href="https://www.talento.dev.br/chessland/chess_land.png">
+<link rel="apple-touch-icon" href="https://www.talento.dev.br/chessland/chess_land.png">
+<meta name="theme-color" content="#2C5AA0">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="Chess Land">
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GZ98GYTZJF"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-GZ98GYTZJF');</script>
@@ -780,7 +786,7 @@ body{
 .lang-option{display:flex;align-items:center;gap:.7rem;padding:.7rem 1rem;color:#fff;text-decoration:none;border-radius:10px;transition:all .25s;font-family:'Philosopher',serif;font-size:.9rem;cursor:pointer;border:none;background:transparent;width:100%;text-align:left}
 .lang-option:hover{background:rgba(255,215,0,.15);color:var(--gold);transform:translateX(4px)}
 .lang-option.active{background:rgba(255,215,0,.12);color:var(--gold)}
-.lang-flag{width:22px;height:auto;border-radius:3px;flex-shrink:0}
+.lang-emoji{font-size:1.25rem;flex-shrink:0;line-height:1}
 .lang-check{color:var(--gold);font-size:.8rem;opacity:0}
 .lang-option.active .lang-check{opacity:1}
 
@@ -888,15 +894,17 @@ body{
 <div class="ticker">
   <div class="ticker-tag">AO VIVO</div>
   <div class="ticker-track" id="tickerTrack">
-    <span>Chess Land — Jogue xadrez online grátis</span>
-    <span>Notícias diárias do mundo do xadrez</span>
-    <span>Magnus Carlsen lidera ranking FIDE 2025</span>
-    <span>Baixe o app Chess Land na Play Store</span>
+    <span>Candidatos 2026 começa dia 29 de março no Chipre</span>
+    <span>Caruana x Nakamura na 1ª rodada dos Candidatos</span>
+    <span>Carlsen é o 6x Campeão Mundial de Rápido 2025</span>
+    <span>Candidatos Feminino 2026: 8 GMs por 1 vaga mundial</span>
+    <span>Baixe o app Chess Land na Play Store — Grátis</span>
     <span>Um app da Talento Dev — talento.dev.br</span>
-    <span>Chess Land — Jogue xadrez online grátis</span>
-    <span>Notícias diárias do mundo do xadrez</span>
-    <span>Magnus Carlsen lidera ranking FIDE 2025</span>
-    <span>Baixe o app Chess Land na Play Store</span>
+    <span>Candidatos 2026 começa dia 29 de março no Chipre</span>
+    <span>Caruana x Nakamura na 1ª rodada dos Candidatos</span>
+    <span>Carlsen é o 6x Campeão Mundial de Rápido 2025</span>
+    <span>Candidatos Feminino 2026: 8 GMs por 1 vaga mundial</span>
+    <span>Baixe o app Chess Land na Play Store — Grátis</span>
     <span>Um app da Talento Dev — talento.dev.br</span>
   </div>
 </div>
@@ -1211,11 +1219,31 @@ body{
     <i class="bi bi-chevron-down" id="langChevron" style="font-size:.7rem;transition:transform .2s"></i>
   </button>
   <div class="language-dropdown" id="langDropdown">
-    <button class="lang-option active" onclick="selectLang('pt','Português','🇧🇷')"><img src="https://flagcdn.com/w24/br.png" class="lang-flag" alt="PT"><span class="lang-name">Português</span><i class="bi bi-check2 lang-check"></i></button>
-    <button class="lang-option" onclick="selectLang('en','English','🇺🇸')"><img src="https://flagcdn.com/w24/us.png" class="lang-flag" alt="EN"><span class="lang-name">English</span><i class="bi bi-check2 lang-check"></i></button>
-    <button class="lang-option" onclick="selectLang('es','Español','🇪🇸')"><img src="https://flagcdn.com/w24/es.png" class="lang-flag" alt="ES"><span class="lang-name">Español</span><i class="bi bi-check2 lang-check"></i></button>
-    <button class="lang-option" onclick="selectLang('fr','Français','🇫🇷')"><img src="https://flagcdn.com/w24/fr.png" class="lang-flag" alt="FR"><span class="lang-name">Français</span><i class="bi bi-check2 lang-check"></i></button>
-    <button class="lang-option" onclick="selectLang('de','Deutsch','🇩🇪')"><img src="https://flagcdn.com/w24/de.png" class="lang-flag" alt="DE"><span class="lang-name">Deutsch</span><i class="bi bi-check2 lang-check"></i></button>
+    <button class="lang-option active" onclick="selectLang('pt','Português','🇧🇷')">
+      <span class="lang-emoji">🇧🇷</span>
+      <span class="lang-name">Português</span>
+      <i class="bi bi-check2 lang-check"></i>
+    </button>
+    <button class="lang-option" onclick="selectLang('en','English','🇺🇸')">
+      <span class="lang-emoji">🇺🇸</span>
+      <span class="lang-name">English</span>
+      <i class="bi bi-check2 lang-check"></i>
+    </button>
+    <button class="lang-option" onclick="selectLang('es','Español','🇪🇸')">
+      <span class="lang-emoji">🇪🇸</span>
+      <span class="lang-name">Español</span>
+      <i class="bi bi-check2 lang-check"></i>
+    </button>
+    <button class="lang-option" onclick="selectLang('fr','Français','🇫🇷')">
+      <span class="lang-emoji">🇫🇷</span>
+      <span class="lang-name">Français</span>
+      <i class="bi bi-check2 lang-check"></i>
+    </button>
+    <button class="lang-option" onclick="selectLang('de','Deutsch','🇩🇪')">
+      <span class="lang-emoji">🇩🇪</span>
+      <span class="lang-name">Deutsch</span>
+      <i class="bi bi-check2 lang-check"></i>
+    </button>
   </div>
 </div>
 
@@ -1303,7 +1331,44 @@ const RSS2JSON='https://api.rss2json.com/v1/api.json?rss_url=';
 function stripHTML(h){const d=document.createElement('div');d.innerHTML=h;return(d.textContent||'').replace(/\s+/g,' ').trim()}
 function formatDate(s){if(!s)return'Recente';try{const d=new Date(s);const diff=Math.floor((Date.now()-d)/86400000);if(diff===0)return'Hoje';if(diff===1)return'Ontem';if(diff<7)return`${diff} dias atrás`;return d.toLocaleDateString('pt-BR',{day:'2-digit',month:'short'})}catch{return(s||'').slice(0,10)}}
 async function fetchFeed(feed){try{const r=await fetch(RSS2JSON+encodeURIComponent(feed.url)+'&count=6&api_key=');if(!r.ok)throw 0;const d=await r.json();if(!d.items||!d.items.length)throw 0;return d.items.map(item=>{const link=item.link||item.guid||'';const isRealLink=link.startsWith('http')&&link.length>30&&!link.match(/^https?:\/\/[^\/]+\/?$/);return{title:(item.title||'').replace(/&amp;/g,'&').replace(/&quot;/g,'"').slice(0,100),excerpt:stripHTML(item.description||item.content||item.summary||'').slice(0,200),link:isRealLink?link:'',date:formatDate(item.pubDate||item.published),emoji:feed.emoji,source:feed.name,hasRealLink:isRealLink}}).filter(item=>item.title&&item.title.length>10)}catch{return null}}
-const STATIC_NEWS=[{title:'Magnus Carlsen vence Tata Steel 2025 com performance histórica',excerpt:'O ex-campeão mundial terminou com 10.5/13 pontos, a melhor performance no torneio em mais de uma década.',link:'https://www.chess.com/news/view/tata-steel-chess-2025-wijk-aan-zee',date:'Jan 2025',emoji:'♔',source:'Chess.com',hasRealLink:true},{title:'D. Gukesh se torna o campeão mundial mais jovem da história',excerpt:'O indiano de 18 anos derrotou Ding Liren no game 14 do match em Singapura.',link:'https://www.chess.com/news/view/world-chess-championship-2024-gukesh-new-champion',date:'Dez 2024',emoji:'👑',source:'Chess.com',hasRealLink:true},{title:'FIDE anuncia Torneio de Candidatos 2025: Toronto em abril',excerpt:'O torneio que definirá o próximo desafiante ao título mundial será disputado em Toronto, Canadá.',link:'https://www.fide.com/news/3580',date:'Jan 2025',emoji:'📋',source:'FIDE',hasRealLink:true},{title:'Hikaru Nakamura conquista US Championship 2024',excerpt:'O GM americano venceu o US Championship pela sexta vez na carreira.',link:'https://www.chess.com/news/view/2024-us-chess-championship-results-nakamura',date:'Out 2024',emoji:'🏆',source:'Chess.com',hasRealLink:true},{title:'Ding Liren fala sobre saúde mental após perder o título',excerpt:'Em entrevista ao ChessBase, o ex-campeão revelou as dificuldades psicológicas enfrentadas.',link:'https://en.chessbase.com/post/ding-liren-world-championship-2024-mental-health',date:'Dez 2024',emoji:'🎙️',source:'ChessBase',hasRealLink:true},{title:'India vence Olimpíada de Xadrez 2024 em ambas as categorias',excerpt:'A Índia fez história em Budapest vencendo ouro no aberto e no feminino simultaneamente.',link:'https://www.chess.com/news/view/chess-olympiad-2024-india-gold',date:'Set 2024',emoji:'🇮🇳',source:'Chess.com',hasRealLink:true}];
+const STATIC_NEWS=[
+  {
+    title:'Candidatos 2026 começa em 29 de março no Chipre — Caruana x Nakamura na 1ª rodada',
+    excerpt:'O Torneio de Candidatos 2026 reúne oito GMs em Pafos, Chipre, para decidir o desafiante ao título de Gukesh Dommaraju. O duelo americano Caruana x Nakamura abre a disputa.',
+    link:'https://www.chess.com/news/view/caruana-nakamura-fide-candidates-tournament-pairings-2026',
+    date:'Fev 2026',emoji:'♟',source:'Chess.com',hasRealLink:true
+  },
+  {
+    title:'Candidatos 2026: oito enxadristas, um sonho — preview completo dos contendores',
+    excerpt:'ChessBase apresenta análise dos oito candidatos: Caruana, Nakamura, Praggnanandhaa, Giri, Wei Yi, Sindarov, Esipenko e Bluebaum disputam 14 rodadas clássicas.',
+    link:'https://en.chessbase.com/post/candidates-2026-eight-contenders-one-dream',
+    date:'14 Mar 2026',emoji:'🏆',source:'ChessBase',hasRealLink:true
+  },
+  {
+    title:'Candidatos Feminino 2026: choque de gerações em Chipre a partir de 28 de março',
+    excerpt:'Zhu Jiner, Goryachkina, Humpy Koneru e Divya Deshmukh entre as oito candidatas que disputam o direito de enfrentar a campeã Ju Wenjun.',
+    link:'https://en.chessbase.com/post/women-candidates-2026-clash-of-generations',
+    date:'11 Mar 2026',emoji:'♛',source:'ChessBase',hasRealLink:true
+  },
+  {
+    title:'Carlsen vence 6º título mundial de Rápido em Doha com 10,5/13 pontos',
+    excerpt:'O norueguês dominou o Mundial de Rápido 2025 com uma vitória de folga, conquistando seu 19º título em diferentes controles de tempo da FIDE.',
+    link:'https://www.fide.com/carlsen-and-goryachkina-take-world-rapid-titles-in-doha/',
+    date:'Dez 2025',emoji:'👑',source:'FIDE',hasRealLink:true
+  },
+  {
+    title:'Equipe de Caruana vence a Global Chess League 2025 com sweep de 2-0 na final',
+    excerpt:'Alpine SG Pipers, de Fabiano Caruana, derrotou Triveni Continental Kings na grande final. Anish Giri e Leon Luke Mendonca foram os destaques com 2/2.',
+    link:'https://www.chess.com/news/view/2025-tech-mahindra-global-chess-league-day-10',
+    date:'Dez 2025',emoji:'🎖️',source:'Chess.com',hasRealLink:true
+  },
+  {
+    title:'Campeonato Mundial 2026: data e sede ainda a definir — Gukesh aguarda desafiante',
+    excerpt:'O campeão indiano Gukesh Dommaraju defende o título em 2026. O vencedor do Torneio de Candidatos de Chipre garantirá o direito de enfrentá-lo.',
+    link:'https://en.wikipedia.org/wiki/World_Chess_Championship_2026',
+    date:'Mar 2026',emoji:'🌍',source:'Wikipedia',hasRealLink:true
+  }
+];
 async function loadNews(){const grid=document.getElementById('newsGrid');grid.innerHTML='<div class="news-card"><div class="news-thumb skel" style="height:130px"></div><div class="news-body"><div class="skel" style="height:12px;margin-bottom:8px"></div><div class="skel" style="height:55px"></div></div></div>'.repeat(4);let allNews=[];const results=await Promise.allSettled(RSS_FEEDS.map(feed=>Promise.race([fetchFeed(feed),new Promise((_,rej)=>setTimeout(()=>rej('timeout'),5000))])));results.forEach(r=>{if(r.status==='fulfilled'&&r.value)allNews=allNews.concat(r.value)});const withRealLinks=allNews.filter(n=>n.hasRealLink);const finalNews=withRealLinks.length>=4?withRealLinks:STATIC_NEWS;renderNews(finalNews.slice(0,8));updateTicker(finalNews)}
 function renderNews(items){document.getElementById('newsGrid').innerHTML=items.map(item=>{const hasLink=item.link&&item.link.length>20;return`<div class="news-card" onclick="${hasLink?`window.open('${item.link}','_blank','noopener')`:'void(0)'}" style="${hasLink?'cursor:pointer':'cursor:default'}">
   <div class="news-thumb" style="background:linear-gradient(135deg,#16213E,#1A3A6A)">
@@ -1359,7 +1424,18 @@ function loadMoreFeed(){const btn=document.getElementById('loadMoreBtn');btn.cla
 function openFeedCard(item){document.getElementById('artContent').innerHTML=`<span class="news-tag">${getCatLabel(item.cat)}</span><h2 style="font-family:'Cinzel',serif;font-size:1.3rem;color:var(--text-dark);margin:.8rem 0">${item.title}</h2><div style="font-family:'DM Mono',monospace;font-size:.7rem;color:var(--text-muted);margin-bottom:1.2rem">📅 ${item.date} · 📰 ${item.source}</div><div class="art-body"><p>${item.desc}</p><p>Para ler o artigo completo com todos os detalhes:</p><p><a href="${item.link}" target="_blank" rel="noopener">👉 Ler a fonte original</a></p></div>`;document.getElementById('artOverlay').classList.add('open')}
 
 // ── RANKING ──
-const RANKING=[{pos:1,flag:'🇳🇴',name:'Magnus Carlsen',elo:2830},{pos:2,flag:'🇮🇳',name:'D. Gukesh',elo:2794},{pos:3,flag:'🇺🇸',name:'Fabiano Caruana',elo:2793},{pos:4,flag:'🇨🇳',name:'Ding Liren',elo:2762},{pos:5,flag:'🇺🇸',name:'Hikaru Nakamura',elo:2758},{pos:6,flag:'🇷🇺',name:'Ian Nepomniachtchi',elo:2756},{pos:7,flag:'🇦🇿',name:'Alireza Firouzja',elo:2754},{pos:8,flag:'🇨🇳',name:'Wei Yi',elo:2749},{pos:9,flag:'🇷🇺',name:'Sergey Karjakin',elo:2741},{pos:10,flag:'🇦🇿',name:'Sh. Mamedyarov',elo:2740}];
+const RANKING=[
+  {pos:1,flag:'🇳🇴',name:'Magnus Carlsen',elo:2830},
+  {pos:2,flag:'🇺🇸',name:'Hikaru Nakamura',elo:2802},
+  {pos:3,flag:'🇮🇳',name:'D. Gukesh',elo:2794},
+  {pos:4,flag:'🇺🇸',name:'Fabiano Caruana',elo:2793},
+  {pos:5,flag:'🇮🇳',name:'Arjun Erigaisi',elo:2778},
+  {pos:6,flag:'🇨🇳',name:'Wei Yi',elo:2762},
+  {pos:7,flag:'🇨🇳',name:'Ding Liren',elo:2762},
+  {pos:8,flag:'🇷🇺',name:'Ian Nepomniachtchi',elo:2756},
+  {pos:9,flag:'🇦🇿',name:'Alireza Firouzja',elo:2754},
+  {pos:10,flag:'🇮🇳',name:'Pragg. Rameshbabu',elo:2748}
+];
 function loadRanking(){document.getElementById('rankList').innerHTML=RANKING.map(p=>`<div class="rank-item"><div class="rk-pos ${p.pos<=3?'top':''}">${p.pos}</div><div class="rk-flag">${p.flag}</div><div class="rk-name">${p.name}</div><div class="rk-elo">${p.elo}</div></div>`).join('')}
 
 function filterApps(filter,btn){document.querySelectorAll('.filter-pill').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.app-card').forEach(card=>{card.style.display=(filter==='all'||card.dataset.tech===filter||card.dataset.cat===filter)?'':'none'})}
