@@ -6,8 +6,9 @@
 <title>Chess Land — Jogue Xadrez Online | Notícias & Curiosidades</title>
 <meta name="description" content="Chess Land — Jogue xadrez online grátis, acompanhe notícias do mundo do xadrez e descubra curiosidades fascinantes todos os dias. Um app da Talento Dev.">
 <link rel="canonical" href="https://www.chessland.com.br/">
-<!-- Favicon Android / PWA -->
+<!-- Favicon Chess Land -->
 <link rel="icon" type="image/png" href="https://www.talento.dev.br/chessland/chess_land.png">
+<link rel="shortcut icon" href="https://www.talento.dev.br/chessland/chess_land.png">
 <link rel="apple-touch-icon" href="https://www.talento.dev.br/chessland/chess_land.png">
 <meta name="theme-color" content="#2C5AA0">
 <meta name="mobile-web-app-capable" content="yes">
@@ -786,7 +787,8 @@ body{
 .lang-option{display:flex;align-items:center;gap:.7rem;padding:.7rem 1rem;color:#fff;text-decoration:none;border-radius:10px;transition:all .25s;font-family:'Philosopher',serif;font-size:.9rem;cursor:pointer;border:none;background:transparent;width:100%;text-align:left}
 .lang-option:hover{background:rgba(255,215,0,.15);color:var(--gold);transform:translateX(4px)}
 .lang-option.active{background:rgba(255,215,0,.12);color:var(--gold)}
-.lang-emoji{font-size:1.25rem;flex-shrink:0;line-height:1}
+.lang-flag{width:20px;height:auto;border-radius:3px;box-shadow:0 2px 5px rgba(0,0,0,.2);flex-shrink:0;vertical-align:middle;margin-right:.5rem}
+.lang-emoji{font-size:1.1rem;flex-shrink:0;margin-right:.4rem}
 .lang-check{color:var(--gold);font-size:.8rem;opacity:0}
 .lang-option.active .lang-check{opacity:1}
 
@@ -1211,39 +1213,34 @@ body{
   </div>
 </footer>
 
-<!-- LANGUAGE SELECTOR -->
+<!-- LANGUAGE SELECTOR — idêntico ao Talento Dev -->
 <div class="language-selector" id="langSelector">
-  <button class="language-btn" id="langBtn" onclick="toggleLangDropdown()" aria-label="Selecionar idioma">
-    <i class="bi bi-translate"></i>
+  <button class="language-btn" onclick="toggleLangDropdown()">
+    <i class="bi bi-translate me-1"></i>
     <span id="langBtnLabel">Idioma</span>
-    <i class="bi bi-chevron-down" id="langChevron" style="font-size:.7rem;transition:transform .2s"></i>
+    <i class="bi bi-chevron-down ms-1" id="langChevron" style="font-size:.7rem;transition:transform .2s"></i>
   </button>
   <div class="language-dropdown" id="langDropdown">
-    <button class="lang-option active" onclick="selectLang('pt','Português','🇧🇷')">
-      <span class="lang-emoji">🇧🇷</span>
-      <span class="lang-name">Português</span>
-      <i class="bi bi-check2 lang-check"></i>
-    </button>
-    <button class="lang-option" onclick="selectLang('en','English','🇺🇸')">
-      <span class="lang-emoji">🇺🇸</span>
-      <span class="lang-name">English</span>
-      <i class="bi bi-check2 lang-check"></i>
-    </button>
-    <button class="lang-option" onclick="selectLang('es','Español','🇪🇸')">
-      <span class="lang-emoji">🇪🇸</span>
-      <span class="lang-name">Español</span>
-      <i class="bi bi-check2 lang-check"></i>
-    </button>
-    <button class="lang-option" onclick="selectLang('fr','Français','🇫🇷')">
-      <span class="lang-emoji">🇫🇷</span>
-      <span class="lang-name">Français</span>
-      <i class="bi bi-check2 lang-check"></i>
-    </button>
-    <button class="lang-option" onclick="selectLang('de','Deutsch','🇩🇪')">
-      <span class="lang-emoji">🇩🇪</span>
-      <span class="lang-name">Deutsch</span>
-      <i class="bi bi-check2 lang-check"></i>
-    </button>
+    <a href="#" class="lang-option active" onclick="selectLang('pt','Português','🇧🇷');return false">
+      <img src="https://flagcdn.com/w20/br.png" class="lang-flag" alt="PT"
+           onerror="this.replaceWith(document.createTextNode('🇧🇷'))"> Português
+    </a>
+    <a href="#" class="lang-option" onclick="selectLang('en','English','🇺🇸');return false">
+      <img src="https://flagcdn.com/w20/us.png" class="lang-flag" alt="EN"
+           onerror="this.replaceWith(document.createTextNode('🇺🇸'))"> English
+    </a>
+    <a href="#" class="lang-option" onclick="selectLang('es','Español','🇪🇸');return false">
+      <img src="https://flagcdn.com/w20/es.png" class="lang-flag" alt="ES"
+           onerror="this.replaceWith(document.createTextNode('🇪🇸'))"> Español
+    </a>
+    <a href="#" class="lang-option" onclick="selectLang('fr','Français','🇫🇷');return false">
+      <img src="https://flagcdn.com/w20/fr.png" class="lang-flag" alt="FR"
+           onerror="this.replaceWith(document.createTextNode('🇫🇷'))"> Français
+    </a>
+    <a href="#" class="lang-option" onclick="selectLang('de','Deutsch','🇩🇪');return false">
+      <img src="https://flagcdn.com/w20/de.png" class="lang-flag" alt="DE"
+           onerror="this.replaceWith(document.createTextNode('🇩🇪'))"> Deutsch
+    </a>
   </div>
 </div>
 
@@ -1333,40 +1330,40 @@ function formatDate(s){if(!s)return'Recente';try{const d=new Date(s);const diff=
 async function fetchFeed(feed){try{const r=await fetch(RSS2JSON+encodeURIComponent(feed.url)+'&count=6&api_key=');if(!r.ok)throw 0;const d=await r.json();if(!d.items||!d.items.length)throw 0;return d.items.map(item=>{const link=item.link||item.guid||'';const isRealLink=link.startsWith('http')&&link.length>30&&!link.match(/^https?:\/\/[^\/]+\/?$/);return{title:(item.title||'').replace(/&amp;/g,'&').replace(/&quot;/g,'"').slice(0,100),excerpt:stripHTML(item.description||item.content||item.summary||'').slice(0,200),link:isRealLink?link:'',date:formatDate(item.pubDate||item.published),emoji:feed.emoji,source:feed.name,hasRealLink:isRealLink}}).filter(item=>item.title&&item.title.length>10)}catch{return null}}
 const STATIC_NEWS=[
   {
-    title:'Candidatos 2026 começa em 29 de março no Chipre — Caruana x Nakamura na 1ª rodada',
-    excerpt:'O Torneio de Candidatos 2026 reúne oito GMs em Pafos, Chipre, para decidir o desafiante ao título de Gukesh Dommaraju. O duelo americano Caruana x Nakamura abre a disputa.',
+    title:'Abdusattorov vence o Prague Masters 2026 — 3º clássico consecutivo!',
+    excerpt:'Nodirbek Abdusattorov conquistou o Prague Chess Festival Masters 2026 com 1 ponto de vantagem, completando uma sequência histórica: London Classic 2025, Tata Steel 2026 e agora Praga.',
+    link:'https://www.chess.com/news/view/abdusattorov-wins-2026-prague-chess-festival',
+    date:'6 Mar 2026',emoji:'🏆',source:'Chess.com',hasRealLink:true
+  },
+  {
+    title:'Caruana x Nakamura na rodada 1 — sorteio do Torneio de Candidatos 2026',
+    excerpt:'Fabiano Caruana terá as brancas contra Hikaru Nakamura quando o Torneio de Candidatos 2026 começar em 29 de março no Chipre. Os outros confrontos: Sindarov x Esipenko, Bluebaum x Wei Yi, Pragg x Giri.',
     link:'https://www.chess.com/news/view/caruana-nakamura-fide-candidates-tournament-pairings-2026',
-    date:'Fev 2026',emoji:'♟',source:'Chess.com',hasRealLink:true
+    date:'24 Fev 2026',emoji:'⚔️',source:'Chess.com',hasRealLink:true
   },
   {
-    title:'Candidatos 2026: oito enxadristas, um sonho — preview completo dos contendores',
-    excerpt:'ChessBase apresenta análise dos oito candidatos: Caruana, Nakamura, Praggnanandhaa, Giri, Wei Yi, Sindarov, Esipenko e Bluebaum disputam 14 rodadas clássicas.',
-    link:'https://en.chessbase.com/post/candidates-2026-eight-contenders-one-dream',
-    date:'14 Mar 2026',emoji:'🏆',source:'ChessBase',hasRealLink:true
+    title:'Prague Masters R3: Van Foreest derruba Gukesh e tira campeão mundial do Top 10',
+    excerpt:'Jorden van Foreest sacrificou uma torre para derrotar o campeão mundial Gukesh Dommaraju na rodada 3 do Prague Chess Festival 2026, derrubando-o para o número 13 do mundo.',
+    link:'https://www.chess.com/news/view/2026-prague-chess-festival-round-3',
+    date:'27 Fev 2026',emoji:'♟',source:'Chess.com',hasRealLink:true
   },
   {
-    title:'Candidatos Feminino 2026: choque de gerações em Chipre a partir de 28 de março',
-    excerpt:'Zhu Jiner, Goryachkina, Humpy Koneru e Divya Deshmukh entre as oito candidatas que disputam o direito de enfrentar a campeã Ju Wenjun.',
-    link:'https://en.chessbase.com/post/women-candidates-2026-clash-of-generations',
-    date:'11 Mar 2026',emoji:'♛',source:'ChessBase',hasRealLink:true
+    title:'Candidatos 2026 confirmado no Chipre — €1 milhão em prêmios, 28 mar a 16 abr',
+    excerpt:'A FIDE confirmou que o Torneio de Candidatos 2026 será disputado no Cap St Georges Hotel & Resort, em Pafos, Chipre. O vencedor enfrentará Gukesh pelo título mundial.',
+    link:'https://www.chess.com/news/view/2026-candidates-tournament-set-for-cyprus-nakamura-books-spot',
+    date:'Dez 2025',emoji:'🌍',source:'Chess.com',hasRealLink:true
   },
   {
-    title:'Carlsen vence 6º título mundial de Rápido em Doha com 10,5/13 pontos',
-    excerpt:'O norueguês dominou o Mundial de Rápido 2025 com uma vitória de folga, conquistando seu 19º título em diferentes controles de tempo da FIDE.',
-    link:'https://www.fide.com/carlsen-and-goryachkina-take-world-rapid-titles-in-doha/',
-    date:'Dez 2025',emoji:'👑',source:'FIDE',hasRealLink:true
+    title:'Praggnanandhaa vence o FIDE Circuit 2025 e garante vaga nos Candidatos 2026',
+    excerpt:'O GM indiano de 20 anos foi confirmado como campeão do Circuito FIDE 2025, garantindo sua presença no Torneio de Candidatos em Chipre. Nakamura também se classificou pelo rating.',
+    link:'https://www.chess.com/news/view/praggnanandhaa-nakamura-qualifies-for-candidates',
+    date:'Dez 2025',emoji:'🇮🇳',source:'Chess.com',hasRealLink:true
   },
   {
-    title:'Equipe de Caruana vence a Global Chess League 2025 com sweep de 2-0 na final',
-    excerpt:'Alpine SG Pipers, de Fabiano Caruana, derrotou Triveni Continental Kings na grande final. Anish Giri e Leon Luke Mendonca foram os destaques com 2/2.',
-    link:'https://www.chess.com/news/view/2025-tech-mahindra-global-chess-league-day-10',
-    date:'Dez 2025',emoji:'🎖️',source:'Chess.com',hasRealLink:true
-  },
-  {
-    title:'Campeonato Mundial 2026: data e sede ainda a definir — Gukesh aguarda desafiante',
-    excerpt:'O campeão indiano Gukesh Dommaraju defende o título em 2026. O vencedor do Torneio de Candidatos de Chipre garantirá o direito de enfrentá-lo.',
-    link:'https://en.wikipedia.org/wiki/World_Chess_Championship_2026',
-    date:'Mar 2026',emoji:'🌍',source:'Wikipedia',hasRealLink:true
+    title:'Total Chess 2026: Carlsen, Nakamura e Gukesh entre os 16 primeiros classificados',
+    excerpt:'A FIDE e o Norway Chess anunciaram os primeiros 16 classificados para o evento piloto do Total Chess World Championship Tour, que ocorre em outubro de 2026 com três controles de tempo.',
+    link:'https://www.chess.com/news/view/2026-total-chess-pilot-event-16-players-determined',
+    date:'Jan 2026',emoji:'🎯',source:'Chess.com',hasRealLink:true
   }
 ];
 async function loadNews(){const grid=document.getElementById('newsGrid');grid.innerHTML='<div class="news-card"><div class="news-thumb skel" style="height:130px"></div><div class="news-body"><div class="skel" style="height:12px;margin-bottom:8px"></div><div class="skel" style="height:55px"></div></div></div>'.repeat(4);let allNews=[];const results=await Promise.allSettled(RSS_FEEDS.map(feed=>Promise.race([fetchFeed(feed),new Promise((_,rej)=>setTimeout(()=>rej('timeout'),5000))])));results.forEach(r=>{if(r.status==='fulfilled'&&r.value)allNews=allNews.concat(r.value)});const withRealLinks=allNews.filter(n=>n.hasRealLink);const finalNews=withRealLinks.length>=4?withRealLinks:STATIC_NEWS;renderNews(finalNews.slice(0,8));updateTicker(finalNews)}
@@ -1461,7 +1458,20 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.addEventListener('click',function(e){var sel=document.getElementById('langSelector');if(sel&&!sel.contains(e.target))closeDd()});
   window.toggleLangDropdown=function(){var dd=document.getElementById('langDropdown');var ch=document.getElementById('langChevron');if(dd.classList.contains('open')){closeDd()}else{dd.classList.add('open');if(ch)ch.style.transform='rotate(180deg)'}};
   function closeDd(){var dd=document.getElementById('langDropdown');var ch=document.getElementById('langChevron');if(dd)dd.classList.remove('open');if(ch)ch.style.transform='rotate(0deg)'}
-  window.selectLang=function(code,name,emoji){closeDd();document.querySelectorAll('.lang-option').forEach(function(b){b.classList.remove('active')});var el=document.querySelector('.lang-option[onclick*="\''+code+'\'"]');if(el)el.classList.add('active');var lbl=document.getElementById('langBtnLabel');if(lbl)lbl.textContent=LANGS[code]?LANGS[code].label:'Idioma';if(code==='pt'){toast('🇧🇷 Português selecionado!');return}window.open('https://translate.google.com/translate?hl='+code+'&sl=pt&tl='+code+'&u='+encodeURIComponent(window.location.href),'_blank');toast(emoji+' Traduzindo para '+name+'...')};
+  window.selectLang=function(code,name,emoji){
+    closeDd();
+    document.querySelectorAll('.lang-option').forEach(function(b){b.classList.remove('active')});
+    // find by onclick attribute content
+    document.querySelectorAll('.lang-option').forEach(function(el){
+      var oc=el.getAttribute('onclick')||'';
+      if(oc.indexOf("'"+code+"'")>-1)el.classList.add('active');
+    });
+    var lbl=document.getElementById('langBtnLabel');
+    if(lbl)lbl.textContent=LANGS[code]?LANGS[code].label:'Idioma';
+    if(code==='pt'){toast('🇧🇷 Português selecionado!');return}
+    window.open('https://translate.google.com/translate?hl='+code+'&sl=pt&tl='+code+'&u='+encodeURIComponent(window.location.href),'_blank');
+    toast(emoji+' Traduzindo para '+name+'...')
+  };
   function detectLang(){if(localStorage.getItem('cl_no_translate')==='1')return;var nav=(navigator.language||navigator.userLanguage||'pt').split('-')[0].toLowerCase();if(nav==='pt'||!LANGS[nav])return;if(document.getElementById('translateBanner'))return;var b=document.createElement('div');b.className='translate-banner';b.id='translateBanner';b.innerHTML='<p>🌍 <strong>Detectamos que você prefere '+LANGS[nav].name+'</strong></p><p style="font-size:.88rem;color:rgba(255,255,255,.7)">Deseja traduzir esta página?</p><div class="tb-btns"><button class="tb-yes" onclick="window.open(\'https://translate.google.com/translate?hl='+nav+'&sl=pt&tl='+nav+'&u=\'+encodeURIComponent(window.location.href),\'_blank\');dismissBanner()">Sim, traduzir</button><button class="tb-no" onclick="dismissBanner()">Manter em Português</button></div><div class="tb-never"><label><input type="checkbox" id="neverAsk"> Não mostrar novamente</label></div>';document.body.appendChild(b)}
   window.dismissBanner=function(){var cb=document.getElementById('neverAsk');if(cb&&cb.checked)localStorage.setItem('cl_no_translate','1');var b=document.getElementById('translateBanner');if(b)b.remove()};
   setTimeout(detectLang,2500);
