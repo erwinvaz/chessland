@@ -1177,12 +1177,11 @@ body{
         <a href="https://www.tiktok.com/@talentodev" target="_blank" class="social-link"><i class="fab fa-tiktok"></i></a>
       </div>
       <div class="footer-counter" id="footerCounter">
-        <div class="fc-dot"></div>
-        <span>Visitas: <span class="fc-val" id="fcTotal">—</span></span>
-        <span style="opacity:.4">·</span>
-        <span>Únicas: <span class="fc-val" id="fcUnique">—</span></span>
-        <span style="opacity:.4">·</span>
-        <span>Hoje: <span class="fc-val" id="fcToday">—</span></span>
+        <div class="footer-counter" id="footerCounter">
+              <!--  Script Contador -->
+            Voçê é o visitante número: 
+            <script type="text/javascript" src="https://counter.websiteout.com/js/3/0/0/0"></script>
+        </div>
       </div>
     </div>
     <div>
@@ -1257,8 +1256,6 @@ var srObs=new IntersectionObserver(function(entries){entries.forEach(function(e)
 document.querySelectorAll('.scroll-reveal').forEach(function(el){srObs.observe(el)});
 
 const PIECE=p=>`https://raw.githubusercontent.com/lichess-org/lila/master/public/piece/cburnett/${p[0]}${p[1]}.svg`;
-
-function initCounter(){try{const today=new Date().toISOString().slice(0,10);const data=JSON.parse(localStorage.getItem('cl_counter')||'{}');data.total=(data.total||0)+1;const lastVisit=data.lastVisit||'';if(lastVisit!==today){data.unique=(data.unique||0)+1;data.lastVisit=today;data.todayCount=1}else{data.todayCount=(data.todayCount||0)+1}localStorage.setItem('cl_counter',JSON.stringify(data));const fmt=n=>n>=1000?(n/1000).toFixed(1)+'k':String(n);document.getElementById('fcTotal').textContent=fmt(data.total);document.getElementById('fcUnique').textContent=fmt(data.unique);document.getElementById('fcToday').textContent=fmt(data.todayCount)}catch(e){document.getElementById('footerCounter').style.display='none'}}
 
 function toast(msg){let t=document.getElementById('_toast');if(!t){t=document.createElement('div');t.id='_toast';t.style.cssText='position:fixed;top:80px;left:50%;transform:translateX(-50%);font-family:Philosopher,serif;font-weight:700;font-size:.9rem;padding:.6rem 1.5rem;border-radius:30px;z-index:99999;transition:opacity .4s;pointer-events:none;white-space:nowrap';document.body.appendChild(t)}t.textContent=msg;t.style.opacity='1';clearTimeout(t._to);t._to=setTimeout(()=>t.style.opacity='0',2500)}
 function scrollTo(sel){document.querySelector(sel)?.scrollIntoView({behavior:'smooth',block:'start'})}
@@ -1545,7 +1542,6 @@ document.addEventListener('DOMContentLoaded',()=>{
   loadCurios();
   loadRanking();
   renderFeedPage(true);
-  initCounter();
 });
 </script>
 
