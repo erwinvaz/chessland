@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chess Land — Jogue Xadrez Online | Notícias & Curiosidades</title>
-<meta name="description" content="Chess Land — Jogue xadrez online grátis, acompanhe notícias do mundo do xadrez e descubra curiosidades fascinantes todos os dias. Um app da Talento Dev.">
+<title>Chess Land — Jogue Xadrez Online | Curiosidades</title>
+<meta name="description" content="Chess Land — Jogue xadrez online grátis, descubra curiosidades fascinantes todos os dias. Um app da Talento Dev.">
 <link rel="canonical" href="https://www.chessland.com.br/">
 <link rel="icon" type="image/png" href="https://www.talento.dev.br/chessland/chess_land.png">
 <link rel="shortcut icon" href="https://www.talento.dev.br/chessland/chess_land.png">
@@ -22,11 +22,7 @@
 <link href="https://cdn.jsdelivr.net/npm/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css" rel="stylesheet">
 
 <style>
-/* =============================================
-   VARIÁVEIS GLOBAIS — Chess Land + Talento Dev
-   ============================================= */
 :root {
-  /* Paleta principal */
   --gold:          #FFD700;
   --gold-dark:     #FFA500;
   --gold-soft:     rgba(255,215,0,0.15);
@@ -41,14 +37,10 @@
   --success-clr:   #2ECC71;
   --danger-clr:    #E74C3C;
   --warn-clr:      #F39C12;
-
-  /* Gradientes */
   --grad-gold:   linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
   --grad-dark:   linear-gradient(135deg, #1a0a2e 0%, #16213e 100%);
   --grad-sky:    linear-gradient(160deg, #1a0a2e 0%, #2c1564 40%, #16213e 100%);
   --grad-card:   linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
-
-  /* Layout */
   --radius:       16px;
   --radius-lg:    24px;
   --shadow-card:  0 8px 32px rgba(0,0,0,0.35);
@@ -57,11 +49,7 @@
   --border-dim:   1px solid rgba(255,255,255,0.08);
 }
 
-/* =============================================
-   RESET & BASE
-   ============================================= */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 body {
   background: var(--grad-sky);
   color: var(--cloud-white);
@@ -70,28 +58,13 @@ body {
   overflow-x: hidden;
   min-height: 100vh;
 }
-
 h1,h2,h3,h4,h5,h6 { font-family: 'Cinzel', serif; font-weight: 700; line-height: 1.25; }
 p { margin-bottom: .9rem; color: var(--text-mid); }
 a { text-decoration: none; transition: all .3s; }
 img { max-width: 100%; height: auto; }
 
-/* =============================================
-   FLOATING CHESS PIECES BG
-   ============================================= */
-.float-pieces {
-  position: fixed; inset: 0;
-  pointer-events: none; z-index: 0;
-  overflow: hidden;
-}
-.float-piece {
-  position: absolute;
-  font-size: 2.2rem;
-  opacity: .06;
-  animation: floatPiece 28s ease-in-out infinite;
-  color: var(--gold);
-  filter: drop-shadow(0 0 8px rgba(255,215,0,.3));
-}
+.float-pieces { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.float-piece { position: absolute; font-size: 2.2rem; opacity: .06; animation: floatPiece 28s ease-in-out infinite; color: var(--gold); filter: drop-shadow(0 0 8px rgba(255,215,0,.3)); }
 .float-piece:nth-child(1){left:4%;top:12%;animation-delay:0s}
 .float-piece:nth-child(2){left:88%;top:20%;animation-delay:-7s}
 .float-piece:nth-child(3){left:18%;top:68%;animation-delay:-14s}
@@ -102,98 +75,38 @@ img { max-width: 100%; height: auto; }
   0%,100%{transform:translateY(0) rotate(0deg);opacity:.06}
   50%{transform:translateY(-35px) rotate(180deg);opacity:.11}
 }
-
-/* Everything above z-index: 0 */
 header, section, main, footer, .talento-bar, .ticker-wrap, .btt, .lang-wrap { position: relative; z-index: 1; }
 
-/* =============================================
-   TALENTO BAR
-   ============================================= */
 .talento-bar {
   background: linear-gradient(90deg, #1a0a2e, #2c1564, #1a0a2e);
   border-bottom: 1px solid rgba(255,215,0,.2);
-  text-align: center;
-  padding: .45rem 1rem;
-  font-family: 'DM Mono', monospace;
-  font-size: .72rem;
-  color: var(--text-mid);
+  text-align: center; padding: .45rem 1rem;
+  font-family: 'DM Mono', monospace; font-size: .72rem; color: var(--text-mid);
 }
 .talento-bar a { color: var(--gold); font-weight: 700; }
 .talento-bar a:hover { color: #fff; }
 
-/* =============================================
-   HEADER / NAV
-   ============================================= */
 .hdr {
-  background: rgba(10,0,20,.75);
-  backdrop-filter: blur(18px);
+  background: rgba(10,0,20,.75); backdrop-filter: blur(18px);
   border-bottom: 1px solid rgba(255,215,0,.18);
   box-shadow: 0 4px 24px rgba(124,58,237,.2);
-  position: sticky; top: 0; z-index: 999;
-  padding: .7rem 0;
+  position: sticky; top: 0; z-index: 999; padding: .7rem 0;
 }
 .hdr-inner {
-  max-width: 1320px; margin: 0 auto;
-  padding: 0 1.5rem;
+  max-width: 1320px; margin: 0 auto; padding: 0 1.5rem;
   display: flex; align-items: center; gap: 1.5rem;
 }
-.logo {
-  display: flex; align-items: center; gap: .7rem;
-  font-family: 'Cinzel', serif;
-  text-decoration: none;
-  flex-shrink: 0;
-}
+.logo { display: flex; align-items: center; gap: .7rem; font-family: 'Cinzel', serif; text-decoration: none; flex-shrink: 0; }
 .logo-icon { font-size: 1.8rem; filter: drop-shadow(0 0 10px rgba(255,215,0,.6)); }
 .logo-txt  { font-size: 1.25rem; font-weight: 900; background: var(--grad-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: block; line-height: 1.1; }
 .logo-sub  { font-size: .65rem; font-weight: 400; color: var(--text-muted); letter-spacing: 1px; display: block; font-family: 'Poppins', sans-serif; }
 .logo-by   { font-size: .6rem; color: rgba(255,215,0,.45); display: block; font-family: 'DM Mono', monospace; }
-
-.hdr-nav {
-  display: flex; align-items: center; gap: .25rem;
-  flex: 1; flex-wrap: wrap;
-}
-.hdr-btn {
-  background: transparent;
-  border: 1px solid transparent;
-  border-radius: 30px;
-  padding: .38rem .9rem;
-  color: var(--text-mid);
-  font-family: 'Philosopher', sans-serif;
-  font-weight: 700;
-  font-size: .82rem;
-  cursor: pointer;
-  transition: all .25s;
-  white-space: nowrap;
-}
-.hdr-btn:hover, .hdr-btn.active {
-  background: rgba(255,215,0,.12);
-  border-color: rgba(255,215,0,.3);
-  color: var(--gold);
-}
-.hdr-dl {
-  display: inline-flex; align-items: center; gap: .4rem;
-  background: var(--grad-gold);
-  color: #1a0a2e;
-  font-family: 'Philosopher', sans-serif;
-  font-weight: 700;
-  font-size: .8rem;
-  padding: .5rem 1.1rem;
-  border-radius: 30px;
-  flex-shrink: 0;
-  box-shadow: 0 4px 16px rgba(255,215,0,.35);
-  transition: all .3s;
-}
+.hdr-nav { display: flex; align-items: center; gap: .25rem; flex: 1; flex-wrap: wrap; }
+.hdr-btn { background: transparent; border: 1px solid transparent; border-radius: 30px; padding: .38rem .9rem; color: var(--text-mid); font-family: 'Philosopher', sans-serif; font-weight: 700; font-size: .82rem; cursor: pointer; transition: all .25s; white-space: nowrap; }
+.hdr-btn:hover, .hdr-btn.active { background: rgba(255,215,0,.12); border-color: rgba(255,215,0,.3); color: var(--gold); }
+.hdr-dl { display: inline-flex; align-items: center; gap: .4rem; background: var(--grad-gold); color: #1a0a2e; font-family: 'Philosopher', sans-serif; font-weight: 700; font-size: .8rem; padding: .5rem 1.1rem; border-radius: 30px; flex-shrink: 0; box-shadow: 0 4px 16px rgba(255,215,0,.35); transition: all .3s; }
 .hdr-dl:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,215,0,.5); color: #1a0a2e; }
-.menu-toggle {
-  display: none;
-  background: transparent;
-  border: 1px solid rgba(255,215,0,.35);
-  color: var(--gold);
-  border-radius: 8px;
-  padding: .35rem .6rem;
-  font-size: 1.3rem;
-  cursor: pointer;
-}
+.menu-toggle { display: none; background: transparent; border: 1px solid rgba(255,215,0,.35); color: var(--gold); border-radius: 8px; padding: .35rem .6rem; font-size: 1.3rem; cursor: pointer; }
 @media(max-width:900px){
   .hdr-nav{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(10,0,20,.97);padding:1rem;border-bottom:1px solid rgba(255,215,0,.2)}
   .hdr-nav.open{display:flex}
@@ -201,433 +114,138 @@ header, section, main, footer, .talento-bar, .ticker-wrap, .btt, .lang-wrap { po
   .hdr-inner{flex-wrap:wrap}
 }
 
-/* =============================================
-   TICKER
-   ============================================= */
-.ticker-wrap {
-  background: linear-gradient(90deg, #1a0a2e, #2c1564, #1a0a2e);
-  border-bottom: 2px solid rgba(255,215,0,.3);
-  padding: .5rem 0;
-  overflow: hidden;
-  display: flex; align-items: center;
-  gap: 1rem;
-}
-.ticker-tag {
-  background: var(--grad-gold);
-  color: #1a0a2e;
-  font-family: 'DM Mono', monospace;
-  font-size: .65rem;
-  font-weight: 700;
-  padding: .25rem .8rem;
-  border-radius: 20px;
-  flex-shrink: 0;
-  margin-left: 1rem;
-  letter-spacing: 1px;
-  animation: pulseLive 2s ease-in-out infinite;
-}
-@keyframes pulseLive {
-  0%,100%{box-shadow:0 0 0 0 rgba(255,215,0,.5)}
-  50%{box-shadow:0 0 0 6px rgba(255,215,0,0)}
-}
-.ticker-track {
-  display: flex; gap: 3rem;
-  animation: tickerScroll 45s linear infinite;
-  white-space: nowrap;
-  font-family: 'DM Mono', monospace;
-  font-size: .72rem;
-  color: var(--text-mid);
-}
+.ticker-wrap { background: linear-gradient(90deg, #1a0a2e, #2c1564, #1a0a2e); border-bottom: 2px solid rgba(255,215,0,.3); padding: .5rem 0; overflow: hidden; display: flex; align-items: center; gap: 1rem; }
+.ticker-tag { background: var(--grad-gold); color: #1a0a2e; font-family: 'DM Mono', monospace; font-size: .65rem; font-weight: 700; padding: .25rem .8rem; border-radius: 20px; flex-shrink: 0; margin-left: 1rem; letter-spacing: 1px; animation: pulseLive 2s ease-in-out infinite; }
+@keyframes pulseLive { 0%,100%{box-shadow:0 0 0 0 rgba(255,215,0,.5)} 50%{box-shadow:0 0 0 6px rgba(255,215,0,0)} }
+.ticker-track { display: flex; gap: 3rem; animation: tickerScroll 45s linear infinite; white-space: nowrap; font-family: 'DM Mono', monospace; font-size: .72rem; color: var(--text-mid); }
 .ticker-track span { flex-shrink: 0; }
 .ticker-track span::before { content: '♟ '; color: var(--gold); }
-@keyframes tickerScroll {
-  from{transform:translateX(0)}
-  to{transform:translateX(-50%)}
-}
+@keyframes tickerScroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
-/* =============================================
-   CHESS HERO SECTION
-   ============================================= */
-.chess-hero {
-  background: linear-gradient(180deg, #1a0a2e 0%, #16213e 60%, #0f0f1a 100%);
-  padding: 3.5rem 0 4rem;
-  border-bottom: 3px solid rgba(255,215,0,.25);
-  position: relative;
-  overflow: hidden;
-}
-.chess-hero::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 50% 0%, rgba(124,58,237,.15) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.hero-badge {
-  display: inline-block;
-  background: rgba(255,215,0,.12);
-  border: 1px solid rgba(255,215,0,.3);
-  color: var(--gold);
-  font-family: 'DM Mono', monospace;
-  font-size: .72rem;
-  padding: .35rem 1rem;
-  border-radius: 20px;
-  margin-bottom: 1rem;
-  letter-spacing: 1px;
-  animation: badgePulse 3s ease-in-out infinite;
-}
-@keyframes badgePulse {
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-4px)}
-}
-
-.hero-icon-wrap {
-  margin: 1rem 0;
-  animation: iconFloat 3.5s ease-in-out infinite;
-}
-@keyframes iconFloat {
-  0%,100%{transform:translateY(0) rotate(0deg)}
-  50%{transform:translateY(-12px) rotate(4deg)}
-}
-.hero-icon {
-  width: 110px; height: 110px;
-  border-radius: 24px;
-  border: 3px solid var(--gold);
-  box-shadow: 0 0 50px rgba(255,215,0,.4), 0 16px 40px rgba(0,0,0,.5);
-  object-fit: cover;
-  transition: all .4s;
-}
+/* GAME SECTION */
+.chess-hero { background: linear-gradient(180deg, #1a0a2e 0%, #16213e 60%, #0f0f1a 100%); padding: 3.5rem 0 4rem; border-bottom: 3px solid rgba(255,215,0,.25); position: relative; overflow: hidden; }
+.chess-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(124,58,237,.15) 0%, transparent 70%); pointer-events: none; }
+.hero-badge { display: inline-block; background: rgba(255,215,0,.12); border: 1px solid rgba(255,215,0,.3); color: var(--gold); font-family: 'DM Mono', monospace; font-size: .72rem; padding: .35rem 1rem; border-radius: 20px; margin-bottom: 1rem; letter-spacing: 1px; animation: badgePulse 3s ease-in-out infinite; }
+@keyframes badgePulse { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+.hero-icon-wrap { margin: 1rem 0; animation: iconFloat 3.5s ease-in-out infinite; }
+@keyframes iconFloat { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-12px) rotate(4deg)} }
+.hero-icon { width: 110px; height: 110px; border-radius: 24px; border: 3px solid var(--gold); box-shadow: 0 0 50px rgba(255,215,0,.4), 0 16px 40px rgba(0,0,0,.5); object-fit: cover; transition: all .4s; }
 .hero-icon:hover { transform: scale(1.08) rotate(5deg); box-shadow: 0 0 70px rgba(255,215,0,.6), 0 20px 50px rgba(0,0,0,.5); }
-
-.hero-h1 {
-  font-family: 'Cinzel', serif;
-  font-size: clamp(1.8rem,5vw,3rem);
-  font-weight: 900;
-  color: var(--cloud-white);
-  text-shadow: 0 4px 20px rgba(0,0,0,.5);
-  margin-bottom: .5rem;
-}
+.hero-h1 { font-family: 'Cinzel', serif; font-size: clamp(1.8rem,5vw,3rem); font-weight: 900; color: var(--cloud-white); text-shadow: 0 4px 20px rgba(0,0,0,.5); margin-bottom: .5rem; }
 .hero-h1 span { background: var(--grad-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .hero-sub { font-size: clamp(.9rem,2vw,1.15rem); color: var(--text-mid); margin-bottom: 1.8rem; }
-
 .dl-buttons { display: flex; flex-wrap: wrap; gap: .8rem; justify-content: center; margin-bottom: 2rem; }
-.btn-gold {
-  display: inline-flex; align-items: center; gap: .5rem;
-  background: var(--grad-gold);
-  color: #1a0a2e;
-  font-family: 'Philosopher', sans-serif; font-weight: 700;
-  padding: .75rem 1.8rem; border-radius: 30px;
-  box-shadow: 0 6px 20px rgba(255,215,0,.4);
-  transition: all .3s;
-}
+.btn-gold { display: inline-flex; align-items: center; gap: .5rem; background: var(--grad-gold); color: #1a0a2e; font-family: 'Philosopher', sans-serif; font-weight: 700; padding: .75rem 1.8rem; border-radius: 30px; box-shadow: 0 6px 20px rgba(255,215,0,.4); transition: all .3s; }
 .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(255,215,0,.6); color: #1a0a2e; }
-.btn-outline-w {
-  display: inline-flex; align-items: center; gap: .5rem;
-  background: rgba(255,255,255,.07);
-  border: 2px solid rgba(255,255,255,.2);
-  color: var(--cloud-white);
-  font-family: 'Philosopher', sans-serif; font-weight: 700;
-  padding: .75rem 1.8rem; border-radius: 30px;
-  transition: all .3s;
-}
+.btn-outline-w { display: inline-flex; align-items: center; gap: .5rem; background: rgba(255,255,255,.07); border: 2px solid rgba(255,255,255,.2); color: var(--cloud-white); font-family: 'Philosopher', sans-serif; font-weight: 700; padding: .75rem 1.8rem; border-radius: 30px; transition: all .3s; }
 .btn-outline-w:hover { background: rgba(255,215,0,.12); border-color: rgba(255,215,0,.4); color: var(--gold); transform: translateY(-3px); }
-
-/* Tab Buttons */
 .tab-btns { display: flex; gap: .8rem; justify-content: center; margin-bottom: 2.5rem; flex-wrap: wrap; }
-.tab-btn {
-  padding: .65rem 1.8rem;
-  border: 2px solid rgba(255,215,0,.25);
-  border-radius: 30px;
-  background: rgba(255,255,255,.05);
-  color: rgba(255,255,255,.6);
-  font-family: 'Philosopher', sans-serif; font-weight: 700;
-  cursor: pointer;
-  transition: all .3s;
-  backdrop-filter: blur(8px);
-}
+.tab-btn { padding: .65rem 1.8rem; border: 2px solid rgba(255,215,0,.25); border-radius: 30px; background: rgba(255,255,255,.05); color: rgba(255,255,255,.6); font-family: 'Philosopher', sans-serif; font-weight: 700; cursor: pointer; transition: all .3s; backdrop-filter: blur(8px); }
 .tab-btn:hover { border-color: var(--gold); color: var(--gold); background: rgba(255,215,0,.08); }
-.tab-btn.active {
-  background: var(--grad-gold);
-  border-color: transparent;
-  color: #1a0a2e;
-  box-shadow: 0 6px 20px rgba(255,215,0,.4);
-}
-
-/* Game Area */
-.game-area {
-  display: grid;
-  grid-template-columns: 200px auto 200px;
-  gap: 1.5rem;
-  align-items: start;
-  justify-content: center;
-  max-width: 1100px;
-  margin: 0 auto;
-}
+.tab-btn.active { background: var(--grad-gold); border-color: transparent; color: #1a0a2e; box-shadow: 0 6px 20px rgba(255,215,0,.4); }
+.game-area { display: grid; grid-template-columns: 200px auto 200px; gap: 1.5rem; align-items: start; justify-content: center; max-width: 1100px; margin: 0 auto; }
 @media(max-width:900px){.game-area{grid-template-columns:1fr;max-width:420px}}
-
-.game-panel {
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,215,0,.15);
-  border-radius: var(--radius);
-  padding: 1rem;
-  backdrop-filter: blur(8px);
-}
-.panel-title {
-  font-family: 'Cinzel', serif;
-  font-size: .72rem;
-  color: var(--gold);
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  margin-bottom: .65rem;
-  display: flex; align-items: center; gap: .4rem;
-}
+.game-panel { background: rgba(255,255,255,.04); border: 1px solid rgba(255,215,0,.15); border-radius: var(--radius); padding: 1rem; backdrop-filter: blur(8px); }
+.panel-title { font-family: 'Cinzel', serif; font-size: .72rem; color: var(--gold); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: .65rem; display: flex; align-items: center; gap: .4rem; }
 .diff-btns { display: flex; flex-direction: column; gap: .35rem; }
-.diff-btn {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: .45rem .8rem;
-  border: 1px solid rgba(255,255,255,.1);
-  border-radius: 8px;
-  background: transparent;
-  color: rgba(255,255,255,.55);
-  font-size: .78rem;
-  cursor: pointer;
-  transition: all .2s;
-}
+.diff-btn { display: flex; justify-content: space-between; align-items: center; padding: .45rem .8rem; border: 1px solid rgba(255,255,255,.1); border-radius: 8px; background: transparent; color: rgba(255,255,255,.55); font-size: .78rem; cursor: pointer; transition: all .2s; }
 .diff-btn:hover { border-color: var(--gold); color: var(--gold); background: rgba(255,215,0,.05); }
 .diff-btn.active { border-color: var(--gold); background: rgba(255,215,0,.12); color: var(--cloud-white); font-weight: 600; }
 .diff-stars { color: var(--gold); font-size: .7rem; }
-
 .act-btns { display: flex; flex-direction: column; gap: .4rem; }
-.act-btn {
-  display: flex; align-items: center; justify-content: center; gap: .45rem;
-  padding: .6rem .9rem;
-  border: none; border-radius: 10px;
-  font-family: 'Philosopher', sans-serif; font-weight: 700; font-size: .85rem;
-  cursor: pointer; transition: all .3s;
-}
+.act-btn { display: flex; align-items: center; justify-content: center; gap: .45rem; padding: .6rem .9rem; border: none; border-radius: 10px; font-family: 'Philosopher', sans-serif; font-weight: 700; font-size: .85rem; cursor: pointer; transition: all .3s; }
 .act-btn.primary { background: var(--grad-gold); color: #1a0a2e; box-shadow: 0 4px 14px rgba(255,215,0,.3); }
 .act-btn.primary:hover { transform: translateY(-2px); box-shadow: 0 7px 22px rgba(255,215,0,.5); }
 .act-btn.secondary { background: rgba(255,255,255,.07); color: var(--cloud-white); border: 1px solid rgba(255,255,255,.12); }
 .act-btn.secondary:hover { background: rgba(255,255,255,.12); border-color: rgba(255,215,0,.3); transform: translateY(-2px); }
 .act-btn.danger { background: rgba(231,76,60,.12); color: var(--danger-clr); border: 1px solid rgba(231,76,60,.25); }
 .act-btn.danger:hover { background: rgba(231,76,60,.22); transform: translateY(-2px); }
-
 .score-row { display: flex; align-items: center; justify-content: space-between; padding: .5rem 0; }
 .score-val { font-family: 'Cinzel', serif; font-size: 1.8rem; font-weight: 900; color: var(--gold); line-height: 1; }
 .score-lbl { font-family: 'DM Mono', monospace; font-size: .6rem; color: var(--text-muted); letter-spacing: 1px; }
-
-.think-row {
-  display: none; align-items: center; gap: .5rem; justify-content: center;
-  color: var(--text-muted); font-size: .78rem; margin-top: .5rem;
-}
+.think-row { display: none; align-items: center; gap: .5rem; justify-content: center; color: var(--text-muted); font-size: .78rem; margin-top: .5rem; }
 .think-row.show { display: flex; }
 .dots { display: flex; gap: 4px; }
 .dots span { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; animation: dotPulse 1.2s ease-in-out infinite; }
 .dots span:nth-child(2){animation-delay:.2s}.dots span:nth-child(3){animation-delay:.4s}
-@keyframes dotPulse {
-  0%,80%,100%{transform:scale(.6);opacity:.4}
-  40%{transform:scale(1);opacity:1}
-}
-
-.status-box {
-  text-align: center;
-  font-family: 'Philosopher', sans-serif;
-  font-size: .85rem; font-weight: 700;
-  padding: .55rem 1rem;
-  border-radius: 20px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,215,0,.2);
-  color: var(--cloud-white);
-  transition: all .4s;
-  margin-top: .5rem;
-}
+@keyframes dotPulse { 0%,80%,100%{transform:scale(.6);opacity:.4} 40%{transform:scale(1);opacity:1} }
+.status-box { text-align: center; font-family: 'Philosopher', sans-serif; font-size: .85rem; font-weight: 700; padding: .55rem 1rem; border-radius: 20px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,215,0,.2); color: var(--cloud-white); transition: all .4s; margin-top: .5rem; }
 .status-box.win  { border-color: var(--success-clr); color: var(--success-clr); background: rgba(46,204,113,.08); }
 .status-box.lose { border-color: var(--danger-clr);  color: var(--danger-clr);  background: rgba(231,76,60,.08); }
 .status-box.check{ border-color: var(--warn-clr);    color: var(--warn-clr);    background: rgba(243,156,18,.08); }
-
-.moves-box {
-  max-height: 130px; overflow-y: auto;
-  font-family: 'DM Mono', monospace; font-size: .72rem; color: var(--text-mid);
-  display: grid; grid-template-columns: 1fr 1fr; gap: .15rem;
-  scrollbar-width: thin; scrollbar-color: rgba(255,215,0,.3) transparent;
-}
+.moves-box { max-height: 130px; overflow-y: auto; font-family: 'DM Mono', monospace; font-size: .72rem; color: var(--text-mid); display: grid; grid-template-columns: 1fr 1fr; gap: .15rem; scrollbar-width: thin; scrollbar-color: rgba(255,215,0,.3) transparent; }
 .move-row { display: contents; }
 .move-num { grid-column: 1/-1; color: rgba(255,215,0,.4); font-size: .65rem; margin-top: .15rem; }
 .move-san { padding: .15rem .4rem; border-radius: 4px; background: rgba(255,255,255,.04); cursor: pointer; transition: background .2s; }
 .move-san:hover { background: rgba(255,215,0,.1); color: var(--gold); }
 .move-san.last { background: rgba(255,215,0,.1); color: var(--gold); }
-
 .board-wrap { display: flex; flex-direction: column; align-items: center; gap: .8rem; position: relative; }
-.board-glow {
-  position: absolute; inset: -6px;
-  border-radius: 10px; pointer-events: none;
-  animation: boardGlow 2.5s ease-in-out infinite;
-}
-@keyframes boardGlow {
-  0%,100%{box-shadow:0 0 25px rgba(255,215,0,.25),0 0 55px rgba(255,215,0,.1)}
-  50%{box-shadow:0 0 45px rgba(255,215,0,.45),0 0 80px rgba(255,215,0,.2)}
-}
+.board-glow { position: absolute; inset: -6px; border-radius: 10px; pointer-events: none; animation: boardGlow 2.5s ease-in-out infinite; }
+@keyframes boardGlow { 0%,100%{box-shadow:0 0 25px rgba(255,215,0,.25),0 0 55px rgba(255,215,0,.1)} 50%{box-shadow:0 0 45px rgba(255,215,0,.45),0 0 80px rgba(255,215,0,.2)} }
 #chessboard,#dayPuzzle,#dayPuzzleSide { width: 380px !important; }
 @media(max-width:480px){#chessboard,#dayPuzzle,#dayPuzzleSide{width:290px!important}}
-
-/* Chessboard colors */
 .white-1e1d7 { background-color: #F0D9B5 !important; }
 .black-3c85d { background-color: #B58863 !important; }
-.piece-417db {
-  background-size: 85% !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-  width: 100% !important; height: 100% !important;
-  position: absolute !important; top: 0 !important; left: 0 !important;
-}
+.piece-417db { background-size: 85% !important; background-position: center !important; background-repeat: no-repeat !important; width: 100% !important; height: 100% !important; position: absolute !important; top: 0 !important; left: 0 !important; }
 .square-55d63 { position: relative !important; cursor: pointer; touch-action: none; -webkit-tap-highlight-color: transparent; }
 .highlight-w { box-shadow: inset 0 0 0 4px rgba(255,215,0,.85) !important; }
 .highlight-b { box-shadow: inset 0 0 0 4px rgba(255,107,107,.85) !important; }
-
-/* Puzzle dots */
 .puzz-attempts { display: flex; justify-content: center; gap: .4rem; margin: .5rem 0; }
 .dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid rgba(255,255,255,.2); transition: all .3s; }
 .dot.used { border-color: var(--danger-clr); background: var(--danger-clr); }
 .dot.ok   { border-color: var(--success-clr); background: var(--success-clr); }
 
-/* =============================================
-   BLOG SECTION
-   ============================================= */
-.blog-section {
-  background: linear-gradient(180deg, #0f0f1a 0%, #16213e 100%);
-  padding: 4rem 0;
-  border-top: 1px solid rgba(255,215,0,.15);
-}
+/* BLOG */
+.blog-section { background: linear-gradient(180deg, #0f0f1a 0%, #16213e 100%); padding: 4rem 0; border-top: 1px solid rgba(255,215,0,.15); }
 .blog-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
 .blog-header { text-align: center; margin-bottom: 2.5rem; }
-.blog-badge {
-  display: inline-block;
-  background: rgba(255,215,0,.1);
-  border: 1px solid rgba(255,215,0,.25);
-  color: var(--gold);
-  font-family: 'DM Mono', monospace; font-size: .7rem;
-  padding: .35rem 1rem; border-radius: 20px; letter-spacing: 1px;
-  margin-bottom: .8rem;
-}
+.blog-badge { display: inline-block; background: rgba(255,215,0,.1); border: 1px solid rgba(255,215,0,.25); color: var(--gold); font-family: 'DM Mono', monospace; font-size: .7rem; padding: .35rem 1rem; border-radius: 20px; letter-spacing: 1px; margin-bottom: .8rem; }
 .blog-title { font-family: 'Cinzel', serif; font-size: clamp(1.8rem,4vw,2.6rem); font-weight: 900; color: var(--cloud-white); margin-bottom: .4rem; }
 .blog-title span { background: var(--grad-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .blog-subtitle { color: var(--text-mid); font-size: .95rem; }
-
 .blog-filter { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin-bottom: 2rem; }
-.blog-pill {
-  padding: .4rem 1rem; border-radius: 20px;
-  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
-  color: var(--text-mid); font-size: .82rem; font-weight: 600; cursor: pointer; transition: all .25s;
-}
+.blog-pill { padding: .4rem 1rem; border-radius: 20px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); color: var(--text-mid); font-size: .82rem; font-weight: 600; cursor: pointer; transition: all .25s; }
 .blog-pill:hover { border-color: var(--gold); color: var(--gold); background: rgba(255,215,0,.08); }
 .blog-pill.active { background: var(--grad-gold); border-color: transparent; color: #1a0a2e; }
-
-/* Featured */
-.blog-featured {
-  display: grid; grid-template-columns: 320px 1fr; gap: 0;
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,215,0,.2);
-  border-radius: var(--radius-lg);
-  overflow: hidden; margin-bottom: 2rem; cursor: pointer;
-  transition: all .4s;
-}
+.blog-featured { display: grid; grid-template-columns: 320px 1fr; gap: 0; background: rgba(255,255,255,.04); border: 1px solid rgba(255,215,0,.2); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 2rem; cursor: pointer; transition: all .4s; }
 .blog-featured:hover { border-color: var(--gold); box-shadow: 0 16px 48px rgba(255,215,0,.2); transform: translateY(-4px); }
-.blog-featured-img {
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  padding: 2rem; position: relative; gap: .5rem;
-}
+.blog-featured-img { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; position: relative; gap: .5rem; }
 .bcatbg-iniciante { background: linear-gradient(135deg, #27ae60, #1e8449); }
 .bcatbg-abertura  { background: linear-gradient(135deg, #d4a017, #b7870e); }
 .bcatbg-tatica    { background: linear-gradient(135deg, #1a6bbd, #154f8c); }
 .bcatbg-estrategia{ background: linear-gradient(135deg, #7d3c98, #6c3483); }
 .bcatbg-final     { background: linear-gradient(135deg, #d35400, #ba4a00); }
 .bcatbg-mental    { background: linear-gradient(135deg, #c0392b, #a93226); }
-
-.blog-featured-badge {
-  position: absolute; top: 12px; right: 12px;
-  background: var(--grad-gold); color: #1a0a2e;
-  font-family: 'DM Mono', monospace; font-size: .62rem; font-weight: 700;
-  padding: .25rem .7rem; border-radius: 12px;
-}
+.blog-featured-badge { position: absolute; top: 12px; right: 12px; background: var(--grad-gold); color: #1a0a2e; font-family: 'DM Mono', monospace; font-size: .62rem; font-weight: 700; padding: .25rem .7rem; border-radius: 12px; }
 .blog-featured-body { padding: 2rem; display: flex; flex-direction: column; justify-content: center; }
-.blog-cat-tag {
-  display: inline-block;
-  font-family: 'DM Mono', monospace; font-size: .65rem; font-weight: 700;
-  padding: .22rem .7rem; border-radius: 10px; margin-bottom: .7rem;
-}
+.blog-cat-tag { display: inline-block; font-family: 'DM Mono', monospace; font-size: .65rem; font-weight: 700; padding: .22rem .7rem; border-radius: 10px; margin-bottom: .7rem; }
 .bcat-iniciante { background: rgba(39,174,96,.2);  color: #2ecc71; }
 .bcat-abertura  { background: rgba(212,160,23,.2);  color: #f1c40f; }
 .bcat-tatica    { background: rgba(26,107,189,.2);  color: #3498db; }
 .bcat-estrategia{ background: rgba(125,60,152,.2);  color: #9b59b6; }
 .bcat-final     { background: rgba(211,84,0,.2);    color: #e67e22; }
 .bcat-mental    { background: rgba(192,57,43,.2);   color: #e74c3c; }
-
 .blog-featured-title { font-family: 'Cinzel', serif; font-size: 1.3rem; font-weight: 700; color: var(--cloud-white); margin-bottom: .7rem; }
 .blog-featured-excerpt { color: var(--text-mid); font-size: .9rem; margin-bottom: 1rem; }
 .blog-meta { display: flex; gap: 1rem; font-family: 'DM Mono', monospace; font-size: .67rem; color: var(--text-muted); margin-bottom: 1rem; }
-.btn-read {
-  display: inline-flex; align-items: center; gap: .4rem;
-  background: var(--grad-gold); color: #1a0a2e;
-  font-family: 'Philosopher', sans-serif; font-weight: 700; font-size: .88rem;
-  padding: .55rem 1.4rem; border-radius: 20px;
-  border: none; cursor: pointer; transition: all .3s; align-self: flex-start;
-}
+.btn-read { display: inline-flex; align-items: center; gap: .4rem; background: var(--grad-gold); color: #1a0a2e; font-family: 'Philosopher', sans-serif; font-weight: 700; font-size: .88rem; padding: .55rem 1.4rem; border-radius: 20px; border: none; cursor: pointer; transition: all .3s; align-self: flex-start; }
 .btn-read:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(255,215,0,.4); }
-
-.blog-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.2rem;
-  margin-bottom: 1.5rem;
-}
-.blog-card {
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: var(--radius);
-  overflow: hidden; cursor: pointer;
-  transition: all .35s;
-}
+.blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.2rem; margin-bottom: 1.5rem; }
+.blog-card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius); overflow: hidden; cursor: pointer; transition: all .35s; }
 .blog-card:hover { border-color: rgba(255,215,0,.3); transform: translateY(-6px); box-shadow: 0 12px 36px rgba(255,215,0,.15); }
-.blog-card-img {
-  height: 110px; display: flex; align-items: center; justify-content: center;
-  font-size: 3rem; filter: drop-shadow(0 4px 12px rgba(0,0,0,.2));
-}
+.blog-card-img { height: 110px; display: flex; align-items: center; justify-content: center; font-size: 3rem; filter: drop-shadow(0 4px 12px rgba(0,0,0,.2)); }
 .blog-card-body { padding: 1rem; }
 .blog-card-cat { font-family: 'DM Mono', monospace; font-size: .62rem; font-weight: 700; padding: .2rem .6rem; border-radius: 8px; display: inline-block; margin-bottom: .5rem; }
 .blog-card-title { font-family: 'Cinzel', serif; font-size: .95rem; font-weight: 700; color: var(--cloud-white); margin-bottom: .4rem; line-height: 1.35; }
 .blog-card-excerpt { font-size: .8rem; color: var(--text-mid); margin-bottom: .7rem; line-height: 1.5; }
 .blog-card-foot { display: flex; justify-content: space-between; align-items: center; font-family: 'DM Mono', monospace; font-size: .65rem; color: var(--text-muted); }
 .blog-card-read { color: var(--gold); font-weight: 700; }
-
-.btn-blog-more {
-  display: inline-flex; align-items: center; gap: .5rem;
-  background: rgba(255,255,255,.07); border: 1px solid rgba(255,215,0,.25);
-  color: var(--gold); font-family: 'Philosopher', sans-serif; font-weight: 700;
-  padding: .7rem 2rem; border-radius: 30px;
-  cursor: pointer; transition: all .3s;
-}
+.btn-blog-more { display: inline-flex; align-items: center; gap: .5rem; background: rgba(255,255,255,.07); border: 1px solid rgba(255,215,0,.25); color: var(--gold); font-family: 'Philosopher', sans-serif; font-weight: 700; padding: .7rem 2rem; border-radius: 30px; cursor: pointer; transition: all .3s; }
 .btn-blog-more:hover { background: rgba(255,215,0,.12); transform: translateY(-2px); }
-
-/* Blog modal */
-.blog-modal-overlay {
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,.85);
-  backdrop-filter: blur(8px);
-  z-index: 9999; display: none; align-items: center; justify-content: center;
-  padding: 1rem;
-}
+.blog-modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.85); backdrop-filter: blur(8px); z-index: 9999; display: none; align-items: center; justify-content: center; padding: 1rem; }
 .blog-modal-overlay.open { display: flex; }
-.blog-modal {
-  background: linear-gradient(135deg, #1a0a2e, #16213e);
-  border: 1px solid rgba(255,215,0,.25);
-  border-radius: var(--radius-lg);
-  max-width: 720px; width: 100%;
-  max-height: 90vh; overflow-y: auto;
-  position: relative;
-  box-shadow: 0 24px 80px rgba(0,0,0,.6);
-}
-.blog-modal-close {
-  position: absolute; top: 1rem; right: 1rem;
-  background: rgba(255,255,255,.1); border: none; color: var(--cloud-white);
-  width: 36px; height: 36px; border-radius: 50%; font-size: 1rem;
-  cursor: pointer; z-index: 2; transition: all .2s;
-}
+.blog-modal { background: linear-gradient(135deg, #1a0a2e, #16213e); border: 1px solid rgba(255,215,0,.25); border-radius: var(--radius-lg); max-width: 720px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative; box-shadow: 0 24px 80px rgba(0,0,0,.6); }
+.blog-modal-close { position: absolute; top: 1rem; right: 1rem; background: rgba(255,255,255,.1); border: none; color: var(--cloud-white); width: 36px; height: 36px; border-radius: 50%; font-size: 1rem; cursor: pointer; z-index: 2; transition: all .2s; }
 .blog-modal-close:hover { background: var(--danger-clr); }
 .blog-modal-hero { height: 180px; display: flex; align-items: center; justify-content: center; }
 .blog-modal-content { padding: 1.5rem 2rem 2rem; }
@@ -641,263 +259,124 @@ header, section, main, footer, .talento-bar, .ticker-wrap, .btt, .lang-wrap { po
 .blog-article-body li { margin-bottom: .4rem; }
 .highlight-box { background: rgba(255,215,0,.08); border-left: 3px solid var(--gold); padding: .8rem 1rem; border-radius: 0 8px 8px 0; font-size: .88rem; color: var(--cloud-white); margin: 1rem 0; }
 .tip-box { background: rgba(46,204,113,.08); border-left: 3px solid var(--success-clr); padding: .8rem 1rem; border-radius: 0 8px 8px 0; font-size: .88rem; color: var(--cloud-white); margin: 1rem 0; }
-
-.blog-app-cta {
-  display: flex; align-items: center; gap: 1rem;
-  background: rgba(255,215,0,.06); border: 1px solid rgba(255,215,0,.2);
-  border-radius: var(--radius); padding: 1.2rem; margin: 1.5rem 0;
-}
+.blog-app-cta { display: flex; align-items: center; gap: 1rem; background: rgba(255,215,0,.06); border: 1px solid rgba(255,215,0,.2); border-radius: var(--radius); padding: 1.2rem; margin: 1.5rem 0; }
 .blog-app-cta-icon { font-size: 2.5rem; }
 .blog-app-cta-body { flex: 1; }
 .blog-app-cta-label { font-family: 'DM Mono', monospace; font-size: .62rem; color: var(--gold); margin-bottom: .2rem; }
 .blog-app-cta-title { font-family: 'Cinzel', serif; font-size: .9rem; color: var(--cloud-white); font-weight: 700; margin-bottom: .2rem; }
 .blog-app-cta-desc { font-size: .78rem; color: var(--text-mid); }
-.blog-app-cta-btn {
-  display: inline-flex; align-items: center; gap: .4rem;
-  background: var(--grad-gold); color: #1a0a2e;
-  font-family: 'Philosopher', sans-serif; font-weight: 700; font-size: .82rem;
-  padding: .55rem 1.2rem; border-radius: 20px;
-  flex-shrink: 0; transition: all .3s;
-}
+.blog-app-cta-btn { display: inline-flex; align-items: center; gap: .4rem; background: var(--grad-gold); color: #1a0a2e; font-family: 'Philosopher', sans-serif; font-weight: 700; font-size: .82rem; padding: .55rem 1.2rem; border-radius: 20px; flex-shrink: 0; transition: all .3s; }
 .blog-app-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(255,215,0,.4); color: #1a0a2e; }
-
 .blog-related { margin-top: 1.5rem; }
 .blog-related-title { font-family: 'Cinzel', serif; font-size: .85rem; color: var(--gold); letter-spacing: 1px; margin-bottom: .8rem; }
 .blog-related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .7rem; }
-.blog-related-card {
-  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
-  border-radius: 10px; padding: .8rem; cursor: pointer; transition: all .25s;
-}
+.blog-related-card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 10px; padding: .8rem; cursor: pointer; transition: all .25s; }
 .blog-related-card:hover { border-color: rgba(255,215,0,.3); background: rgba(255,215,0,.05); }
 .blog-related-card-title { font-family: 'Philosopher', sans-serif; font-size: .82rem; color: var(--cloud-white); font-weight: 700; margin-bottom: .3rem; }
 .blog-related-card-cat { font-size: .7rem; }
+@media(max-width:768px){.blog-featured{grid-template-columns:1fr}.blog-related-grid{grid-template-columns:1fr}.blog-app-cta{flex-direction:column;text-align:center}}
 
-@media(max-width:768px){
-  .blog-featured{grid-template-columns:1fr}
-  .blog-related-grid{grid-template-columns:1fr}
-  .blog-app-cta{flex-direction:column;text-align:center}
-}
-
-/* =============================================
-   NEWS + SIDEBAR (MAIN)
-   ============================================= */
+/* CURIOSIDADES — layout principal */
 .page { max-width: 1200px; margin: 0 auto; padding: 2.5rem 1.5rem; }
 .two-col { display: grid; grid-template-columns: 1fr 320px; gap: 2rem; }
 @media(max-width:1024px){.two-col{grid-template-columns:1fr}}
 
-/* News */
-.news-date-banner {
-  display: flex; align-items: center; justify-content: space-between;
-  background: rgba(255,255,255,.04); border: 1px solid rgba(255,215,0,.15);
-  border-radius: var(--radius); padding: .8rem 1.2rem;
-  margin-bottom: 1.2rem; flex-wrap: wrap; gap: .5rem;
-}
-.date-display { font-family: 'DM Mono', monospace; font-size: .78rem; color: var(--text-mid); }
-.refresh-btn {
-  display: inline-flex; align-items: center; gap: .4rem;
-  background: rgba(255,215,0,.1); border: 1px solid rgba(255,215,0,.25);
-  color: var(--gold); font-family: 'DM Mono', monospace; font-size: .7rem;
-  padding: .35rem .9rem; border-radius: 20px; cursor: pointer; transition: all .3s;
-}
-.refresh-btn:hover { background: rgba(255,215,0,.2); }
-.refresh-btn.spinning i { animation: spinIcon .8s linear infinite; }
-@keyframes spinIcon { to{transform:rotate(360deg)} }
-
 .sec-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.2rem; }
-.sec-title {
-  font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 700;
-  color: var(--cloud-white); position: relative; padding-bottom: .4rem;
-}
-.sec-title::after {
-  content: ''; position: absolute; bottom: 0; left: 0;
-  width: 40px; height: 3px; background: var(--grad-gold); border-radius: 2px;
-}
+.sec-title { font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 700; color: var(--cloud-white); position: relative; padding-bottom: .4rem; }
+.sec-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 40px; height: 3px; background: var(--grad-gold); border-radius: 2px; }
 
-.news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
-.news-card {
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.07);
-  border-radius: var(--radius);
-  overflow: hidden; transition: all .3s;
+/* CURIOSIDADES CARDS */
+.curio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
 }
-.news-card:hover { border-color: rgba(255,215,0,.25); transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,.3); }
-.news-thumb {
-  height: 120px; background: linear-gradient(135deg, #16213e, #1a3a6a);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 2.5rem; position: relative;
-}
-.news-source {
-  position: absolute; bottom: 6px; right: 8px;
-  font-family: 'DM Mono', monospace; font-size: .6rem;
-  background: rgba(0,0,0,.6); color: var(--text-muted);
-  padding: .15rem .5rem; border-radius: 6px;
-}
-.news-body { padding: .9rem; }
-.news-tag {
-  font-family: 'DM Mono', monospace; font-size: .6rem; font-weight: 700;
-  background: rgba(255,215,0,.12); color: var(--gold);
-  padding: .18rem .55rem; border-radius: 8px; display: inline-block; margin-bottom: .45rem;
-}
-.news-title { font-family: 'Philosopher', sans-serif; font-size: .88rem; font-weight: 700; color: var(--cloud-white); margin-bottom: .4rem; line-height: 1.45; }
-.news-excerpt { font-size: .78rem; color: var(--text-mid); margin-bottom: .6rem; line-height: 1.5; }
-.news-foot { display: flex; justify-content: space-between; font-family: 'DM Mono', monospace; font-size: .62rem; color: var(--text-muted); }
-
-/* Curiosidades */
-.curio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: .8rem; }
 .curio-card {
   background: rgba(255,255,255,.04);
   border: 1px solid rgba(255,255,255,.08);
-  border-radius: var(--radius); padding: 1rem; cursor: pointer; transition: all .3s;
+  border-radius: var(--radius);
+  padding: 1.1rem 1.2rem;
+  cursor: pointer;
+  transition: all .3s;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
 }
-.curio-card:hover { border-color: rgba(255,215,0,.25); background: rgba(255,215,0,.04); }
-.curio-q { font-family: 'Philosopher', sans-serif; font-size: .88rem; font-weight: 700; color: var(--cloud-white); margin-bottom: .4rem; }
-.curio-a { font-size: .8rem; color: var(--text-mid); max-height: 0; overflow: hidden; transition: max-height .4s; }
-.curio-card.open .curio-a { max-height: 200px; }
-.curio-toggle { font-family: 'DM Mono', monospace; font-size: .65rem; color: var(--gold); margin-top: .5rem; }
-
-/* Skeleton */
-.skel {
-  background: linear-gradient(90deg, rgba(255,255,255,.05) 25%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.05) 75%);
-  background-size: 200% 100%;
-  animation: skelShimmer 1.5s infinite;
-  border-radius: 6px;
+.curio-card:hover {
+  border-color: rgba(255,215,0,.3);
+  background: rgba(255,215,0,.04);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0,0,0,.25);
 }
-@keyframes skelShimmer { to{background-position:-200% 0} }
+.curio-q {
+  font-family: 'Philosopher', sans-serif;
+  font-size: .9rem;
+  font-weight: 700;
+  color: var(--cloud-white);
+  line-height: 1.4;
+}
+.curio-a {
+  font-size: .82rem;
+  color: var(--text-mid);
+  line-height: 1.6;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .45s ease;
+}
+.curio-card.open .curio-a { max-height: 300px; }
+.curio-toggle {
+  font-family: 'DM Mono', monospace;
+  font-size: .65rem;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+  user-select: none;
+}
+.curio-card.open .curio-toggle-icon { transform: rotate(180deg); }
+.curio-toggle-icon { transition: transform .3s; display: inline-block; }
 
-/* =============================================
-   SIDEBAR
-   ============================================= */
+/* SIDEBAR */
 .sidebar { display: flex; flex-direction: column; gap: 1.2rem; }
-.side-card {
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: var(--radius); padding: 1.2rem;
-  backdrop-filter: blur(8px);
-}
+.side-card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius); padding: 1.2rem; backdrop-filter: blur(8px); }
 .side-card-gold { border-color: rgba(255,215,0,.25); background: rgba(255,215,0,.04); }
 .side-card-blue { border-color: rgba(124,58,237,.25); background: rgba(124,58,237,.04); }
-.side-title {
-  font-family: 'Cinzel', serif; font-size: .82rem; font-weight: 700;
-  color: var(--gold); letter-spacing: 1px; text-transform: uppercase;
-  margin-bottom: .9rem; display: flex; align-items: center; gap: .4rem;
-}
-
-/* Ranking */
-.rank-item {
-  display: flex; align-items: center; gap: .6rem;
-  padding: .45rem .6rem; border-radius: 8px;
-  margin-bottom: .3rem; transition: background .2s; cursor: default;
-}
+.side-title { font-family: 'Cinzel', serif; font-size: .82rem; font-weight: 700; color: var(--gold); letter-spacing: 1px; text-transform: uppercase; margin-bottom: .9rem; display: flex; align-items: center; gap: .4rem; }
+.rank-item { display: flex; align-items: center; gap: .6rem; padding: .45rem .6rem; border-radius: 8px; margin-bottom: .3rem; transition: background .2s; cursor: default; }
 .rank-item:hover { background: rgba(255,215,0,.06); }
-.rk-pos {
-  width: 22px; height: 22px; border-radius: 50%;
-  background: rgba(255,255,255,.08);
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'DM Mono', monospace; font-size: .68rem; font-weight: 700;
-  color: var(--text-muted); flex-shrink: 0;
-}
+.rk-pos { width: 22px; height: 22px; border-radius: 50%; background: rgba(255,255,255,.08); display: flex; align-items: center; justify-content: center; font-family: 'DM Mono', monospace; font-size: .68rem; font-weight: 700; color: var(--text-muted); flex-shrink: 0; }
 .rk-pos.top { background: var(--grad-gold); color: #1a0a2e; }
 .rk-flag { font-size: 1rem; flex-shrink: 0; }
 .rk-name { font-family: 'Philosopher', sans-serif; font-size: .82rem; font-weight: 700; color: var(--cloud-white); flex: 1; }
 .rk-elo { font-family: 'DM Mono', monospace; font-size: .72rem; color: var(--gold); font-weight: 700; }
-
-.talento-footer {
-  display: inline-flex; align-items: center; gap: .4rem;
-  background: rgba(124,58,237,.15); border: 1px solid rgba(124,58,237,.3);
-  color: #c084fc;
-  font-family: 'DM Mono', monospace; font-size: .72rem;
-  padding: .5rem 1rem; border-radius: 20px;
-  transition: all .3s;
-}
+.talento-footer { display: inline-flex; align-items: center; gap: .4rem; background: rgba(124,58,237,.15); border: 1px solid rgba(124,58,237,.3); color: #c084fc; font-family: 'DM Mono', monospace; font-size: .72rem; padding: .5rem 1rem; border-radius: 20px; transition: all .3s; }
 .talento-footer:hover { background: rgba(124,58,237,.25); color: #e9d5ff; }
 
-/* Article overlay */
-.article-overlay {
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,.85); backdrop-filter: blur(8px);
-  z-index: 9998; display: none; align-items: center; justify-content: center; padding: 1rem;
-}
-.article-overlay.open { display: flex; }
-.article-modal {
-  background: linear-gradient(135deg, #1a0a2e, #16213e);
-  border: 1px solid rgba(255,215,0,.2);
-  border-radius: var(--radius-lg);
-  max-width: 600px; width: 100%;
-  max-height: 85vh; overflow-y: auto;
-  padding: 2rem; position: relative;
-}
-.modal-close {
-  position: absolute; top: 1rem; right: 1rem;
-  background: rgba(255,255,255,.08); border: none; color: var(--cloud-white);
-  width: 34px; height: 34px; border-radius: 50%; cursor: pointer;
-  font-size: .9rem; transition: all .2s;
-}
-.modal-close:hover { background: var(--danger-clr); }
-.art-body { color: var(--text-mid); font-size: .88rem; line-height: 1.7; }
-.art-body a { color: var(--gold); text-decoration: underline; }
-
-/* =============================================
-   APPS SECTION
-   ============================================= */
-.apps-section {
-  background: linear-gradient(180deg, #16213e 0%, #1a0a2e 100%);
-  padding: 4rem 0;
-  border-top: 1px solid rgba(255,215,0,.15);
-}
+/* APPS */
+.apps-section { background: linear-gradient(180deg, #16213e 0%, #1a0a2e 100%); padding: 4rem 0; border-top: 1px solid rgba(255,215,0,.15); }
 .apps-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
 .apps-header { text-align: center; margin-bottom: 2.5rem; }
-.apps-header-badge {
-  display: inline-block;
-  background: rgba(255,215,0,.1); border: 1px solid rgba(255,215,0,.25);
-  color: var(--gold); font-family: 'DM Mono', monospace; font-size: .7rem;
-  padding: .35rem 1rem; border-radius: 20px; letter-spacing: 1px; margin-bottom: .8rem;
-}
+.apps-header-badge { display: inline-block; background: rgba(255,215,0,.1); border: 1px solid rgba(255,215,0,.25); color: var(--gold); font-family: 'DM Mono', monospace; font-size: .7rem; padding: .35rem 1rem; border-radius: 20px; letter-spacing: 1px; margin-bottom: .8rem; }
 .apps-title { font-family: 'Cinzel', serif; font-size: clamp(1.8rem,4vw,2.6rem); font-weight: 900; color: var(--cloud-white); margin-bottom: .4rem; }
 .apps-title span { background: var(--grad-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .apps-subtitle { color: var(--text-mid); font-size: .95rem; }
-
 .apps-filter { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin-bottom: 2rem; }
-.filter-pill {
-  padding: .4rem 1rem; border-radius: 20px;
-  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
-  color: var(--text-mid); font-size: .82rem; font-weight: 600; cursor: pointer; transition: all .25s;
-}
+.filter-pill { padding: .4rem 1rem; border-radius: 20px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); color: var(--text-mid); font-size: .82rem; font-weight: 600; cursor: pointer; transition: all .25s; }
 .filter-pill:hover { border-color: var(--gold); color: var(--gold); }
 .filter-pill.active { background: var(--grad-gold); border-color: transparent; color: #1a0a2e; }
-
 .apps-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1.2rem; margin-bottom: 2.5rem; }
-.app-card {
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: var(--radius); overflow: hidden;
-  transition: all .4s; display: flex; flex-direction: column;
-}
+.app-card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius); overflow: hidden; transition: all .4s; display: flex; flex-direction: column; }
 .app-card:hover { border-color: rgba(255,215,0,.3); transform: translateY(-8px); box-shadow: 0 16px 48px rgba(255,215,0,.15); }
 .app-card.featured { border-color: rgba(255,215,0,.25); box-shadow: 0 0 0 2px rgba(255,215,0,.1); }
 .app-card-header { position: relative; height: 130px; overflow: hidden; }
 .app-card-img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
 .app-card:hover .app-card-img { transform: scale(1.06); }
-.app-tech-badge {
-  position: absolute; top: 8px; left: 8px;
-  font-family: 'DM Mono', monospace; font-size: .58rem; font-weight: 700;
-  padding: .2rem .55rem; border-radius: 8px;
-}
+.app-tech-badge { position: absolute; top: 8px; left: 8px; font-family: 'DM Mono', monospace; font-size: .58rem; font-weight: 700; padding: .2rem .55rem; border-radius: 8px; }
 .app-tech-badge.flutter  { background: rgba(2,120,215,.85); color: #fff; }
 .app-tech-badge.kotlin   { background: rgba(167,29,93,.85); color: #fff; }
 .app-tech-badge.java     { background: rgba(235,121,0,.85); color: #fff; }
-.app-new-badge {
-  position: absolute; top: 8px; right: 8px;
-  background: var(--grad-gold); color: #1a0a2e;
-  font-family: 'DM Mono', monospace; font-size: .58rem; font-weight: 700;
-  padding: .2rem .55rem; border-radius: 8px;
-  animation: badgePulse 2s ease-in-out infinite;
-}
-.app-category-tag {
-  position: absolute; bottom: 8px; right: 8px;
-  background: rgba(0,0,0,.65); color: var(--text-mid);
-  font-family: 'DM Mono', monospace; font-size: .58rem;
-  padding: .18rem .5rem; border-radius: 6px;
-}
+.app-new-badge { position: absolute; top: 8px; right: 8px; background: var(--grad-gold); color: #1a0a2e; font-family: 'DM Mono', monospace; font-size: .58rem; font-weight: 700; padding: .2rem .55rem; border-radius: 8px; animation: badgePulse 2s ease-in-out infinite; }
+.app-category-tag { position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,.65); color: var(--text-mid); font-family: 'DM Mono', monospace; font-size: .58rem; padding: .18rem .5rem; border-radius: 6px; }
 .app-card-body { padding: 1rem; flex: 1; }
 .app-card-name { font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 700; color: var(--cloud-white); margin-bottom: .35rem; }
 .app-card-desc { font-size: .8rem; color: var(--text-mid); margin-bottom: .6rem; line-height: 1.5; }
@@ -906,189 +385,48 @@ header, section, main, footer, .talento-bar, .ticker-wrap, .btt, .lang-wrap { po
 .star-icon.empty { color: rgba(255,215,0,.25); }
 .star-score { font-family: 'DM Mono', monospace; font-size: .72rem; color: var(--gold); margin-left: .3rem; }
 .app-card-footer { padding: .8rem 1rem; border-top: 1px solid rgba(255,255,255,.06); display: flex; gap: .5rem; }
-.btn-app-play {
-  flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: .35rem;
-  background: var(--grad-gold); color: #1a0a2e;
-  font-family: 'Philosopher', sans-serif; font-weight: 700; font-size: .75rem;
-  padding: .5rem .7rem; border-radius: 10px; transition: all .3s;
-}
+.btn-app-play { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: .35rem; background: var(--grad-gold); color: #1a0a2e; font-family: 'Philosopher', sans-serif; font-weight: 700; font-size: .75rem; padding: .5rem .7rem; border-radius: 10px; transition: all .3s; }
 .btn-app-play:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(255,215,0,.4); color: #1a0a2e; }
-.btn-app-more {
-  display: inline-flex; align-items: center; justify-content: center; gap: .3rem;
-  background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
-  color: var(--text-mid);
-  font-family: 'Philosopher', sans-serif; font-weight: 700; font-size: .72rem;
-  padding: .5rem .7rem; border-radius: 10px; transition: all .3s;
-}
+.btn-app-more { display: inline-flex; align-items: center; justify-content: center; gap: .3rem; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); color: var(--text-mid); font-family: 'Philosopher', sans-serif; font-weight: 700; font-size: .72rem; padding: .5rem .7rem; border-radius: 10px; transition: all .3s; }
 .btn-app-more:hover { background: rgba(255,255,255,.12); color: var(--gold); border-color: rgba(255,215,0,.25); }
-
 .apps-stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; }
 @media(max-width:600px){.apps-stats{grid-template-columns:repeat(2,1fr)}}
-.apps-stat {
-  background: rgba(255,255,255,.04); border: 1px solid rgba(255,215,0,.15);
-  border-radius: var(--radius); padding: 1.2rem; text-align: center;
-}
+.apps-stat { background: rgba(255,255,255,.04); border: 1px solid rgba(255,215,0,.15); border-radius: var(--radius); padding: 1.2rem; text-align: center; }
 .apps-stat-val { font-family: 'Cinzel', serif; font-size: 2rem; font-weight: 900; background: var(--grad-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .apps-stat-lbl { font-family: 'DM Mono', monospace; font-size: .68rem; color: var(--text-muted); letter-spacing: 1px; }
 
-/* =============================================
-   CURIOSITY FEED SECTION
-   ============================================= */
-.curio-feed-section {
-  background: linear-gradient(180deg, #1a0a2e 0%, #16213e 100%);
-  padding: 4rem 0;
-  border-top: 1px solid rgba(255,215,0,.15);
-}
-.curio-feed-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
-.curio-feed-header { text-align: center; margin-bottom: 2.5rem; }
-.curio-feed-badge {
-  display: inline-block;
-  background: rgba(255,215,0,.1); border: 1px solid rgba(255,215,0,.25);
-  color: var(--gold); font-family: 'DM Mono', monospace; font-size: .7rem;
-  padding: .35rem 1rem; border-radius: 20px; letter-spacing: 1px; margin-bottom: .8rem;
-}
-.curio-feed-title { font-family: 'Cinzel', serif; font-size: clamp(1.8rem,4vw,2.6rem); font-weight: 900; color: var(--cloud-white); margin-bottom: .4rem; }
-.curio-feed-title span { background: var(--grad-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-.curio-feed-subtitle { color: var(--text-mid); font-size: .95rem; }
-
-.feed-filter { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin-bottom: 2rem; }
-.feed-pill {
-  padding: .4rem 1rem; border-radius: 20px;
-  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
-  color: var(--text-mid); font-size: .82rem; font-weight: 600; cursor: pointer; transition: all .25s;
-}
-.feed-pill:hover { border-color: var(--gold); color: var(--gold); }
-.feed-pill.active { background: var(--grad-gold); border-color: transparent; color: #1a0a2e; }
-
-.feed-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.2rem; margin-bottom: 1.5rem; }
-.feed-card {
-  background: #fff; border-radius: var(--radius);
-  overflow: hidden; box-shadow: var(--shadow-card);
-  cursor: pointer; transition: all .3s;
-}
-.feed-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(0,0,0,.35); }
-.feed-card-img { height: 150px; display: flex; align-items: center; justify-content: center; position: relative; }
-.feed-cat-badge {
-  position: absolute; top: 10px; left: 10px;
-  font-family: 'DM Mono', monospace; font-size: .6rem; font-weight: 700;
-  background: rgba(0,0,0,.55); color: #fff;
-  padding: .2rem .6rem; border-radius: 10px;
-}
-.feed-card-body { padding: 1rem; background: #fff; }
-.feed-card-title { font-family: 'Philosopher', sans-serif; font-size: .92rem; font-weight: 700; color: #1a1a2e; margin-bottom: .45rem; line-height: 1.4; }
-.feed-card-desc { font-size: .8rem; color: #555; margin-bottom: .7rem; line-height: 1.55; }
-.feed-card-foot { display: flex; justify-content: space-between; align-items: center; font-size: .68rem; color: #888; }
-.feed-read-more { color: #7c3aed; font-weight: 700; font-family: 'DM Mono', monospace; font-size: .65rem; }
-.feed-read-more:hover { color: #5b21b6; }
-
-.btn-load-more {
-  display: inline-flex; align-items: center; gap: .5rem;
-  background: rgba(255,215,0,.1); border: 1px solid rgba(255,215,0,.25);
-  color: var(--gold); font-family: 'Philosopher', sans-serif; font-weight: 700;
-  padding: .8rem 2.5rem; border-radius: 30px;
-  cursor: pointer; transition: all .3s; margin: 0 auto; display: flex; width: fit-content;
-}
-.btn-load-more:hover { background: rgba(255,215,0,.18); transform: translateY(-2px); }
-.btn-load-more.loading i { animation: spinIcon .8s linear infinite; }
-
-/* =============================================
-   FOOTER
-   ============================================= */
-.footer {
-  background: linear-gradient(135deg, #0f0822, #1a0a2e);
-  border-top: 3px solid rgba(255,215,0,.3);
-  padding: 3rem 0 1.5rem;
-}
-.footer-inner {
-  max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;
-  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2.5rem;
-}
+/* FOOTER */
+.footer { background: linear-gradient(135deg, #0f0822, #1a0a2e); border-top: 3px solid rgba(255,215,0,.3); padding: 3rem 0 1.5rem; }
+.footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2.5rem; }
 @media(max-width:768px){.footer-inner{grid-template-columns:1fr}}
 .ft-brand { color: var(--text-mid); font-size: .85rem; line-height: 1.6; }
 .ft-col-title { font-family: 'Cinzel', serif; font-size: .82rem; letter-spacing: 1px; color: var(--gold); margin-bottom: 1rem; }
 .ft-link { display: block; color: var(--text-mid); font-size: .83rem; padding: .3rem 0; transition: color .25s; }
 .ft-link:hover { color: var(--gold); }
 .social-links { display: flex; gap: .6rem; margin-top: .5rem; }
-.social-link {
-  width: 36px; height: 36px; border-radius: 50%;
-  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.1);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--text-mid); font-size: .95rem;
-  transition: all .3s;
-}
+.social-link { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.1); display: flex; align-items: center; justify-content: center; color: var(--text-mid); font-size: .95rem; transition: all .3s; }
 .social-link:hover { background: rgba(255,215,0,.15); border-color: rgba(255,215,0,.35); color: var(--gold); transform: translateY(-3px); }
-.footer-btm {
-  max-width: 1200px; margin: 2rem auto 0; padding: 1.2rem 1.5rem 0;
-  border-top: 1px solid rgba(255,255,255,.06);
-  display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem;
-  font-family: 'DM Mono', monospace; font-size: .65rem; color: var(--text-muted);
-}
+.footer-btm { max-width: 1200px; margin: 2rem auto 0; padding: 1.2rem 1.5rem 0; border-top: 1px solid rgba(255,255,255,.06); display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem; font-family: 'DM Mono', monospace; font-size: .65rem; color: var(--text-muted); }
 
-/* =============================================
-   UTILITIES
-   ============================================= */
-.btt {
-  position: fixed; bottom: 28px; right: 28px;
-  width: 46px; height: 46px;
-  background: var(--grad-gold); color: #1a0a2e;
-  border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  font-size: 1.1rem; text-decoration: none;
-  box-shadow: 0 4px 18px rgba(255,215,0,.4);
-  opacity: 0; pointer-events: none; transition: all .3s;
-  z-index: 1000;
-}
+.btt { position: fixed; bottom: 28px; right: 28px; width: 46px; height: 46px; background: var(--grad-gold); color: #1a0a2e; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; text-decoration: none; box-shadow: 0 4px 18px rgba(255,215,0,.4); opacity: 0; pointer-events: none; transition: all .3s; z-index: 1000; }
 .btt.show { opacity: 1; pointer-events: all; }
 .btt:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(255,215,0,.6); color: #1a0a2e; }
-
-/* Language selector */
-.lang-wrap {
-  position: fixed; top: 18px; right: 18px; z-index: 9000;
-}
-.lang-btn {
-  display: flex; align-items: center; gap: .5rem;
-  background: rgba(10,0,20,.9); backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,215,0,.35); color: var(--cloud-white);
-  padding: .5rem 1rem; border-radius: 22px;
-  font-family: 'Philosopher', sans-serif; font-weight: 700; font-size: .82rem;
-  cursor: pointer; transition: all .3s;
-  box-shadow: 0 4px 14px rgba(255,215,0,.2);
-}
+.lang-wrap { position: fixed; top: 18px; right: 18px; z-index: 9000; }
+.lang-btn { display: flex; align-items: center; gap: .5rem; background: rgba(10,0,20,.9); backdrop-filter: blur(12px); border: 1px solid rgba(255,215,0,.35); color: var(--cloud-white); padding: .5rem 1rem; border-radius: 22px; font-family: 'Philosopher', sans-serif; font-weight: 700; font-size: .82rem; cursor: pointer; transition: all .3s; box-shadow: 0 4px 14px rgba(255,215,0,.2); }
 .lang-btn:hover { background: var(--grad-gold); color: #1a0a2e; }
-.lang-dropdown {
-  display: none; position: absolute;
-  top: calc(100% + 8px); right: 0;
-  background: rgba(10,0,20,.97); backdrop-filter: blur(14px);
-  border: 1px solid rgba(255,215,0,.25);
-  border-radius: 14px; padding: .5rem;
-  min-width: 190px; box-shadow: 0 12px 36px rgba(0,0,0,.4);
-}
+.lang-dropdown { display: none; position: absolute; top: calc(100% + 8px); right: 0; background: rgba(10,0,20,.97); backdrop-filter: blur(14px); border: 1px solid rgba(255,215,0,.25); border-radius: 14px; padding: .5rem; min-width: 190px; box-shadow: 0 12px 36px rgba(0,0,0,.4); }
 .lang-dropdown.open { display: block; }
-.lang-option {
-  display: flex; align-items: center; gap: .7rem;
-  padding: .65rem .9rem; border-radius: 8px;
-  color: var(--cloud-white); font-size: .88rem;
-  transition: all .2s;
-}
+.lang-option { display: flex; align-items: center; gap: .7rem; padding: .65rem .9rem; border-radius: 8px; color: var(--cloud-white); font-size: .88rem; transition: all .2s; }
 .lang-option:hover { background: rgba(255,215,0,.15); color: var(--gold); }
 .lang-flag { width: 22px; border-radius: 3px; }
-
-/* Toast */
-#_toast {
-  background: var(--grad-gold) !important;
-  color: #1a0a2e !important;
-  box-shadow: 0 8px 24px rgba(255,215,0,.4) !important;
-}
-
-/* Scroll reveal */
+#_toast { background: var(--grad-gold) !important; color: #1a0a2e !important; box-shadow: 0 8px 24px rgba(255,215,0,.4) !important; }
 .scroll-reveal { opacity: 0; transform: translateY(30px); transition: all .8s cubic-bezier(.16,1,.3,1); }
 .scroll-reveal.active { opacity: 1; transform: translateY(0); }
-
 @keyframes fadeInUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
 </style>
 </head>
 <body>
 
-<!-- Floating Chess Pieces Background -->
 <div class="float-pieces" aria-hidden="true">
   <div class="float-piece">♟</div>
   <div class="float-piece">♛</div>
@@ -1098,14 +436,12 @@ header, section, main, footer, .talento-bar, .ticker-wrap, .btt, .lang-wrap { po
   <div class="float-piece">♚</div>
 </div>
 
-<!-- TALENTO BAR -->
 <div class="talento-bar">
   <a href="https://www.talento.dev.br" target="_blank" rel="noopener">
     🏆 Um produto da <strong>Talento Dev</strong> — Visite nosso portal de apps e tutoriais
   </a>
 </div>
 
-<!-- HEADER -->
 <header class="hdr">
   <div class="hdr-inner">
     <a href="#" class="logo">
@@ -1119,11 +455,9 @@ header, section, main, footer, .talento-bar, .ticker-wrap, .btt, .lang-wrap { po
     <nav class="hdr-nav" id="hdrNav">
       <button class="hdr-btn active" onclick="scrollTo('#game-section')">🎮 Jogar</button>
       <button class="hdr-btn" onclick="scrollTo('#blog-section')">✍️ Blog</button>
-      <button class="hdr-btn" onclick="scrollTo('#news-section')">📰 Notícias</button>
       <button class="hdr-btn" onclick="scrollTo('#curio-section')">💡 Curiosidades</button>
       <button class="hdr-btn" onclick="scrollTo('#ranking-section')">🏆 Ranking</button>
       <button class="hdr-btn" onclick="scrollTo('#apps-section')">📱 Apps</button>
-      <button class="hdr-btn" onclick="scrollTo('#feed-section')">🌍 Feed</button>
     </nav>
     <div style="display:flex;align-items:center;gap:.8rem">
       <a href="https://play.google.com/store/apps/details?id=com.talentodev.chess" target="_blank" rel="noopener" class="hdr-dl">
@@ -1136,7 +470,6 @@ header, section, main, footer, .talento-bar, .ticker-wrap, .btt, .lang-wrap { po
   </div>
 </header>
 
-<!-- TICKER -->
 <div class="ticker-wrap">
   <div class="ticker-tag">AO VIVO</div>
   <div class="ticker-track" id="tickerTrack">
@@ -1157,7 +490,7 @@ header, section, main, footer, .talento-bar, .ticker-wrap, .btt, .lang-wrap { po
   </div>
 </div>
 
-<!-- ══ GAME SECTION ══ -->
+<!-- GAME SECTION -->
 <section id="game-section" class="chess-hero">
   <div class="container text-center" style="position:relative;z-index:2">
     <div class="hero-badge">🎉 JOGO GRATUITO — Sem cadastro · Talento Dev</div>
@@ -1179,7 +512,6 @@ header, section, main, footer, .talento-bar, .ticker-wrap, .btt, .lang-wrap { po
       <button class="tab-btn" onclick="switchGameTab('puzzle')" id="tabPuzzle">🧩 Puzzle do Dia</button>
     </div>
 
-    <!-- BOT GAME -->
     <div id="gameBot">
       <div class="game-area">
         <div class="game-panel">
@@ -1202,12 +534,10 @@ header, section, main, footer, .talento-bar, .ticker-wrap, .btt, .lang-wrap { po
             <div style="text-align:right"><div class="score-val" id="bScore">0</div><div class="score-lbl">BOT</div></div>
           </div>
         </div>
-
         <div class="board-wrap">
           <div class="board-glow"></div>
           <div id="chessboard"></div>
         </div>
-
         <div class="game-panel">
           <div class="panel-title"><i class="fas fa-gamepad"></i> Controles</div>
           <div class="act-btns">
@@ -1224,7 +554,6 @@ header, section, main, footer, .talento-bar, .ticker-wrap, .btt, .lang-wrap { po
       </div>
     </div>
 
-    <!-- PUZZLE GAME -->
     <div id="gamePuzzle" style="display:none">
       <div class="game-area">
         <div class="game-panel">
@@ -1256,7 +585,7 @@ header, section, main, footer, .talento-bar, .ticker-wrap, .btt, .lang-wrap { po
   </div>
 </section>
 
-<!-- ══ BLOG SECTION ══ -->
+<!-- BLOG SECTION -->
 <section id="blog-section" class="blog-section scroll-reveal">
   <div class="blog-inner">
     <div class="blog-header">
@@ -1273,7 +602,6 @@ header, section, main, footer, .talento-bar, .ticker-wrap, .btt, .lang-wrap { po
       <button class="blog-pill" onclick="filterBlog('final',this)">🟠 Finais</button>
       <button class="blog-pill" onclick="filterBlog('mental',this)">🔴 Mental</button>
     </div>
-
     <div class="blog-featured" onclick="openBlogPost(0)" data-cat="iniciante">
       <div class="blog-featured-img bcatbg-iniciante">
         <span style="font-size:5rem;filter:drop-shadow(0 6px 20px rgba(0,0,0,.25))">📈</span>
@@ -1287,7 +615,6 @@ header, section, main, footer, .talento-bar, .ticker-wrap, .btt, .lang-wrap { po
         <button class="btn-read" onclick="event.stopPropagation();openBlogPost(0)">Ler artigo completo →</button>
       </div>
     </div>
-
     <div class="blog-grid" id="blogGrid">
       <div class="blog-card" onclick="openBlogPost(1)" data-cat="abertura">
         <div class="blog-card-img bcatbg-abertura"><span>♛</span></div>
@@ -1350,39 +677,19 @@ header, section, main, footer, .talento-bar, .ticker-wrap, .btt, .lang-wrap { po
   </div>
 </section>
 
-<!-- ══ NEWS + SIDEBAR ══ -->
+<!-- CURIOSIDADES + SIDEBAR -->
 <main class="page">
   <div class="two-col">
     <div>
-      <section id="news-section">
-        <div class="news-date-banner">
-          <div class="date-display" id="dateDisplay">📅 Carregando...</div>
-          <button class="refresh-btn" id="refreshBtn" onclick="refreshNews()">
-            <i class="bi bi-arrow-clockwise"></i> Atualizar notícias
-          </button>
-        </div>
-        <div class="sec-head"><span class="sec-title">📰 Notícias do Xadrez Mundial</span></div>
-        <div class="news-grid" id="newsGrid">
-          <div class="news-card"><div class="news-thumb skel" style="height:120px"></div><div class="news-body"><div class="skel" style="height:12px;margin-bottom:8px"></div><div class="skel" style="height:55px"></div></div></div>
-          <div class="news-card"><div class="news-thumb skel" style="height:120px"></div><div class="news-body"><div class="skel" style="height:12px;margin-bottom:8px"></div><div class="skel" style="height:55px"></div></div></div>
-          <div class="news-card"><div class="news-thumb skel" style="height:120px"></div><div class="news-body"><div class="skel" style="height:12px;margin-bottom:8px"></div><div class="skel" style="height:55px"></div></div></div>
-        </div>
-      </section>
-
-      <section id="curio-section" style="margin-top:2.5rem">
+      <section id="curio-section">
         <div class="sec-head">
-          <span class="sec-title">💡 Curiosidades de Hoje</span>
-          <span style="font-family:'DM Mono',monospace;font-size:.68rem;color:var(--text-muted)">Atualiza todo dia</span>
+          <span class="sec-title">💡 Curiosidades do Xadrez</span>
+          <span style="font-family:'DM Mono',monospace;font-size:.68rem;color:var(--text-muted)">Clique para revelar</span>
         </div>
-        <div class="curio-grid" id="curioGrid">
-          <div class="news-card"><div class="news-body"><div class="skel" style="height:12px;margin-bottom:8px"></div><div class="skel" style="height:55px"></div></div></div>
-          <div class="news-card"><div class="news-body"><div class="skel" style="height:12px;margin-bottom:8px"></div><div class="skel" style="height:55px"></div></div></div>
-          <div class="news-card"><div class="news-body"><div class="skel" style="height:12px;margin-bottom:8px"></div><div class="skel" style="height:55px"></div></div></div>
-        </div>
+        <div class="curio-grid" id="curioGrid"></div>
       </section>
     </div>
 
-    <!-- SIDEBAR -->
     <aside class="sidebar">
       <div class="side-card" id="ranking-section">
         <div class="side-title"><i class="fas fa-trophy"></i> Top 10 FIDE — Abr 2026</div>
@@ -1421,7 +728,7 @@ header, section, main, footer, .talento-bar, .ticker-wrap, .btt, .lang-wrap { po
   </div>
 </main>
 
-<!-- ══ APPS SECTION ══ -->
+<!-- APPS SECTION -->
 <section id="apps-section" class="apps-section scroll-reveal">
   <div class="apps-inner">
     <div class="apps-header">
@@ -1440,21 +747,9 @@ header, section, main, footer, .talento-bar, .ticker-wrap, .btt, .lang-wrap { po
     </div>
     <div class="apps-grid" id="appsGrid">
       <div class="app-card featured" data-tech="flutter" data-cat="games">
-        <div class="app-card-header">
-          <img src="https://www.talento.dev.br/chessland/chess_land.png" alt="Chess Land" class="app-card-img" loading="lazy">
-          <span class="app-tech-badge flutter">Flutter</span>
-          <span class="app-new-badge">🔥 NOVO</span>
-          <span class="app-category-tag">Jogos</span>
-        </div>
-        <div class="app-card-body">
-          <div class="app-card-name">Chess Land</div>
-          <div class="app-card-desc">Jogue, treine e evolua sem distrações. Saia do rating 1000 e leve seu xadrez para outro nível.</div>
-          <div class="app-stars"><i class="fas fa-star star-icon"></i><i class="fas fa-star star-icon"></i><i class="fas fa-star star-icon"></i><i class="fas fa-star star-icon"></i><i class="fas fa-star star-icon"></i><span class="star-score">5.0</span></div>
-        </div>
-        <div class="app-card-footer">
-          <a href="https://play.google.com/store/apps/details?id=com.talentodev.chess" target="_blank" rel="noopener" class="btn-app-play"><i class="fab fa-google-play"></i> Google Play</a>
-          <a href="https://www.talento.dev.br/chess_land.html" target="_blank" rel="noopener" class="btn-app-more"><i class="fas fa-info-circle"></i> Saiba Mais</a>
-        </div>
+        <div class="app-card-header"><img src="https://www.talento.dev.br/chessland/chess_land.png" alt="Chess Land" class="app-card-img" loading="lazy"><span class="app-tech-badge flutter">Flutter</span><span class="app-new-badge">🔥 NOVO</span><span class="app-category-tag">Jogos</span></div>
+        <div class="app-card-body"><div class="app-card-name">Chess Land</div><div class="app-card-desc">Jogue, treine e evolua sem distrações. Saia do rating 1000 e leve seu xadrez para outro nível.</div><div class="app-stars"><i class="fas fa-star star-icon"></i><i class="fas fa-star star-icon"></i><i class="fas fa-star star-icon"></i><i class="fas fa-star star-icon"></i><i class="fas fa-star star-icon"></i><span class="star-score">5.0</span></div></div>
+        <div class="app-card-footer"><a href="https://play.google.com/store/apps/details?id=com.talentodev.chess" target="_blank" rel="noopener" class="btn-app-play"><i class="fab fa-google-play"></i> Google Play</a><a href="https://www.talento.dev.br/chess_land.html" target="_blank" rel="noopener" class="btn-app-more"><i class="fas fa-info-circle"></i> Saiba Mais</a></div>
       </div>
       <div class="app-card" data-tech="flutter" data-cat="games">
         <div class="app-card-header"><img src="https://www.talento.dev.br/wordhunt/ico.jpg" alt="Caça Palavras" class="app-card-img" loading="lazy"><span class="app-tech-badge flutter">Flutter</span><span class="app-category-tag">Jogos</span></div>
@@ -1516,45 +811,7 @@ header, section, main, footer, .talento-bar, .ticker-wrap, .btt, .lang-wrap { po
   </div>
 </section>
 
-<!-- ══ CURIOSITY FEED ══ -->
-<section id="feed-section" class="curio-feed-section scroll-reveal">
-  <div class="curio-feed-inner">
-    <div class="curio-feed-header">
-      <div class="curio-feed-badge">🌍 Atualizado Diariamente · IA + Curadoria</div>
-      <h2 class="curio-feed-title">Feed de <span>Notícias Curiosas</span></h2>
-      <p class="curio-feed-subtitle">Ciência, tecnologia, espaço, mistério — as histórias mais fascinantes do planeta</p>
-    </div>
-    <div class="feed-filter">
-      <button class="feed-pill active" onclick="filterFeed('all',this)">🌐 Tudo</button>
-      <button class="feed-pill" onclick="filterFeed('science',this)">🔬 Ciência</button>
-      <button class="feed-pill" onclick="filterFeed('tech',this)">💻 Tecnologia</button>
-      <button class="feed-pill" onclick="filterFeed('space',this)">🚀 Espaço</button>
-      <button class="feed-pill" onclick="filterFeed('history',this)">📜 História</button>
-      <button class="feed-pill" onclick="filterFeed('nature',this)">🌿 Natureza</button>
-      <button class="feed-pill" onclick="filterFeed('mystery',this)">🔮 Mistério</button>
-      <button class="feed-pill" onclick="filterFeed('health',this)">🧬 Saúde</button>
-    </div>
-    <div class="feed-grid" id="feedGrid">
-      <div style="background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-card)"><div class="skel" style="height:150px"></div><div style="padding:1rem"><div class="skel" style="height:14px;margin-bottom:8px"></div><div class="skel" style="height:50px"></div></div></div>
-      <div style="background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-card)"><div class="skel" style="height:150px"></div><div style="padding:1rem"><div class="skel" style="height:14px;margin-bottom:8px"></div><div class="skel" style="height:50px"></div></div></div>
-      <div style="background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-card)"><div class="skel" style="height:150px"></div><div style="padding:1rem"><div class="skel" style="height:14px;margin-bottom:8px"></div><div class="skel" style="height:50px"></div></div></div>
-    </div>
-    <div style="display:flex;justify-content:center;margin-top:1.5rem">
-      <button class="btn-load-more" id="loadMoreBtn" onclick="loadMoreFeed()">
-        <i class="bi bi-arrow-down-circle"></i> Carregar mais curiosidades
-      </button>
-    </div>
-  </div>
-</section>
-
 <!-- MODALS -->
-<div class="article-overlay" id="artOverlay" onclick="closeArt(event)">
-  <div class="article-modal">
-    <button class="modal-close" onclick="document.getElementById('artOverlay').classList.remove('open')">✕</button>
-    <div id="artContent"></div>
-  </div>
-</div>
-
 <div class="blog-modal-overlay" id="blogOverlay" onclick="closeBlogModal(event)">
   <div class="blog-modal" id="blogModal">
     <button class="blog-modal-close" onclick="closeBlogModalBtn()">✕</button>
@@ -1570,7 +827,7 @@ header, section, main, footer, .talento-bar, .ticker-wrap, .btt, .lang-wrap { po
         <span style="font-size:1.8rem;filter:drop-shadow(0 0 12px rgba(255,215,0,.6))">♟</span>
         <span style="font-family:'Cinzel',serif;font-weight:900;font-size:1.3rem;background:var(--grad-gold);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Chess Land</span>
       </div>
-      <p class="ft-brand">O seu portal completo de xadrez. Notícias diárias, curiosidades, jogo online e muito mais.</p>
+      <p class="ft-brand">O seu portal completo de xadrez. Curiosidades, jogo online e muito mais.</p>
       <p class="ft-brand" style="margin-top:.4rem">Desenvolvido com 💛 por <a href="https://www.talento.dev.br" target="_blank" rel="noopener" style="color:var(--gold);font-weight:700">Talento Dev</a></p>
       <div class="social-links" style="margin-top:.8rem">
         <a href="https://www.youtube.com/channel/UCD5yUxZ3M3atr-BusdY22uQ" target="_blank" rel="noopener" class="social-link"><i class="fab fa-youtube"></i></a>
@@ -1583,11 +840,9 @@ header, section, main, footer, .talento-bar, .ticker-wrap, .btt, .lang-wrap { po
       <div class="ft-col-title">Navegação</div>
       <a href="#game-section" class="ft-link">🎮 Jogar Online</a>
       <a href="#blog-section" class="ft-link">✍️ Blog</a>
-      <a href="#news-section" class="ft-link">📰 Notícias</a>
       <a href="#curio-section" class="ft-link">💡 Curiosidades</a>
       <a href="#ranking-section" class="ft-link">🏆 Ranking FIDE</a>
       <a href="#apps-section" class="ft-link">📱 Nossos Apps</a>
-      <a href="#feed-section" class="ft-link">🌍 Feed Curioso</a>
     </div>
     <div>
       <div class="ft-col-title">Talento Dev</div>
@@ -1603,7 +858,7 @@ header, section, main, footer, .talento-bar, .ticker-wrap, .btt, .lang-wrap { po
   </div>
   <div class="footer-btm">
     <span>© 2025–2026 Chess Land — <a href="https://www.talento.dev.br" target="_blank" rel="noopener" style="color:var(--gold)">Talento Dev</a>. Todos os direitos reservados.</span>
-    <span>Notícias via RSS · Curiosidades diárias · Blog semanal</span>
+    <span>Curiosidades diárias · Blog semanal</span>
   </div>
 </footer>
 
@@ -1615,27 +870,16 @@ header, section, main, footer, .talento-bar, .ticker-wrap, .btt, .lang-wrap { po
     <i class="bi bi-chevron-down" id="langChev" style="font-size:.7rem;transition:transform .2s"></i>
   </button>
   <div class="lang-dropdown" id="langDd">
-    <a href="#" class="lang-option" onclick="selectLang('pt','Português','🇧🇷');return false">
-      <img src="https://flagcdn.com/w20/br.png" class="lang-flag" alt="PT"> Português
-    </a>
-    <a href="#" class="lang-option" onclick="selectLang('en','English','🇺🇸');return false">
-      <img src="https://flagcdn.com/w20/us.png" class="lang-flag" alt="EN"> English
-    </a>
-    <a href="#" class="lang-option" onclick="selectLang('es','Español','🇪🇸');return false">
-      <img src="https://flagcdn.com/w20/es.png" class="lang-flag" alt="ES"> Español
-    </a>
-    <a href="#" class="lang-option" onclick="selectLang('fr','Français','🇫🇷');return false">
-      <img src="https://flagcdn.com/w20/fr.png" class="lang-flag" alt="FR"> Français
-    </a>
-    <a href="#" class="lang-option" onclick="selectLang('de','Deutsch','🇩🇪');return false">
-      <img src="https://flagcdn.com/w20/de.png" class="lang-flag" alt="DE"> Deutsch
-    </a>
+    <a href="#" class="lang-option" onclick="selectLang('pt','Português','🇧🇷');return false"><img src="https://flagcdn.com/w20/br.png" class="lang-flag" alt="PT"> Português</a>
+    <a href="#" class="lang-option" onclick="selectLang('en','English','🇺🇸');return false"><img src="https://flagcdn.com/w20/us.png" class="lang-flag" alt="EN"> English</a>
+    <a href="#" class="lang-option" onclick="selectLang('es','Español','🇪🇸');return false"><img src="https://flagcdn.com/w20/es.png" class="lang-flag" alt="ES"> Español</a>
+    <a href="#" class="lang-option" onclick="selectLang('fr','Français','🇫🇷');return false"><img src="https://flagcdn.com/w20/fr.png" class="lang-flag" alt="FR"> Français</a>
+    <a href="#" class="lang-option" onclick="selectLang('de','Deutsch','🇩🇪');return false"><img src="https://flagcdn.com/w20/de.png" class="lang-flag" alt="DE"> Deutsch</a>
   </div>
 </div>
 
 <a href="#" class="btt" id="bttBtn"><i class="bi bi-arrow-up"></i></a>
 
-<!-- SCRIPTS -->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chess.js@0.10.3/chess.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
@@ -1685,7 +929,6 @@ function setupTouch(boardId, isMyTurnFn, makeMoveBySquaresFn){
   const state = {selected:null,dragActive:false,fromSq:null,clone:null,pieceEl:null};
   const TAP = 8;
   let startX=0,startY=0;
-
   function getOri(){
     const a8 = boardEl.querySelector('.square-a8');
     if(!a8) return 'white';
@@ -2103,127 +1346,55 @@ window.switchGameTab = tab=>{
 };
 
 /* ─────────────────────────────────────────
-   NEWS — ESTÁTICO ATUALIZADO ABR 2026
+   CURIOSIDADES — CORRIGIDAS
 ───────────────────────────────────────── */
-const STATIC_NEWS=[
-  {title:'Candidatos 2026: Caruana lidera após vencer Nakamura na rodada de abertura',excerpt:'Fabiano Caruana venceu Hikaru Nakamura com as brancas na rodada 1 do Torneio de Candidatos 2026, disputado no Chipre. A partida terminou em 42 lances com uma elegante combinação tática.',link:'https://www.chess.com/news',date:'30 Mar 2026',emoji:'⚔️',source:'Chess.com',hasRealLink:true},
-  {title:'Abdusattorov triunfa no Prague Masters 2026 — 3º torneio clássico seguido',excerpt:'Nodirbek Abdusattorov conquistou o Prague Chess Festival Masters 2026 com 1 ponto de vantagem, completando London Classic 2025, Tata Steel 2026 e Praga — uma das sequências mais dominantes dos últimos anos.',link:'https://www.chess.com/news/view/abdusattorov-wins-2026-prague-chess-festival',date:'6 Mar 2026',emoji:'🏆',source:'Chess.com',hasRealLink:true},
-  {title:'Bluebaum surpreende e desafia favoritos nos Candidatos 2026',excerpt:'Matthias Bluebaum, o classificado "surpresa" do Candidatos 2026, derrotou Giri na rodada 2 com um jogo posicional exemplar, gerando alarde entre os comentaristas e especialistas.',link:'https://www.chess.com/news',date:'1 Abr 2026',emoji:'♟',source:'ChessBase',hasRealLink:true},
-  {title:'Gukesh busca mostrar força de campeão mundial no Candidatos 2026',excerpt:'D. Gukesh, atual campeão mundial, enfrenta seu primeiro Torneio de Candidatos como título em defesa. O jovem GM indiano enfrenta forte pressão de Pragg, Nakamura e Caruana.',link:'https://www.chess.com/news',date:'29 Mar 2026',emoji:'👑',source:'Chess.com',hasRealLink:true},
-  {title:'FIDE confirma formato do Campeonato Mundial 2027 com mudanças históricas',excerpt:'A FIDE anunciou o novo ciclo do Campeonato Mundial 2027, incluindo um evento piloto Total Chess com partidas clássicas, rápidas e blitz. Carlsen não confirmou presença.',link:'https://www.chess.com/news',date:'Mar 2026',emoji:'🌍',source:'FIDE',hasRealLink:true},
-  {title:'Carlsen vence 6º título mundial de rápido em 2025 — recorde absoluto',excerpt:'Magnus Carlsen sagrou-se hexacampeão mundial de xadrez rápido em dezembro de 2025, superando seu próprio recorde de títulos em eventos de ritmo rápido da FIDE.',link:'https://www.chess.com/news',date:'Dez 2025',emoji:'⚡',source:'Chess.com',hasRealLink:true},
+const CURIOS = [
+  {q:'♟ Quantas posições possíveis existem no xadrez?', a:'Estima-se 10⁴⁴ posições legais — mais que átomos no universo observável. Cada partida é genuinamente única na história humana.'},
+  {q:'⏳ Qual foi a partida mais longa da história?', a:'Nikolic vs Arsovic, 1989, Iugoslávia: 269 movimentos e mais de 20 horas de jogo, terminando em empate por repetição.'},
+  {q:'👑 Por que a Rainha é a peça mais poderosa?', a:'Na Europa do século XV ela foi gradualmente fortalecida. Originalmente chamada "Conselheiro", era muito fraca — movia apenas uma casa na diagonal.'},
+  {q:'🤖 O Deep Blue realmente venceu Kasparov em 1997?', a:'Sim, por 3.5–2.5 no match revanche. Kasparov alegou que algumas jogadas eram "impossíveis para uma máquina" e pediu os logs — que nunca foram divulgados.'},
+  {q:'⚡ Qual o xeque-mate mais rápido possível?', a:'O "Mate do Louco" acontece em apenas 2 movimentos: 1.f3 e4 2.g4 Dh4#. É o mate mais rápido com as pretas.'},
+  {q:'🏅 O xadrez é esporte olímpico?', a:'É reconhecido pelo COI desde 2000, mas não integra o programa olímpico. Tem suas próprias Olimpíadas bienais organizadas pela FIDE.'},
+  {q:'📈 Qual foi o ELO mais alto da história?', a:'Magnus Carlsen atingiu 2882 pontos em maio de 2014 — a maior pontuação já registrada. Para comparação, um jogador médio de clube tem cerca de 1400.'},
+  {q:'🔄 O que é "Zugzwang"?', a:'Palavra alemã para a situação onde qualquer jogada piora sua posição. Quem tem Zugzwang preferiria "passar" a vez — mas no xadrez isso é proibido.'},
+  {q:'📚 Quantas horas por dia estuda um campeão mundial?', a:'Carlsen e Kasparov estudavam de 6 a 10 horas por dia nos picos de preparação. Kasparov dizia estudar xadrez "como se fosse um trabalho de tempo integral".'},
+  {q:'⏱ O que significa "tempo" no xadrez?', a:'"Tempo" é uma unidade de vantagem equivalente a um movimento extra. Perder um único tempo na abertura pode custar a partida em níveis avançados.'},
+  {q:'♛ Qual é a abertura mais popular do mundo?', a:'A Defesa Siciliana (1.e4 c5) é a resposta mais jogada contra 1.e4 em torneios profissionais, usada por campeões como Kasparov, Fischer e Anand.'},
+  {q:'🧠 Jogar xadrez realmente melhora a inteligência?', a:'Estudos mostram que o xadrez melhora memória, concentração e pensamento lógico. Uma pesquisa de 2016 com 4.000 crianças mostrou melhora de notas em matemática após 1 ano de prática.'},
 ];
 
-const RSS_FEEDS=[
-  {url:'https://www.chess.com/news/rss.xml',name:'Chess.com',emoji:'♟'},
-  {url:'https://en.chessbase.com/rss/news.xml',name:'ChessBase',emoji:'♛'},
-];
-const RSS2JSON='https://api.rss2json.com/v1/api.json?rss_url=';
-function stripHTML(h){ const d=document.createElement('div'); d.innerHTML=h; return(d.textContent||'').replace(/\s+/g,' ').trim(); }
-function formatDate(s){
-  if(!s) return 'Recente';
-  try{
-    const d=new Date(s);
-    const diff=Math.floor((Date.now()-d)/86400000);
-    if(diff===0) return 'Hoje';
-    if(diff===1) return 'Ontem';
-    if(diff<7) return `${diff} dias atrás`;
-    return d.toLocaleDateString('pt-BR',{day:'2-digit',month:'short'});
-  }catch{ return (s||'').slice(0,10); }
-}
-async function fetchFeed(feed){
-  try{
-    const r=await fetch(RSS2JSON+encodeURIComponent(feed.url)+'&count=6');
-    if(!r.ok) throw 0;
-    const d=await r.json();
-    if(!d.items||!d.items.length) throw 0;
-    return d.items.map(item=>{
-      const link=item.link||item.guid||'';
-      const isRealLink=link.startsWith('http')&&link.length>30;
-      return{
-        title:(item.title||'').replace(/&amp;/g,'&').replace(/&quot;/g,'"').slice(0,100),
-        excerpt:stripHTML(item.description||item.content||item.summary||'').slice(0,200),
-        link:isRealLink?link:'',
-        date:formatDate(item.pubDate||item.published),
-        emoji:feed.emoji,source:feed.name,hasRealLink:isRealLink
-      };
-    }).filter(item=>item.title&&item.title.length>10);
-  }catch{ return null; }
-}
-async function loadNews(){
-  const grid=document.getElementById('newsGrid');
-  grid.innerHTML='<div class="news-card"><div class="news-thumb skel" style="height:120px"></div><div class="news-body"><div class="skel" style="height:12px;margin-bottom:8px"></div><div class="skel" style="height:55px"></div></div></div>'.repeat(4);
-  let allNews=[];
-  const results=await Promise.allSettled(RSS_FEEDS.map(feed=>Promise.race([fetchFeed(feed),new Promise((_,rej)=>setTimeout(()=>rej('timeout'),5000))])));
-  results.forEach(r=>{ if(r.status==='fulfilled'&&r.value) allNews=allNews.concat(r.value); });
-  const withRealLinks=allNews.filter(n=>n.hasRealLink);
-  const finalNews=withRealLinks.length>=3?withRealLinks:STATIC_NEWS;
-  renderNews(finalNews.slice(0,8));
-  updateTicker(finalNews);
-}
-function renderNews(items){
-  document.getElementById('newsGrid').innerHTML=items.map(item=>{
-    const hasLink=item.link&&item.link.length>20;
-    return`<div class="news-card" onclick="${hasLink?`window.open('${item.link}','_blank','noopener')`:'void(0)'}" style="${hasLink?'cursor:pointer':'cursor:default'}">
-  <div class="news-thumb" style="background:linear-gradient(135deg,#1a0a2e,#2c1564)">
-    <span>${item.emoji}</span>
-    <span class="news-source">${item.source}</span>
-    ${hasLink?'<span style="position:absolute;top:8px;left:8px;background:linear-gradient(135deg,#FFD700,#FFA500);border-radius:6px;padding:2px 8px;font-family:DM Mono,monospace;font-size:.6rem;color:#1a0a2e;font-weight:700">✓ VERIFICADO</span>':''}
-  </div>
-  <div class="news-body">
-    <span class="news-tag">Xadrez</span>
-    <div class="news-title">${item.title}</div>
-    <div class="news-excerpt">${item.excerpt}${item.excerpt.length>=195?'...':''}</div>
-    <div class="news-foot">
-      <span>📅 ${item.date}</span>
-      ${hasLink?`<a href="${item.link}" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="color:var(--gold);font-family:'DM Mono',monospace;font-size:.65rem;font-weight:700">Ler →</a>`:`<span>📰 ${item.source}</span>`}
-    </div>
-  </div>
-</div>`;
-  }).join('');
-}
-function closeArt(e){ if(e.target===document.getElementById('artOverlay')) document.getElementById('artOverlay').classList.remove('open'); }
-async function refreshNews(){
-  const btn=document.getElementById('refreshBtn');
-  btn.classList.add('spinning');
-  await loadNews();
-  btn.classList.remove('spinning');
-  toast('✅ Notícias atualizadas!');
-}
-function updateTicker(news){
-  const doubled=[...news,...news];
-  document.getElementById('tickerTrack').innerHTML=doubled.map(n=>`<span>${n.title}</span>`).join('');
-}
+function loadCurios() {
+  const grid = document.getElementById('curioGrid');
+  if (!grid) return;
 
-/* ─────────────────────────────────────────
-   CURIOSIDADES
-───────────────────────────────────────── */
-const CURIOS=[
-  {q:'Quantas posições possíveis existem no xadrez?',a:'Estima-se 10^44 posições legais — mais que átomos no universo observável. Cada partida é genuinamente única.'},
-  {q:'Qual foi a partida mais longa da história?',a:'Nikolic vs Arsovic, 1989, Iugoslávia: 269 movimentos e mais de 20 horas de jogo, terminando em empate.'},
-  {q:'Por que a Rainha é a peça mais poderosa?',a:'Na Europa do século XV foi gradualmente fortalecida. Originalmente chamada "Conselheiro", era muito fraca.'},
-  {q:'O Deep Blue realmente venceu Kasparov em 1997?',a:'Sim, por 3.5-2.5 no match revanche. Kasparov alegou jogadas "impossíveis para uma máquina".'},
-  {q:'Qual o recorde de xeque-mate mais rápido?',a:'O "Mate do Louco" acontece em apenas 2 movimentos: 1.f3 e4 2.g4 Dh4#.'},
-  {q:'O xadrez é esporte olímpico?',a:'Reconhecido pelo COI desde 2000, mas não integra o programa olímpico. Tem suas próprias Olimpíadas bienais pela FIDE.'},
-  {q:'Qual foi o ELO mais alto da história?',a:'Magnus Carlsen atingiu 2882 pontos em 2014 — a maior pontuação já registrada na história.'},
-  {q:'O que é o "Zugzwang"?',a:'Palavra alemã para situação onde qualquer jogada piora sua posição. Crucial em finais de jogo.'},
-  {q:'Quantas horas por dia estuda um campeão mundial?',a:'Carlsen e Kasparov estudam de 6 a 10 horas por dia nos picos de preparação.'},
-  {q:'O que significa "tempo" no xadrez?',a:'"Tempo" é uma unidade de vantagem equivalente a um movimento. Perder um único tempo pode custar a partida.'},
-];
-function loadCurios(){
-  const d=new Date();
-  const seed=d.getFullYear()*1000+Math.floor((d-new Date(d.getFullYear(),0,0))/86400000);
-  const shuffled=[...CURIOS].sort((a,b)=>{
-    const ha=Math.sin(seed*(CURIOS.indexOf(a)+1))*10000;
-    const hb=Math.sin(seed*(CURIOS.indexOf(b)+1))*10000;
-    return(ha-Math.floor(ha))-(hb-Math.floor(hb));
+  // Embaralha com seed do dia para variar diariamente
+  const d = new Date();
+  const seed = d.getFullYear() * 1000 + Math.floor((d - new Date(d.getFullYear(), 0, 0)) / 86400000);
+  const shuffled = [...CURIOS].sort((a, b) => {
+    const ia = CURIOS.indexOf(a) + 1;
+    const ib = CURIOS.indexOf(b) + 1;
+    return (Math.sin(seed * ia) * 10000 % 1) - (Math.sin(seed * ib) * 10000 % 1);
   });
-  document.getElementById('curioGrid').innerHTML=shuffled.slice(0,9).map(c=>`
-    <div class="curio-card" onclick="this.classList.toggle('open')">
+
+  grid.innerHTML = shuffled.map((c, i) => `
+    <div class="curio-card" id="curio-${i}">
       <div class="curio-q">${c.q}</div>
       <div class="curio-a">${c.a}</div>
-      <div class="curio-toggle"><i class="bi bi-chevron-down"></i> Ver resposta</div>
-    </div>`).join('');
+      <div class="curio-toggle">
+        <span class="curio-toggle-icon">▼</span> Ver resposta
+      </div>
+    </div>
+  `).join('');
+
+  // Event listeners nos cards
+  grid.querySelectorAll('.curio-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const isOpen = card.classList.contains('open');
+      // Fecha outros se quiser comportamento accordion (opcional)
+      // grid.querySelectorAll('.curio-card.open').forEach(c => c.classList.remove('open'));
+      card.classList.toggle('open', !isOpen);
+    });
+  });
 }
 
 /* ─────────────────────────────────────────
@@ -2273,81 +1444,7 @@ function closeBlogModal(e){ if(e.target===document.getElementById('blogOverlay')
 function closeBlogModalBtn(){ document.getElementById('blogOverlay').classList.remove('open'); document.body.style.overflow=''; }
 
 /* ─────────────────────────────────────────
-   FEED DE CURIOSIDADES
-───────────────────────────────────────── */
-const ALL_FEED_ITEMS=[
-  {cat:'space',emoji:'🌌',bg:'linear-gradient(135deg,#e8daef,#d2b4de)',title:'6 Planetas Alinhados no Céu em Fevereiro 2026 — Parada Rara',desc:'Mercúrio, Vênus, Netuno, Saturno, Urano e Júpiter aparecerem juntos no céu logo após o pôr do sol em 28 de fevereiro. Quatro deles visíveis a olho nu.',date:'28 Fev 2026',source:'NASA',link:'https://www.nasa.gov/blogs/watch-the-skies/'},
-  {cat:'science',emoji:'🔬',bg:'linear-gradient(135deg,#d5f5e3,#a9dfbf)',title:'Novo Tipo de Cristal de Tempo Desafia Física Quântica',desc:'Pesquisadores da TU Wien demonstraram que correlações quânticas entre partículas podem estabilizar "cristais de tempo" — estruturas que oscilam sem agente externo.',date:'Out 2025',source:'ScienceDaily',link:'https://www.sciencedaily.com/'},
-  {cat:'space',emoji:'🔭',bg:'linear-gradient(135deg,#e8daef,#d2b4de)',title:'Eclipse Total Lunar de 3 de Março 2026 — "Lua de Sangue"',desc:'A Lua ficou completamente vermelha em 3 de março de 2026. O eclipse foi visível nas Américas e é o último total até 2028.',date:'3 Mar 2026',source:'NASA Science',link:'https://science.nasa.gov/'},
-  {cat:'tech',emoji:'🧠',bg:'linear-gradient(135deg,#d6eaf8,#a9cce3)',title:'Células Cerebrais Humanas em Chip Reconhecem Fala',desc:'Pesquisadores da Indiana University conectaram um organoide cerebral a um chip eletrônico. O sistema híbrido conseguiu reconhecer padrões de fala com rudimentar precisão.',date:'Dez 2023',source:'MIT Tech Review',link:'https://www.technologyreview.com/'},
-  {cat:'tech',emoji:'💻',bg:'linear-gradient(135deg,#d6eaf8,#a9cce3)',title:'Memória Quântica em Chip Atinge 80% de Eficiência',desc:'Pesquisadores demonstraram memórias quânticas integradas baseadas em cristais de íon de terra-rara acoplados a microcavidades, atingindo 80,3% — recorde mundial para sistemas integrados.',date:'Fev 2026',source:'Nature Photonics',link:'https://www.nature.com/'},
-  {cat:'space',emoji:'🪐',bg:'linear-gradient(135deg,#e8daef,#d2b4de)',title:'Vênus e Saturno em Conjunção — A Apenas 1 Grau',desc:'Em 8 de março, Vênus e Saturno apareceram a cerca de 1 grau um do outro no céu noturno, logo após o pôr do sol — uma raridade visual.',date:'8 Mar 2026',source:'NASA Science',link:'https://science.nasa.gov/'},
-  {cat:'science',emoji:'⚡',bg:'linear-gradient(135deg,#fef9e7,#fdebd0)',title:'Neurônio Humano Aprende a Jogar Pong em Tempo Real',desc:'Neurônios humanos cultivados em laboratório aprenderam a jogar o videogame Pong. Os experimentos da Cortical Labs são evidências de que células cerebrais em uma placa exibem inteligência.',date:'Out 2022',source:'ScienceDaily',link:'https://www.sciencedaily.com/'},
-  {cat:'history',emoji:'🏺',bg:'linear-gradient(135deg,#fef9e7,#fdebd0)',title:'Futuros Computadores Poderão Rodar em Células Cerebrais?',desc:'Cientistas da Johns Hopkins propõem a "inteligência de organoide" como nova fronteira do biocomputador. Cada organoide tem ~50.000 células — como o sistema nervoso de uma mosca.',date:'Fev 2023',source:'ScienceDaily',link:'https://www.sciencedaily.com/'},
-  {cat:'tech',emoji:'🤖',bg:'linear-gradient(135deg,#d6eaf8,#a9cce3)',title:'Breakthrough da Caltech: Memória Quântica 30x Mais Durável',desc:'Equipe do Caltech desenvolveu uma solução para que qubits supercondutores armazenem informação por períodos muito mais longos, convertendo-a em forma mais estável.',date:'Ago 2025',source:'ScienceDaily',link:'https://www.sciencedaily.com/'},
-  {cat:'space',emoji:'☀️',bg:'linear-gradient(135deg,#fef9e7,#fdebd0)',title:'15 Eventos Astronômicos de 2026 que Você Não Pode Perder',desc:'De eclipses solares e lunares a conjunções planetárias, o guia da Space.com lista os melhores momentos para observar o céu, incluindo a Superlua de Natal mais intensa desde 2018.',date:'Jan 2026',source:'Space.com',link:'https://www.space.com/'},
-  {cat:'health',emoji:'🧬',bg:'linear-gradient(135deg,#d5f5e3,#a9dfbf)',title:'Estudo: Jogar Xadrez Regularmente Reduz Risco de Demência em 35%',desc:'Meta-análise de 12 estudos publicada no JAMA mostra que jogar jogos de estratégia como xadrez está associado a uma redução significativa no risco de demência em idosos.',date:'Mar 2026',source:'JAMA',link:'https://www.chess.com/'},
-  {cat:'mystery',emoji:'🔮',bg:'linear-gradient(135deg,#e8daef,#d2b4de)',title:'Manuscrito Voynich: IA Finalmente Decifra Padrões Ocultos',desc:'Pesquisadores usaram modelos de linguagem para identificar padrões gramaticais consistentes no misterioso Manuscrito Voynich, sugerindo que pode ser uma língua real e não um código.',date:'Fev 2026',source:'ArXiv',link:'https://arxiv.org/'},
-];
-
-let feedPage=0; const FEED_PAGE_SIZE=6;
-let currentFeedFilter='all'; let feedFilteredItems=[...ALL_FEED_ITEMS];
-function filterFeed(filter,btn){
-  document.querySelectorAll('.feed-pill').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  currentFeedFilter=filter; feedPage=0;
-  feedFilteredItems=filter==='all'?[...ALL_FEED_ITEMS]:ALL_FEED_ITEMS.filter(i=>i.cat===filter);
-  renderFeedPage(true);
-}
-function renderFeedPage(reset){
-  const grid=document.getElementById('feedGrid');
-  const start=feedPage*FEED_PAGE_SIZE;
-  const slice=feedFilteredItems.slice(start,start+FEED_PAGE_SIZE);
-  if(reset) grid.innerHTML='';
-  slice.forEach((item,idx)=>{
-    const card=document.createElement('div');
-    card.className='feed-card';
-    card.style.animation=`fadeInUp .35s ease ${idx*.07}s both`;
-    card.innerHTML=`
-      <div class="feed-card-img" style="background:${item.bg}">
-        <span style="font-size:3.5rem;filter:drop-shadow(0 4px 12px rgba(0,0,0,.15))">${item.emoji}</span>
-        <span class="feed-cat-badge">${getCatLabel(item.cat)}</span>
-      </div>
-      <div class="feed-card-body">
-        <div class="feed-card-title">${item.title}</div>
-        <div class="feed-card-desc">${item.desc}</div>
-        <div class="feed-card-foot">
-          <span>📅 ${item.date} · ${item.source}</span>
-          <a href="${item.link}" target="_blank" rel="noopener" class="feed-read-more" onclick="event.stopPropagation()">Ler mais →</a>
-        </div>
-      </div>`;
-    card.addEventListener('click',()=>openFeedCard(item));
-    grid.appendChild(card);
-  });
-  feedPage++;
-  const btn=document.getElementById('loadMoreBtn');
-  btn.style.display=feedPage*FEED_PAGE_SIZE<feedFilteredItems.length?'':'none';
-}
-function getCatLabel(cat){
-  return{science:'🔬 Ciência',tech:'💻 Tech',space:'🚀 Espaço',history:'📜 História',nature:'🌿 Natureza',mystery:'🔮 Mistério',health:'🧬 Saúde'}[cat]||cat;
-}
-function loadMoreFeed(){
-  const btn=document.getElementById('loadMoreBtn');
-  btn.classList.add('loading');
-  btn.innerHTML='<i class="bi bi-arrow-clockwise"></i> Carregando...';
-  setTimeout(()=>{ renderFeedPage(false); btn.innerHTML='<i class="bi bi-arrow-down-circle"></i> Carregar mais curiosidades'; btn.classList.remove('loading'); },600);
-}
-function openFeedCard(item){
-  document.getElementById('artContent').innerHTML=`
-    <span class="news-tag">${getCatLabel(item.cat)}</span>
-    <h2 style="font-family:'Cinzel',serif;font-size:1.3rem;color:var(--cloud-white);margin:.8rem 0">${item.title}</h2>
-    <div style="font-family:'DM Mono',monospace;font-size:.7rem;color:var(--text-muted);margin-bottom:1.2rem">📅 ${item.date} · 📰 ${item.source}</div>
-    <div class="art-body"><p>${item.desc}</p><p>Para ler o artigo completo com todos os detalhes:</p><p><a href="${item.link}" target="_blank" rel="noopener">👉 Ler a fonte original</a></p></div>`;
-  document.getElementById('artOverlay').classList.add('open');
-}
-
-/* ─────────────────────────────────────────
-   RANKING — ATUALIZADO ABR 2026
+   RANKING — ABR 2026
 ───────────────────────────────────────── */
 const RANKING=[
   {pos:1,flag:'🇳🇴',name:'Magnus Carlsen',elo:2830},
@@ -2371,9 +1468,7 @@ function loadRanking(){
     </div>`).join('');
 }
 
-/* ─────────────────────────────────────────
-   APPS FILTER
-───────────────────────────────────────── */
+/* APPS FILTER */
 function filterApps(filter,btn){
   document.querySelectorAll('.filter-pill').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
@@ -2382,19 +1477,7 @@ function filterApps(filter,btn){
   });
 }
 
-/* ─────────────────────────────────────────
-   DATE
-───────────────────────────────────────── */
-function updateDate(){
-  const d=new Date();
-  const days=['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
-  const months=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
-  document.getElementById('dateDisplay').textContent=`📅 ${days[d.getDay()]}, ${d.getDate()} de ${months[d.getMonth()]} de ${d.getFullYear()}`;
-}
-
-/* ─────────────────────────────────────────
-   LANGUAGE SELECTOR
-───────────────────────────────────────── */
+/* LANGUAGE SELECTOR */
 document.addEventListener('click',function(e){
   const w=document.getElementById('langWrap');
   if(w&&!w.contains(e.target)){ document.getElementById('langDd').classList.remove('open'); document.getElementById('langChev').style.transform='rotate(0deg)'; }
@@ -2424,11 +1507,8 @@ window.selectLang=function(code,name,emoji){
 })();
 
 document.addEventListener('DOMContentLoaded',()=>{
-  updateDate();
-  loadNews();
   loadCurios();
   loadRanking();
-  renderFeedPage(true);
 });
 </script>
 </body>
