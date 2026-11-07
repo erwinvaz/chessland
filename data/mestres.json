@@ -1,0 +1,38 @@
+[
+  {
+    "slug": "paul-morphy",
+    "name": "Paul Morphy",
+    "years": "1837–1884",
+    "country": "🇺🇸",
+    "bio_pt": "Prodígio americano do século XIX, considerado por muitos o primeiro campeão mundial não oficial. Famoso pelo jogo de ataque e desenvolvimento rápido.",
+    "bio_en": "American 19th-century prodigy, regarded by many as the unofficial first world champion. Famous for attacking play and rapid development.",
+    "pgn": "morphy.pgn"
+  },
+  {
+    "slug": "garry-kasparov",
+    "name": "Garry Kasparov",
+    "years": "1963–",
+    "country": "🇷🇺",
+    "bio_pt": "Campeão mundial de 1985 a 2000 e um dos maiores jogadores da história, conhecido pelo estilo dinâmico e pela preparação profunda.",
+    "bio_en": "World champion from 1985 to 2000 and one of the greatest players ever, known for dynamic style and deep preparation.",
+    "pgn": "kasparov.pgn"
+  },
+  {
+    "slug": "bobby-fischer",
+    "name": "Bobby Fischer",
+    "years": "1943–2008",
+    "country": "🇺🇸",
+    "bio_pt": "Campeão mundial em 1972. Conhecido pela precisão, pela preparação rigorosa e pela famosa \"Partida do Século\" aos 13 anos.",
+    "bio_en": "World champion in 1972. Known for precision, rigorous preparation and the famous \"Game of the Century\" at age 13.",
+    "pgn": "fischer.pgn"
+  },
+  {
+    "slug": "mikhail-tal",
+    "name": "Mikhail Tal",
+    "years": "1936–1992",
+    "country": "🇱🇻",
+    "bio_pt": "Campeão mundial em 1960, o \"Mago de Riga\", famoso pelos sacrifícios audaciosos e pelo ataque brilhante. Aqui: o match de 1960 contra Botvinnik e suas vitórias nos Candidatos.",
+    "bio_en": "1960 world champion, the \"Magician from Riga\", famous for daring sacrifices and brilliant attacks. Here: the 1960 match against Botvinnik and his wins in the Candidates.",
+    "pgn": "tal.pgn"
+  }
+]

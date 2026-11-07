@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pt-BR" data-lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grandes mestres — ChessLand</title>
+<meta name="description" content="Reveja partidas famosas dos grandes mestres do xadrez, lance a lance. Replay famous grandmaster chess games.">
+<link rel="canonical" href="https://chessland.com.br/mestres.html">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0a0a0f">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header class="site-header" id="site-header"></header>
+<main class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h1><span class="pt">Grandes <span class="grad">mestres</span></span><span class="en">Chess <span class="grad">grandmasters</span></span></h1>
+      <p class="muted"><span class="pt">Partidas históricas para rever e estudar. No app você tem ainda mais.</span><span class="en">Historic games to replay and study. The app has even more.</span></p>
+    </div>
+    <div class="grid" id="masters"></div>
+  </div>
+</main>
+<footer class="site-footer" id="site-footer"></footer>
+<script type="module">
+  import { initPage } from '/js/common.js';
+  import { initMestres } from '/js/mestres.js';
+  initPage('mestres');
+  initMestres();
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR" data-lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ranking — ChessLand</title>
+<meta name="description" content="Ranking público do ChessLand: os melhores jogadores em xadrez rápido, blitz e bullet. Public chess leaderboard.">
+<link rel="canonical" href="https://chessland.com.br/ranking.html">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0a0a0f">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header class="site-header" id="site-header"></header>
+<main class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h1><span class="pt">Ranking <span class="grad">ChessLand</span></span><span class="en"><span class="grad">ChessLand</span> leaderboard</span></h1>
+      <p class="muted"><span class="pt">Os melhores jogadores do ChessLand. Jogue no app para entrar na lista!</span><span class="en">The best ChessLand players. Play in the app to join the list!</span></p>
+    </div>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" data-mode="rapid" aria-selected="true"><span class="pt">Rápida</span><span class="en">Rapid</span></button>
+      <button class="tab" role="tab" data-mode="blitz" aria-selected="false">Blitz</button>
+      <button class="tab" role="tab" data-mode="bullet" aria-selected="false">Bullet</button>
+    </div>
+    <div class="table-wrap" id="rankBody" aria-live="polite"></div>
+  </div>
+</main>
+<footer class="site-footer" id="site-footer"></footer>
+<script type="module">
+  import { initPage } from '/js/common.js';
+  import { initRanking } from '/js/ranking.js';
+  initPage('ranking');
+  initRanking();
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR" data-lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bobby Fischer — Partidas | ChessLand</title>
+<meta name="description" content="Campeão mundial em 1972. Conhecido pela precisão, pela preparação rigorosa e pela famosa &quot;Partida do Século&quot; aos 13 anos.">
+<link rel="canonical" href="https://chessland.com.br/mestre/bobby-fischer/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0a0a0f">
+<meta property="og:title" content="Bobby Fischer — ChessLand">
+<meta property="og:description" content="Campeão mundial em 1972. Conhecido pela precisão, pela preparação rigorosa e pela famosa &quot;Partida do Século&quot; aos 13 anos.">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body data-slug="bobby-fischer">
+<header class="site-header" id="site-header"></header>
+<main class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h1>🇺🇸 Bobby Fischer</h1>
+      <p class="muted"><span class="pt">Campeão mundial em 1972. Conhecido pela precisão, pela preparação rigorosa e pela famosa &quot;Partida do Século&quot; aos 13 anos.</span><span class="en">World champion in 1972. Known for precision, rigorous preparation and the famous &quot;Game of the Century&quot; at age 13.</span></p>
+    </div>
+    <p id="status" class="state"></p>
+    <div id="content" hidden>
+      <div class="game-layout">
+        <div>
+          <div id="board"></div>
+          <div class="controls" id="controls"></div>
+        </div>
+        <div class="panel">
+          <h2 id="gameTitle" style="font-size:1.3rem"></h2>
+          <p class="muted" id="gameMeta"></p>
+          <p id="warn" class="notice" hidden></p>
+          <div class="moves" id="moves"></div>
+          <div class="chips" id="gameList"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer" id="site-footer"></footer>
+<script type="module">
+  import { initPage } from '/js/common.js';
+  import { initMestre } from '/js/mestre.js';
+  initPage('mestres');
+  initMestre(document.body.dataset.slug);
+</script>
+</body>
+</html>

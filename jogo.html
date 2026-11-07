@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR" data-lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Partida — ChessLand</title>
+<meta name="description" content="Reveja uma partida jogada no ChessLand, lance a lance. Replay a game played on ChessLand.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0a0a0f">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header class="site-header" id="site-header"></header>
+<main class="section">
+  <div class="wrap">
+    <p id="status" class="state"></p>
+    <div id="content" hidden>
+      <div class="game-layout">
+        <div>
+          <div class="player-line"><b id="blackName"></b><span>♚</span></div>
+          <div id="board"></div>
+          <div class="player-line"><b id="whiteName"></b><span>♔</span></div>
+          <div class="controls" id="controls"></div>
+        </div>
+        <div class="panel">
+          <p><span class="result-badge" id="result"></span></p>
+          <p id="warn" class="notice" hidden></p>
+          <div class="moves" id="moves"></div>
+          <div class="cta-row">
+            <a class="btn" id="openApp" href="#" rel="noopener"><span class="pt">Abrir no app</span><span class="en">Open in app</span></a>
+            <a class="btn btn-ghost" id="getApp" href="#" rel="noopener"><span class="pt">Baixar ChessLand</span><span class="en">Get ChessLand</span></a>
+            <button class="btn btn-ghost" id="copy" type="button"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer" id="site-footer"></footer>
+<script type="module">
+  import { initPage } from '/js/common.js';
+  import { initJogo } from '/js/jogo.js';
+  initPage('');
+  initJogo();
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR" data-lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mikhail Tal — Partidas | ChessLand</title>
+<meta name="description" content="Campeão mundial em 1960, o &quot;Mago de Riga&quot;, famoso pelos sacrifícios audaciosos e pelo ataque brilhante. Aqui: o match de 1960 contra Botvinnik e suas vitórias nos Candidatos.">
+<link rel="canonical" href="https://chessland.com.br/mestre/mikhail-tal/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0a0a0f">
+<meta property="og:title" content="Mikhail Tal — ChessLand">
+<meta property="og:description" content="Campeão mundial em 1960, o &quot;Mago de Riga&quot;, famoso pelos sacrifícios audaciosos e pelo ataque brilhante. Aqui: o match de 1960 contra Botvinnik e suas vitórias nos Candidatos.">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body data-slug="mikhail-tal">
+<header class="site-header" id="site-header"></header>
+<main class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h1>🇱🇻 Mikhail Tal</h1>
+      <p class="muted"><span class="pt">Campeão mundial em 1960, o &quot;Mago de Riga&quot;, famoso pelos sacrifícios audaciosos e pelo ataque brilhante. Aqui: o match de 1960 contra Botvinnik e suas vitórias nos Candidatos.</span><span class="en">1960 world champion, the &quot;Magician from Riga&quot;, famous for daring sacrifices and brilliant attacks. Here: the 1960 match against Botvinnik and his wins in the Candidates.</span></p>
+    </div>
+    <p id="status" class="state"></p>
+    <div id="content" hidden>
+      <div class="game-layout">
+        <div>
+          <div id="board"></div>
+          <div class="controls" id="controls"></div>
+        </div>
+        <div class="panel">
+          <h2 id="gameTitle" style="font-size:1.3rem"></h2>
+          <p class="muted" id="gameMeta"></p>
+          <p id="warn" class="notice" hidden></p>
+          <div class="moves" id="moves"></div>
+          <div class="chips" id="gameList"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer" id="site-footer"></footer>
+<script type="module">
+  import { initPage } from '/js/common.js';
+  import { initMestre } from '/js/mestre.js';
+  initPage('mestres');
+  initMestre(document.body.dataset.slug);
+</script>
+</body>
+</html>
