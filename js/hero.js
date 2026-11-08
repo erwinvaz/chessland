@@ -71,8 +71,12 @@ export async function startHero({ board: boardEl, label: labelEl, white, black, 
     i = 0;
     const { row } = latest;
     const res = row.winner === 'white' ? '1-0' : row.winner === 'black' ? '0-1' : '½-½';
-    if (white) white.textContent = row.white_name || (getLang() === 'pt' ? 'Jogador' : 'Player');
-    if (black) black.textContent = row.black_name || (getLang() === 'pt' ? 'Jogador' : 'Player');
+    const who = (name, rating) => {
+      const n = name || (getLang() === 'pt' ? 'Jogador' : 'Player');
+      return rating != null && rating > 0 ? `${n} (${rating})` : n;
+    };
+    if (white) white.textContent = who(row.white_name, row.white_rating);
+    if (black) black.textContent = who(row.black_name, row.black_rating);
     if (caption) caption.innerHTML = `${bi('Última partida jogada no ChessLand', 'Latest game played on ChessLand')} · ${res}`;
     show();
     if (!reduce) timer = setTimeout(tick, 1500);
