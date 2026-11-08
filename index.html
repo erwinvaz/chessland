@@ -3,138 +3,138 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ChessLand — Xadrez online grátis para Android</title>
-<meta name="description" content="ChessLand: jogue xadrez online com ranking, contra bots de todos os níveis, com análise Stockfish e treinador de IA. Chess online, bots and analysis — free on Android.">
-<link rel="canonical" href="https://chessland.com.br/">
+<title>Paul Morphy — 80 partidas comentadas lance a lance | ChessLand</title>
+<meta name="description" content="Prodígio americano do século XIX, considerado por muitos o primeiro campeão mundial não oficial. Famoso pelo jogo de ataque e desenvolvimento rápido. 80 partidas para rever lance a lance.">
+<link rel="canonical" href="https://chessland.com.br/mestre/paul-morphy/">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#0a0a0f">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ChessLand — Xadrez online grátis">
-<meta property="og:description" content="Ranking online, bots, análise Stockfish e treinador de IA. Grátis no Android.">
-<meta property="og:url" content="https://chessland.com.br/">
-<meta name="twitter:card" content="summary">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Paul Morphy — ChessLand">
+<meta property="og:description" content="Prodígio americano do século XIX, considerado por muitos o primeiro campeão mundial não oficial. Famoso pelo jogo de ataque e desenvolvimento rápido. 80 partidas para rever lance a lance.">
+<meta property="og:url" content="https://chessland.com.br/mestre/paul-morphy/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Paul Morphy","description":"American 19th-century prodigy, regarded by many as the unofficial first world champion. Famous for attacking play and rapid development.","url":"https://chessland.com.br/mestre/paul-morphy/","knowsAbout":"Chess"}</script>
 <link rel="stylesheet" href="/css/style.css?v=4">
 </head>
-<body>
+<body data-slug="paul-morphy">
 <header class="site-header" id="site-header"></header>
-
-<main>
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <span class="eyebrow"><span class="pt">♞ Grátis no Android</span><span class="en">♞ Free on Android</span></span>
-        <h1>
-          <span class="pt">Xadrez online com <span class="grad">ranking de verdade</span>.</span>
-          <span class="en">Online chess with a <span class="grad">real leaderboard</span>.</span>
-        </h1>
-        <p class="lead">
-          <span class="pt">Desafie jogadores do mundo todo, treine contra bots de todos os níveis e analise suas partidas com Stockfish e um treinador de IA.</span>
-          <span class="en">Challenge players worldwide, train against bots of every level and analyze your games with Stockfish and an AI coach.</span>
-        </p>
-        <div class="cta-row">
-          <a class="btn" id="cta-play" href="#" rel="noopener"><span class="pt">Baixar no Google Play</span><span class="en">Get it on Google Play</span></a>
-          <a class="btn btn-ghost" href="/ranking.html"><span class="pt">Ver ranking</span><span class="en">See leaderboard</span></a>
+<main class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h1>🇺🇸 Paul Morphy</h1>
+      <p class="muted"><span class="pt">Prodígio americano do século XIX, considerado por muitos o primeiro campeão mundial não oficial. Famoso pelo jogo de ataque e desenvolvimento rápido.</span><span class="en">American 19th-century prodigy, regarded by many as the unofficial first world champion. Famous for attacking play and rapid development.</span></p>
+    </div>
+    <p id="status" class="state"></p>
+    <div id="content" hidden>
+      <div class="game-layout">
+        <div>
+          <div id="board"></div>
+          <div class="controls" id="controls"></div>
+        </div>
+        <div class="panel">
+          <h2 id="gameTitle" style="font-size:1.3rem"></h2>
+          <p class="muted" id="gameMeta"></p>
+          <p id="warn" class="notice" hidden></p>
+          <div class="moves" id="moves"></div>
         </div>
       </div>
-      <div class="hero-board">
-        <div class="board-card">
-          <div class="player-line"><b id="heroBlack">Duke &amp; Count</b><span>♚</span></div>
-          <div id="heroBoard" aria-label="Partida de xadrez animada"></div>
-          <div class="player-line"><b id="heroWhite">Paul Morphy</b><span>♔</span></div>
-        </div>
-        <div class="caption"><span id="heroCaption"><span class="pt">A Ópera de Morphy, 1858</span><span class="en">Morphy's Opera Game, 1858</span></span><b id="heroLabel"></b></div>
-      </div>
     </div>
-  </section>
-
-  <section class="section" id="recursos">
-    <div class="wrap">
-      <div class="section-head">
-        <h2><span class="pt">Tudo para jogar e evoluir</span><span class="en">Everything to play and improve</span></h2>
-        <p class="muted"><span class="pt">Do primeiro lance ao mate, o ChessLand acompanha você.</span><span class="en">From the first move to checkmate, ChessLand is with you.</span></p>
-      </div>
-      <div class="grid">
-        <article class="card"><div class="ico">🌍</div><h3><span class="pt">Partidas online ranqueadas</span><span class="en">Ranked online games</span></h3><p><span class="pt">Encontre adversários em rápida, blitz e bullet e veja seu rating subir.</span><span class="en">Find opponents in rapid, blitz and bullet and watch your rating climb.</span></p></article>
-        <article class="card"><div class="ico">🤖</div><h3><span class="pt">Bots de todos os níveis</span><span class="en">Bots for every level</span></h3><p><span class="pt">Do iniciante ao desafio máximo, sempre há um adversário à sua altura.</span><span class="en">From beginner to maximum challenge, there's always an opponent for you.</span></p></article>
-        <article class="card"><div class="ico">🧠</div><h3><span class="pt">Análise e treinador de IA</span><span class="en">Analysis and AI coach</span></h3><p><span class="pt">Descubra seus erros com o Stockfish e receba explicações em linguagem simples.</span><span class="en">Find your mistakes with Stockfish and get plain-language explanations.</span></p></article>
-        <article class="card"><div class="ico">📚</div><h3><span class="pt">Partidas de grandes mestres</span><span class="en">Grandmasters' games</span></h3><p><span class="pt">Reviva partidas famosas lance a lance e aprenda com os melhores.</span><span class="en">Replay famous games move by move and learn from the best.</span></p></article>
-        <article class="card"><div class="ico">♟️</div><h3><span class="pt">Aberturas e armadilhas</span><span class="en">Openings and traps</span></h3><p><span class="pt">Estude aberturas e evite (ou aplique) armadilhas clássicas.</span><span class="en">Study openings and avoid (or set) classic traps.</span></p></article>
-        <article class="card"><div class="ico">✨</div><h3><span class="pt">Modo Crazy Setup e efeitos</span><span class="en">Crazy Setup mode and effects</span></h3><p><span class="pt">Monte seu próprio exército e jogue com efeitos visuais divertidos.</span><span class="en">Build your own army and play with fun visual effects.</span></p></article>
-        <article class="card"><div class="ico">🗣️</div><h3><span class="pt">9 idiomas</span><span class="en">9 languages</span></h3><p><span class="pt">Jogue no seu idioma, em qualquer lugar.</span><span class="en">Play in your language, anywhere.</span></p></article>
-        <article class="card"><div class="ico">🔗</div><h3><span class="pt">Convide amigos por link</span><span class="en">Invite friends by link</span></h3><p><span class="pt">Envie um convite e comece uma partida em segundos.</span><span class="en">Send an invite and start a game in seconds.</span></p></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="video" hidden>
-    <div class="wrap">
-      <div class="section-head">
-        <h2><span class="pt">ChessLand no YouTube!</span><span class="en">ChessLand on YouTube!</span></h2>
-      </div>
-      <div class="video-box">
-        <button class="video-facade" id="videoPlay" type="button" aria-label="Reproduzir vídeo / Play video">
-          <img id="videoThumb" alt="" loading="lazy">
-          <span class="video-btn" aria-hidden="true">▶</span>
-        </button>
-      </div>
-      <p class="yt-sub"><a class="btn btn-yt" id="ytSubscribe" href="#" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg><span class="pt">Inscrever-se no canal</span><span class="en">Subscribe to the channel</span></a></p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap">
-      <div class="band">
-        <h2><span class="pt">Pronto para o seu primeiro lance?</span><span class="en">Ready for your first move?</span></h2>
-        <p class="muted"><span class="pt">Baixe grátis e comece a jogar agora.</span><span class="en">Download for free and start playing now.</span></p>
-        <a class="btn" id="cta-play2" href="#" rel="noopener"><span class="pt">Baixar no Google Play</span><span class="en">Get it on Google Play</span></a>
-      </div>
-    </div>
-  </section>
+    <aside class="app-note">
+      <p><span class="pt">No app <b>ChessLand</b> você encontra <b>muito mais partidas</b> de Paul Morphy e de outros grandes mestres, <b>com análise do Stockfish</b>.</span><span class="en">In the <b>ChessLand</b> app you'll find <b>many more games</b> by Paul Morphy and other grandmasters, <b>with Stockfish analysis</b>.</span></p>
+      <a class="btn btn-sm" href="https://play.google.com/store/apps/details?id=com.talentodev.chess" rel="noopener"><span class="pt">Baixar no Google Play</span><span class="en">Get it on Google Play</span></a>
+    </aside>
+    <section class="game-index-wrap">
+      <h2><span class="pt">Partidas de Paul Morphy (80)</span><span class="en">Games by Paul Morphy (80)</span></h2>
+      <ol class="game-index" id="gameIndex">
+        <li><a href="#g0" data-i="0">Paul Morphy – Paulsen, Louis · USA-01.Congress, 1857 · 1-0</a></li>
+        <li><a href="#g1" data-i="1">Meek, Alexander Beaufort – Paul Morphy · USA-01.Congress, 1857 · 0-1</a></li>
+        <li><a href="#g2" data-i="2">Thompson, J. – Paul Morphy · USA-01.Congress, 1857 · 0-1</a></li>
+        <li><a href="#g3" data-i="3">Paul Morphy – Lichtenhein, Theodor · USA-01.Congress, 1857 · 1-0</a></li>
+        <li><a href="#g4" data-i="4">Paul Morphy – Meek, Alexander Beaufort · USA-01.Congress, 1857 · 1-0</a></li>
+        <li><a href="#g5" data-i="5">Paul Morphy – Thompson, J. · USA-01.Congress, 1857 · 1-0</a></li>
+        <li><a href="#g6" data-i="6">Thompson, J. – Paul Morphy · USA-01.Congress, 1857 · 0-1</a></li>
+        <li><a href="#g7" data-i="7">Paul Morphy – Duke of Brunswick &amp; Count Isouard · Paris Opera, 1858 · 1-0</a></li>
+        <li><a href="#g8" data-i="8">Paul Morphy – John, Walter · London, 1858 · 1-0</a></li>
+        <li><a href="#g9" data-i="9">Paul Morphy – NN · London, 1858 · 1-0</a></li>
+        <li><a href="#g10" data-i="10">Staunton, Howard – Paul Morphy · London, 1858 · 0-1</a></li>
+        <li><a href="#g11" data-i="11">Paul Morphy – Deacon, Frederic · London, 1858 · 1-0</a></li>
+        <li><a href="#g12" data-i="12">Paul Morphy – Lewis, Frederic · London, 1858 · 1-0</a></li>
+        <li><a href="#g13" data-i="13">Owen, John – Paul Morphy · London (match 2), 1858 · 0-1</a></li>
+        <li><a href="#g14" data-i="14">Paul Morphy – Medley, George Webb · London (match 4), 1858 · 1-0</a></li>
+        <li><a href="#g15" data-i="15">Barnes, Thomas Wilson – Paul Morphy · London (match 1), 1858 · 0-1</a></li>
+        <li><a href="#g16" data-i="16">Barnes, Thomas Wilson – Paul Morphy · London (match 1), 1858 · 0-1</a></li>
+        <li><a href="#g17" data-i="17">Barnes, Thomas Wilson – Paul Morphy · London (match 1), 1858 · 0-1</a></li>
+        <li><a href="#g18" data-i="18">Barnes, Thomas Wilson – Paul Morphy · London (match 1), 1858 · 0-1</a></li>
+        <li><a href="#g19" data-i="19">Paul Morphy – Barnes, Thomas Wilson · London (match 1), 1858 · 1-0</a></li>
+        <li><a href="#g20" data-i="20">Paul Morphy – Barnes, Thomas Wilson · London (match 1), 1858 · 1-0</a></li>
+        <li><a href="#g21" data-i="21">Medley, George Webb – Paul Morphy · London (match 4), 1858 · 0-1</a></li>
+        <li><a href="#g22" data-i="22">Medley, George Webb – Paul Morphy · London (match 4), 1858 · 0-1</a></li>
+        <li><a href="#g23" data-i="23">Bird, Henry Edward – Paul Morphy · London (match 5), 1858 · 0-1</a></li>
+        <li><a href="#g24" data-i="24">Boden, Samuel Standige – Paul Morphy · London (match 3), 1858 · 0-1</a></li>
+        <li><a href="#g25" data-i="25">Paul Morphy – Boden, Samuel Standige · London (match 3), 1858 · 1-0</a></li>
+        <li><a href="#g26" data-i="26">Paul Morphy – Boden, Samuel Standige · London (match 3), 1858 · 1-0</a></li>
+        <li><a href="#g27" data-i="27">Paul Morphy – Boden, Samuel Standige · London (match 3), 1858 · 1-0</a></li>
+        <li><a href="#g28" data-i="28">Paul Morphy – Boden, Samuel Standige · London (match 3), 1858 · 1-0</a></li>
+        <li><a href="#g29" data-i="29">Paul Morphy – Bird, Henry Edward · London (match 5), 1858 · 1-0</a></li>
+        <li><a href="#g30" data-i="30">Paul Morphy – Loewenthal, Johann Jacob · London (match), 1858 · 1-0</a></li>
+        <li><a href="#g31" data-i="31">Paul Morphy – Loewenthal, Johann Jacob · London (match), 1858 · 1-0</a></li>
+        <li><a href="#g32" data-i="32">Paul Morphy – Loewenthal, Johann Jacob · London (match), 1858 · 1-0</a></li>
+        <li><a href="#g33" data-i="33">Loewenthal, Johann Jacob – Paul Morphy · London (match), 1858 · 0-1</a></li>
+        <li><a href="#g34" data-i="34">Paul Morphy – Loewenthal, Johann Jacob · London (match), 1858 · 1-0</a></li>
+        <li><a href="#g35" data-i="35">Paul Morphy – Loewenthal, Johann Jacob · London (match), 1858 · 1-0</a></li>
+        <li><a href="#g36" data-i="36">Paul Morphy – Loewenthal, Johann Jacob · London (match), 1858 · 1-0</a></li>
+        <li><a href="#g37" data-i="37">Paul Morphy – Chamouillet, M. · Paris it, 1858 · 1-0</a></li>
+        <li><a href="#g38" data-i="38">Journoud, Paul – Paul Morphy · Paris it, 1858 · 0-1</a></li>
+        <li><a href="#g39" data-i="39">De Saint Amant, Pierre Charles Four – Paul Morphy · Paris it, 1858 · 0-1</a></li>
+        <li><a href="#g40" data-i="40">Anderssen, Adolf – Paul Morphy · Paris (match 1), 1858 · 0-1</a></li>
+        <li><a href="#g41" data-i="41">Anderssen, Adolf – Paul Morphy · Paris (match 1), 1858 · 0-1</a></li>
+        <li><a href="#g42" data-i="42">Baucher, H. – Paul Morphy · Paris it, 1858 · 0-1</a></li>
+        <li><a href="#g43" data-i="43">De Riviere, Jules Arnous – Paul Morphy · Paris (match 2), 1858 · 0-1</a></li>
+        <li><a href="#g44" data-i="44">De Riviere, Jules Arnous – Paul Morphy · Paris (match 2), 1858 · 0-1</a></li>
+        <li><a href="#g45" data-i="45">Paul Morphy – De Riviere, Jules Arnous · Paris (match 2), 1858 · 1-0</a></li>
+        <li><a href="#g46" data-i="46">Paul Morphy – Harrwitz, Daniel · Paris (match 3), 1858 · 1-0</a></li>
+        <li><a href="#g47" data-i="47">Paul Morphy – Harrwitz, Daniel · Paris (match 3), 1858 · 1-0</a></li>
+        <li><a href="#g48" data-i="48">Anderssen, Adolf – Paul Morphy · Paris (match 1), 1858 · 0-1</a></li>
+        <li><a href="#g49" data-i="49">Paul Morphy – Anderssen, Adolf · Paris (match 1), 1858 · 1-0</a></li>
+        <li><a href="#g50" data-i="50">Paul Morphy – Anderssen, Adolf · Paris (match 1), 1858 · 1-0</a></li>
+        <li><a href="#g51" data-i="51">Paul Morphy – Anderssen, Adolf · Paris (match 1), 1858 · 1-0</a></li>
+        <li><a href="#g52" data-i="52">Paul Morphy – Hampton, TJ. · London, 1858 · 1-0</a></li>
+        <li><a href="#g53" data-i="53">Paul Morphy – Bird, Henry Edward · London (match 5), 1858 · 1-0</a></li>
+        <li><a href="#g54" data-i="54">Paul Morphy – Boden, Samuel Standige · London (match 3), 1858 · 1-0</a></li>
+        <li><a href="#g55" data-i="55">Paul Morphy – Journoud, Paul · Paris it, 1858 · 1-0</a></li>
+        <li><a href="#g56" data-i="56">Paul Morphy – Anderssen, Adolf · Paris (match 1), 1858 · 1-0</a></li>
+        <li><a href="#g57" data-i="57">Paul Morphy – Anderssen, Adolf · Paris it, 1858 · 1-0</a></li>
+        <li><a href="#g58" data-i="58">Harrwitz, Daniel – Paul Morphy · Paris (match 3), 1858 · 0-1</a></li>
+        <li><a href="#g59" data-i="59">Harrwitz, Daniel – Paul Morphy · Paris (match 3), 1858 · 0-1</a></li>
+        <li><a href="#g60" data-i="60">Paul Morphy – Harrwitz, Daniel · Paris (match 3), 1858 · 1-0</a></li>
+        <li><a href="#g61" data-i="61">Boden, Samuel Standige – Paul Morphy · London (match 3), 1858 · 1/2-1/2</a></li>
+        <li><a href="#g62" data-i="62">De Riviere, Jules Arnous – Paul Morphy · Paris (match 2), 1858 · 1/2-1/2</a></li>
+        <li><a href="#g63" data-i="63">Harrwitz, Daniel – Paul Morphy · Paris (match 3), 1858 · 1/2-1/2</a></li>
+        <li><a href="#g64" data-i="64">Paul Morphy – Loewenthal, Johann Jacob · London (match 1), 1859 · 1-0</a></li>
+        <li><a href="#g65" data-i="65">Paul Morphy – Mongredien, Augustus · Paris (match 1), 1859 · 1-0</a></li>
+        <li><a href="#g66" data-i="66">Mongredien, Augustus – Paul Morphy · Paris (match 1), 1859 · 0-1</a></li>
+        <li><a href="#g67" data-i="67">Paul Morphy – Mongredien, Augustus · Paris (match 1), 1859 · 1-0</a></li>
+        <li><a href="#g68" data-i="68">Mongredien, Augustus – Paul Morphy · Paris (match 1), 1859 · 0-1</a></li>
+        <li><a href="#g69" data-i="69">Paul Morphy – Mongredien, Augustus · Paris (match 1), 1859 · 1-0</a></li>
+        <li><a href="#g70" data-i="70">Paul Morphy – Mongredien, Augustus · Paris (match 1), 1859 · 1-0</a></li>
+        <li><a href="#g71" data-i="71">Mongredien, Augustus – Paul Morphy · Paris (match 1), 1859 · 0-1</a></li>
+        <li><a href="#g72" data-i="72">Loewenthal, Johann Jacob – Paul Morphy · London (match 1), 1859 · 1/2-1/2</a></li>
+        <li><a href="#g73" data-i="73">Paul Morphy – De Riviere, Jules Arnous · Paris (match 2), 1863 · 1-0</a></li>
+        <li><a href="#g74" data-i="74">De Riviere, Jules Arnous – Paul Morphy · Paris (match 2), 1863 · 0-1</a></li>
+        <li><a href="#g75" data-i="75">Paul Morphy – De Riviere, Jules Arnous · Paris (match 2), 1863 · 1-0</a></li>
+        <li><a href="#g76" data-i="76">Paul Morphy – De Riviere, Jules Arnous · Paris (match 2), 1863 · 1-0</a></li>
+        <li><a href="#g77" data-i="77">Paul Morphy – De Riviere, Jules Arnous · Paris (match 2), 1863 · 1-0</a></li>
+        <li><a href="#g78" data-i="78">De Riviere, Jules Arnous – Paul Morphy · Paris (match 2), 1863 · 0-1</a></li>
+        <li><a href="#g79" data-i="79">De Riviere, Jules Arnous – Paul Morphy · Paris (match 2), 1863 · 0-1</a></li>
+      </ol>
+    </section>
+  </div>
 </main>
-
 <footer class="site-footer" id="site-footer"></footer>
-
 <script type="module">
-  import { CONFIG } from '/js/config.js';
   import { initPage } from '/js/common.js';
-  import { startHero } from '/js/hero.js';
-  import { onLangChange } from '/js/i18n.js';
-  initPage('home');
-  document.querySelectorAll('#cta-play, #cta-play2').forEach((a) => (a.href = CONFIG.PLAY_STORE_URL));
-  const ytId = CONFIG.YOUTUBE_VIDEO_ID;
-  const hasVideo = !!ytId && /^[\w-]{6,20}$/.test(ytId);
-  if (hasVideo || CONFIG.YOUTUBE_URL) {
-    document.getElementById('video').hidden = false;
-    const box = document.querySelector('#video .video-box');
-    if (hasVideo) {
-      document.getElementById('videoThumb').src = `https://i.ytimg.com/vi/${ytId}/hqdefault.jpg`;
-      document.getElementById('videoPlay').addEventListener('click', (e) => {
-        const f = document.createElement('iframe');
-        f.src = `https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&rel=0`;
-        f.title = 'ChessLand';
-        f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
-        f.allowFullscreen = true;
-        e.currentTarget.replaceWith(f);
-      });
-    } else {
-      box.hidden = true;
-    }
-    const sub = document.getElementById('ytSubscribe');
-    if (CONFIG.YOUTUBE_URL) {
-      const u = new URL(CONFIG.YOUTUBE_URL);
-      u.searchParams.set('sub_confirmation', '1');
-      sub.href = u.toString();
-    } else {
-      sub.parentElement.hidden = true;
-    }
-  }
-  startHero({
-    board: document.getElementById('heroBoard'),
-    label: document.getElementById('heroLabel'),
-    white: document.getElementById('heroWhite'),
-    black: document.getElementById('heroBlack'),
-    caption: document.getElementById('heroCaption'),
-  });
+  import { initMestre } from '/js/mestre.js';
+  initPage('mestres');
+  initMestre(document.body.dataset.slug);
 </script>
 </body>
 </html>
