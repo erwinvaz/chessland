@@ -31,7 +31,7 @@ export async function initMestre(slug) {
   $('content').hidden = false;
 
   const viewer = createViewer({ boardEl: $('board'), movesEl: $('moves'), controlsEl: $('controls') });
-  const list = $('gameList');
+  const list = $('gameIndex');
   let current = 0;
 
   const label = (pgn, i) => {
@@ -45,14 +45,19 @@ export async function initMestre(slug) {
     list.textContent = '';
     games.forEach((pgn, i) => {
       const { who, extra, result } = label(pgn, i);
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'chip';
-      b.style.textAlign = 'left';
-      b.textContent = `${who}${extra ? ' · ' + extra : ''}${result ? ' · ' + result : ''}`;
-      if (i === current) b.style.borderColor = 'var(--gold)';
-      b.addEventListener('click', () => select(i));
-      list.append(b);
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = `#g${i}`;
+      a.textContent = `${who}${extra ? ' · ' + extra : ''}${result ? ' · ' + result : ''}`;
+      if (i === current) a.setAttribute('aria-current', 'true');
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        history.replaceState(null, '', `#g${i}`);
+        select(i);
+        $('content').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+      li.append(a);
+      list.append(li);
     });
   };
 
@@ -68,6 +73,7 @@ export async function initMestre(slug) {
     renderList();
   }
 
-  select(0);
+  const m0 = /^#g(\d+)$/.exec(location.hash);
+  select(m0 && Number(m0[1]) < games.length ? Number(m0[1]) : 0);
   onLangChange(() => { $('warn').textContent = t('incomplete'); renderList(); });
 }

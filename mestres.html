@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://chessland.com.br/mestres.html">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#0a0a0f">
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/style.css?v=4">
 </head>
 <body>
 <header class="site-header" id="site-header"></header>
@@ -19,14 +19,20 @@
       <p class="muted"><span class="pt">Partidas históricas para rever e estudar. No app você tem ainda mais.</span><span class="en">Historic games to replay and study. The app has even more.</span></p>
     </div>
     <div class="grid" id="masters"></div>
+    <aside class="app-note">
+      <p><span class="pt">No app <b>ChessLand</b> você encontra <b>muito mais partidas</b> dos grandes mestres.</span><span class="en">In the <b>ChessLand</b> app you'll find <b>many more games</b> by the grandmasters.</span></p>
+      <a class="btn btn-sm js-play" href="#" rel="noopener"><span class="pt">Baixar no Google Play</span><span class="en">Get it on Google Play</span></a>
+    </aside>
   </div>
 </main>
 <footer class="site-footer" id="site-footer"></footer>
 <script type="module">
   import { initPage } from '/js/common.js';
+  import { CONFIG } from '/js/config.js';
   import { initMestres } from '/js/mestres.js';
   initPage('mestres');
   initMestres();
+  document.querySelectorAll('.js-play').forEach((a) => (a.href = CONFIG.PLAY_STORE_URL));
 </script>
 </body>
 </html>
